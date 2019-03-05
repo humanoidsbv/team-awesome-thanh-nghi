@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Team Awesome
+    </title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="fonts.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="header__logo">team awesome</h1>
+        <button class="menu-button">
+            <img 
+                alt="icon-menu"
+                class="menu-button__icon menu-button__icon--open" 
+                src="img/icon-menu.svg" 
+            />
+
+            <img 
+            alt="icon-close"
+            class="menu-button__icon menu-button__icon--close" 
+            src="img/icon-close.svg" 
+            />
+
+        </button>
+
+        <nav class="menu">
+                <ul class="menu__list">
+                    <a class="menu__link" href="#">
+                        <li class="menu__item menu__item--active">
+                            Timesheets
+                        </li>
+                    </a>
+                    <a class="menu__link" href="#"><li class="menu__item">Team members</li></a>
+                    <a class="menu__link" href="#"><li class="menu__item">Projects</li></a>
+                    <a class="menu__link" href="#"><li class="menu__item">Clients</li></a>
+                    <a class="menu__link" href="#"><li class="menu__item">Documents</li></a>
+                </ul>
+        </nav>
+    </header>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const header = document.querySelector('.header');
+        menuButton.onclick = function () {
+            header.classList.toggle('header--navigation-visible');
+        };                         
+    </script>
+</body>
+</html>
