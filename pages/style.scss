@@ -21,11 +21,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.menu-button {
-  position: absolute;
-  right: 12px;
-}
-
 .menu-button__icon--close {
   display: none;
 }
@@ -53,6 +48,11 @@ body {
 
 .header--navigation-visible .menu {
   transform: translate(0, 0);
+}
+
+.menu-button {
+  position: absolute;
+  right: 12px;
 }
 
 .menu__list {

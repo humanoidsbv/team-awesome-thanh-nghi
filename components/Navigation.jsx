@@ -10,13 +10,13 @@ export default () => (
       <img
         alt="icon-menu"
         className="menu-button__icon menu-button__icon--open"
-        src="images/icon-menu.svg"
+        src="/static/images/icon-menu.svg"
       />
 
       <img
         alt="icon-close"
         className="menu-button__icon menu-button__icon--close"
-        src="images/icon-close.svg"
+        src="/static/images/icon-close.svg"
       />
     </button>
 
