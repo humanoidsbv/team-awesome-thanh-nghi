@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Navigation from './Navigation';
-import ProfileButton from '../components/ProfileButton';
+import ProfileButton from './ProfileButton';
 
 export default () => (
   <header className="header">
