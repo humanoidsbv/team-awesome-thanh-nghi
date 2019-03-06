@@ -8,9 +8,6 @@
     </title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="fonts.css">
-    <style>
-        
-    </style>
 </head>
 <body>
 
@@ -28,20 +25,35 @@
             class="menu-button__icon menu-button__icon--close" 
             src="img/icon-close.svg" 
             />
-
         </button>
 
         <nav class="menu">
                 <ul class="menu__list">
-                    <a class="menu__link" href="#">
-                        <li class="menu__item menu__item--active">
+                    <li class="menu__item menu__item--active">
+                        <a class="menu__link" href="#">
                             Timesheets
-                        </li>
-                    </a>
-                    <a class="menu__link" href="#"><li class="menu__item">Team members</li></a>
-                    <a class="menu__link" href="#"><li class="menu__item">Projects</li></a>
-                    <a class="menu__link" href="#"><li class="menu__item">Clients</li></a>
-                    <a class="menu__link" href="#"><li class="menu__item">Documents</li></a>
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Team members
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Projects
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Clients
+                        </a>
+                    </li>
+                    <li class="menu__item">
+                        <a class="menu__link" href="#">
+                            Documents
+                        </a>
+                    </li>
                 </ul>
         </nav>
     </header>
@@ -49,7 +61,7 @@
     <script>
         const menuButton = document.querySelector('.menu-button');
         const header = document.querySelector('.header');
-        menuButton.onclick = function () {
+        menuButton.onclick = () => {
             header.classList.toggle('header--navigation-visible');
         };                         
     </script>

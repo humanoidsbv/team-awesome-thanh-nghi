@@ -26,10 +26,6 @@ body {
     right: 12px;
 }
 
-.menu-button__icon {
-
-}
-
 .menu-button__icon--close {
     display: none;
 }
@@ -66,12 +62,12 @@ body {
 }
 
 .menu__link {
+    color: #ffffff;
     text-decoration: none;
 }
 
 .menu__item {
     border-radius: 5px;
-    color: #ffffff;
     font-family: proximanova;
     font-size: 24px;
     list-style-type: none;
