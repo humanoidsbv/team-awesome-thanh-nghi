@@ -1,0 +1,59 @@
+.time-entries {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0 16px;
+  width: 100%;
+}
+
+.new-entry-button {
+  background: linear-gradient(#39b54a, #34aa44);
+  border-color: #249533;
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: proximanova;
+  font-size: 14px;
+  height: 36px;
+  margin-top: 20px;
+  width: 343px;
+
+  &__icon {
+    padding-right: 10px;
+  }
+}
+
+.entry-content {
+  width: 100%;
+
+  &__date {
+    color: #7f8fa4;
+    font-family: proximanova;
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 25px 0 13px;
+  }
+
+  &__activity{
+    align-items: center;
+    border: 1px #e6eaee solid;
+    border-left: 4px #4f88ef solid;
+    border-radius: 4px;
+    display: flex;
+    font-family: proximanova;
+    height: 82px;
+    justify-content: space-between;
+    padding: 0 14px;
+  }
+
+  &__client {
+
+  }
+
+  &__time {
+
+  }
+}
+
