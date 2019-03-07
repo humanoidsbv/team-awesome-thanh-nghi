@@ -1,19 +1,4 @@
-body {
-  margin: 0;
-}
-
-$color-primary: #4f88ef;
-
-.header {
-  align-items: center;
-  background-color: $color-primary;
-  display: flex;
-  height: 50px;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-}
+@import "../../pages/style";
 
 .header__logo {
   color: #ffffff;
@@ -82,14 +67,7 @@ $color-primary: #4f88ef;
   background-color: #1166a5;
 }
 
-.profile {
-  display: none;
-}
-
 @media (min-width: 600px) {
-  .header {
-      height: 70px;
-  }
 
   .header__logo {
       display: none;
@@ -121,39 +99,4 @@ $color-primary: #4f88ef;
       padding: 5px 10px;
   }
 
-  .profile {
-      display: flex;
-      flex-direction: row;
-      position: fixed;
-      right: 25px;
-      top: 15px;
-  }
-
-  .profile__button {
-      background-color: #ffffff;
-      border: 0;
-      border-radius: 25px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 2px;
-      width: 135px;
-  }
-
-  .profile__logo {
-      height: 32px;
-      padding: 0 10px;
-      width: 90px;
-  }
-
-  .profile__picture {
-      border-radius: 50%;
-      height: 32px;
-      width: 32px;
-  }
-
-  .dropdown {
-      all: unset;
-      margin: 0 0 0 10px;
-  }
 }

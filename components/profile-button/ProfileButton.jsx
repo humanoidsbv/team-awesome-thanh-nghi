@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default () => (
+import './profile-button.scss';
+
+const ProfileButton = () => (
   <React.Fragment>
     <div className="profile">
       <button
@@ -31,3 +33,5 @@ export default () => (
     </div>
   </React.Fragment>
 );
+
+export default ProfileButton;

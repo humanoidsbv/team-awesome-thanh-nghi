@@ -1,0 +1,23 @@
+@import "../../pages/style";
+
+body {
+  margin: 0;
+}
+
+.header {
+  align-items: center;
+  background-color: $color-primary;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+@media (min-width: 600px) {
+  .header {
+      height: 70px;
+  }
+
+}
