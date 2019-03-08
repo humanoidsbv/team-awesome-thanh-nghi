@@ -6,9 +6,7 @@ import ProfileButton from '../profile-button/ProfileButton';
 import './header.scss';
 
 class Header extends React.Component {
-  state = {
-    isNavigationOpen: false
-  };
+  state = { isNavigationOpen: false };
 
   toggleNavigation = () => {
     this.setState(({ isNavigationOpen }) => ({ isNavigationOpen: !isNavigationOpen }));

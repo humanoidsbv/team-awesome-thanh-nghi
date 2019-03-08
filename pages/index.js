@@ -13,5 +13,4 @@ export default () => (
     </Head>
     <Header />
   </React.Fragment>
-
 );
