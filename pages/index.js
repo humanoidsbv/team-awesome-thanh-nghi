@@ -15,5 +15,4 @@ export default () => (
     <Header />
     <TimeEntries />
   </React.Fragment>
-
 );

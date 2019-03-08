@@ -15,7 +15,6 @@ const Navigation = ({ handleClick }) => (
         className="menu-button__icon menu-button__icon--open"
         src="/static/images/icon-menu.svg"
       />
-
       <img
         alt="icon-close"
         className="menu-button__icon menu-button__icon--close"

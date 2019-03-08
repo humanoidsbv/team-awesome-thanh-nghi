@@ -9,7 +9,7 @@ body {
   background-color: $color-primary;
   display: flex;
   height: 50px;
-  justify-content: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100vw;
@@ -19,5 +19,4 @@ body {
   .header {
     height: 70px;
   }
-
 }

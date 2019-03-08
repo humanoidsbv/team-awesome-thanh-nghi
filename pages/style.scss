@@ -3,6 +3,7 @@ body {
 }
 
 $color-primary: #4f88ef;
+$color-text-white: #ffffff;
 
 .header {
   align-items: center;
@@ -16,7 +17,7 @@ $color-primary: #4f88ef;
 }
 
 .header__logo {
-  color: #ffffff;
+  color: $color-text-white;
   font-family: bello-script;
   font-size: 26px;
   font-weight: normal;
@@ -64,7 +65,7 @@ $color-primary: #4f88ef;
 }
 
 .menu__link {
-  color: #ffffff;
+  color: $color-text-white;
   text-decoration: none;
 }
 
@@ -88,72 +89,72 @@ $color-primary: #4f88ef;
 
 @media (min-width: 600px) {
   .header {
-      height: 70px;
+    height: 70px;
   }
 
   .header__logo {
-      display: none;
+    display: none;
   }
 
   .menu {
-      height: 70px;
-      padding-top: 0;
-      top: 0;
-      transform: translate(0, 0);
+  height: 70px;
+  padding-top: 0;
+  top: 0;
+  transform: translate(0, 0);
   }
 
   .menu-button {
-      display: none;
+    display: none;
   }
 
   .menu__list {
-      align-items: center;
-      flex-direction: row;
-      height: 70px;
-      margin: 0px;
-      position: absolute;
-      left: 25px;
+    align-items: center;
+    flex-direction: row;
+    height: 70px;
+    margin: 0;
+    position: absolute;
+    left: 25px;
   }
 
   .menu__item {
-      font-size: 14px;
-      margin: 0;
-      padding: 5px 10px;
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 10px;
   }
 
   .profile {
-      display: flex;
-      flex-direction: row;
-      position: fixed;
-      right: 25px;
-      top: 15px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    right: 25px;
+    top: 15px;
   }
 
   .profile__button {
-      background-color: #ffffff;
-      border: 0;
-      border-radius: 25px;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 2px;
-      width: 135px;
+    background-color: $color-text-white;
+    border: 0;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2px;
+    width: 135px;
   }
 
   .profile__logo {
-      height: 32px;
-      padding: 0 10px;
-      width: 90px;
+    height: 32px;
+    padding: 0 10px;
+    width: 90px;
   }
 
   .profile__picture {
-      border-radius: 50%;
-      height: 32px;
-      width: 32px;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
   }
 
   .dropdown {
-      all: unset;
-      margin: 0 0 0 10px;
+    all: unset;
+    margin: 0 0 0 10px;
   }
 }
