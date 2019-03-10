@@ -3,7 +3,6 @@ import Head from 'next/head';
 
 import Header from '../components/header';
 import './style.scss';
-import './fonts.scss';
 
 export default () => (
   <React.Fragment>

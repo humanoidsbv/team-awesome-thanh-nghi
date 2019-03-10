@@ -1,13 +1,5 @@
 @import "../../pages/style";
 
-.header__logo {
-  color: #ffffff;
-  font-family: bello-script;
-  font-size: 26px;
-  font-weight: normal;
-  -webkit-font-smoothing: antialiased;
-}
-
 .menu-button__icon--close {
   display: none;
 }
@@ -68,9 +60,6 @@
 }
 
 @media (min-width: 600px) {
-  .header__logo {
-    display: none;
-  }
 
   .menu {
     height: 70px;
