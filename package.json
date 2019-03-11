@@ -1,0 +1,29 @@
+{
+  "name": "team-awesome-thanh-nghi",
+  "version": "0.0.1",
+  "description": "Team Awesome",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanoidsbv/team-awesome-thanh-nghi.git"
+  },
+  "author": "Thanh Nghi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humanoidsbv/team-awesome-thanh-nghi/issues"
+  },
+  "homepage": "https://github.com/humanoidsbv/team-awesome-thanh-nghi#readme",
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^8.0.3",
+    "node-sass": "^4.11.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
