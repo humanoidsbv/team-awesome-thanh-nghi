@@ -5,13 +5,19 @@ $color-text-white: #ffffff;
   border-color: #249533;
   border-radius: 4px;
   color: $color-text-white;
-  font-family: proximanova;
+  font-family: 'proximanova';
   font-size: 14px;
   height: 36px;
-  margin-top: 20px;
+  margin: 20px 0 5px;
   width: 343px;
 
   &__icon {
     padding-right: 10px;
+  }
+}
+
+@media (min-width: 600px) {
+  .new-entry-button {
+    display: none;
   }
 }

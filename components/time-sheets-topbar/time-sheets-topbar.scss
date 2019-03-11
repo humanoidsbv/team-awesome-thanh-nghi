@@ -1,0 +1,42 @@
+$color-grey: #7f8fa4;
+
+.time-sheets-bar {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .time-sheets-bar {
+    align-items: center;
+    border-bottom: 1px #e6eaee solid;
+    display: flex;
+    height: 70px;
+    padding-top: 19px;
+    // position: relative;
+    width: 100vw;
+
+    &__title {
+      font-family: 'proximanova';
+      font-size: 18px;
+      margin: 19px 15px 19px 30px;
+    }
+
+    &__divider {
+      color: #dfe3e9;
+      font-size: 14px;
+    }
+
+    &__number {
+      color: #7f8fa4;
+      font-family: 'proximanova';
+      font-size: 14px;
+      margin-left: 15px;
+    }
+
+    &__search {
+      height: 36px;
+      position: absolute;
+      right: 32px;
+      width: 270px;
+    }
+  }
+}
