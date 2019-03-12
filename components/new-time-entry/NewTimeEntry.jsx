@@ -3,67 +3,66 @@ import React from 'react';
 import './new-time-entry.scss';
 
 const NewTimeEntry = () => (
-  <div className="new-entry">
-    <h2 className="new-entry__title">New time entry</h2>
-    <form className="new-entry__form">
+  <div className="new-time-entry">
+    <h2 className="new-time-entry__title">New time entry</h2>
+    <form className="new-time-entry__form">
       <label
-        className="form-employer__label label-font"
+        className="new-time-entry__label new-time-entry__label--employer"
         htmlFor="employer"
       >
         EMPLOYER
         <input
-          className="form-employer__input input-style"
+          className="new-time-entry__input new-time-entry__input--employer new-time-entry__input--large"
           id="employer"
           type="text"
         />
       </label>
       <label
-        className="form-activity__label label-font"
+        className="new-time-entry__label new-time-entry__label--activity"
         htmlFor="activity"
       >
         ACTIVITY
         <input
-          className="form-activity__input"
+          className="new-time-entry__input new-time-entry__input--activity new-time-entry__input--large"
           id="activity"
           type="text"
         />
       </label>
       <label
-        className="form-date__label label-font"
+        className="new-time-entry__label new-time-entry__label--date"
         htmlFor="date"
       >
         DATE
         <input
-          className="form-date__input"
+          className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
           id="date"
           type="date"
         />
       </label>
       <label
-        className="form-from__label label-font"
+        className="new-time-entry__label new-time-entry__label--from"
         htmlFor="from"
       >
         FROM
         <input
-          className="form-date__input"
+          className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
           id="from"
           type="time"
         />
       </label>
       <label
-        className="form-to__label label-font"
+        className="new-time-entry__label new-time-entry__label--to"
         htmlFor="to"
       >
         TO
         <input
-          className="form-to__input"
+          className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
           id="to"
           type="time"
         />
       </label>
-      <div className="time-worked">08:00:00</div>
       <button
-        className="add-button"
+        className="new-time-entry__button"
         type="button"
       >
           Add

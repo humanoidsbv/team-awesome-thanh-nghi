@@ -11,12 +11,7 @@ const TimeSheetsTopbar = () => (
       className="time-sheets-bar__search"
       placeholder="Search"
       type="text"
-    >
-      {/* <img
-        alt="Search Icon"
-        src="/static/images/icon-search.svg"
-      /> */}
-    </input>
+    />
   </div>
 );
 

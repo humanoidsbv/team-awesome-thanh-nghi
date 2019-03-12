@@ -10,12 +10,11 @@ $color-grey: #7f8fa4;
     border-bottom: 1px #e6eaee solid;
     display: flex;
     height: 70px;
-    padding-top: 19px;
-    // position: relative;
+    margin-top: 70px;
     width: 100vw;
 
     &__title {
-      font-family: 'proximanova';
+      font-family: proximanova;
       font-size: 18px;
       margin: 19px 15px 19px 30px;
     }
@@ -27,15 +26,16 @@ $color-grey: #7f8fa4;
 
     &__number {
       color: #7f8fa4;
-      font-family: 'proximanova';
+      font-family: proximanova;
       font-size: 14px;
       margin-left: 15px;
     }
 
     &__search {
+      border: 1px #dfe3e9 solid;
+      border-radius: 4px;
       height: 36px;
-      position: absolute;
-      right: 32px;
+      margin: 0 32px 0 auto;
       width: 270px;
     }
   }
