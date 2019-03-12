@@ -1,11 +1,11 @@
 $color-grey: #7f8fa4;
 
-.time-sheets-bar {
+.page-header-bar {
   display: none;
 }
 
 @media (min-width: 600px) {
-  .time-sheets-bar {
+  .page-header-bar {
     align-items: center;
     border-bottom: 1px #e6eaee solid;
     display: flex;

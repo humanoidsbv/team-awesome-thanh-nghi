@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './time-sheet.scss';
+import './time-entry.scss';
 
-const TimeSheet = ({ date, client, startTime, endTime }) => (
+const TimeEntry = ({
+  date, client, startTime, endTime
+}) => (
   <React.Fragment>
     <h2 className="entry-date">{date}</h2>
     <ul className="entry-content">
@@ -29,11 +31,11 @@ const TimeSheet = ({ date, client, startTime, endTime }) => (
   </React.Fragment>
 );
 
-TimeSheet.propTypes = {
+TimeEntry.propTypes = {
   date: PropTypes.string.isRequired,
   client: PropTypes.string.isRequired,
   startTime: PropTypes.string.isRequired,
   endTime: PropTypes.string.isRequired
 };
 
-export default TimeSheet;
+export default TimeEntry;

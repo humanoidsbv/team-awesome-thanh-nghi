@@ -1,16 +1,13 @@
-.timesheets-container {
+.main {
   align-items: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-top: 50px;
-  max-width: 1200px;
   padding: 0 16px;
-}
 
-@media (min-width: 600px) {
-  .timesheets-container{
+  @media (min-width: 600px) {
     margin: auto;
     max-width: 1200px;
   }

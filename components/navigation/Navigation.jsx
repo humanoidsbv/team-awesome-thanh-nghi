@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './navigation.scss';
 
@@ -69,5 +70,9 @@ const Navigation = ({ handleClick }) => (
     </nav>
   </React.Fragment>
 );
+
+Navigation.propTypes = {
+  handleClick: PropTypes.bool.isRequired
+};
 
 export default Navigation;
