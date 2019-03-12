@@ -72,7 +72,7 @@ const Navigation = ({ handleClick }) => (
 );
 
 Navigation.propTypes = {
-  handleClick: PropTypes.bool.isRequired
+  handleClick: PropTypes.func.isRequired
 };
 
 export default Navigation;

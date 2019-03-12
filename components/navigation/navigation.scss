@@ -12,11 +12,11 @@
   display: none;
 }
 
-.header--navigation-visible .menu-button__icon {
+.header-navigation--visible .menu-button__icon {
   display: none;
 }
 
-.header--navigation-visible .menu-button__icon--close {
+.header-navigation--visible .menu-button__icon--close {
   display: block;
 }
 
@@ -33,7 +33,7 @@
   width: 100vw;
 }
 
-.header--navigation-visible .menu {
+.header-navigation--visible .menu {
   transform: translate(0, 0);
 }
 

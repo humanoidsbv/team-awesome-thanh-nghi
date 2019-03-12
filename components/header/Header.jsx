@@ -15,7 +15,7 @@ class Header extends React.Component {
   render() {
     const { isNavigationOpen } = this.state;
     return (
-      <header className={`header ${isNavigationOpen ? 'header--navigation-visible' : 'header--navigation-invisible'}`}>
+      <header className={`header ${isNavigationOpen ? 'header-navigation--visible' : 'header-navigation--invisible'}`}>
         <Navigation handleClick={this.toggleNavigation} />
         <ProfileButton />
       </header>
