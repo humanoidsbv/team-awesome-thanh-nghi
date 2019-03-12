@@ -23,6 +23,7 @@ class NewTimeEntry extends React.Component {
           <form className="new-time-entry__form">
             <button
               className="new-time-entry__close-button"
+              onClick={this.onNewTimeEntryClick}
               type="button"
             >
               x
