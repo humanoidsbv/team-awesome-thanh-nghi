@@ -1,9 +1,8 @@
-$color-text-white: #ffffff;
-$color-text-grey: #7f8fa4;
+@import "../../shared/styles/main.scss";
 
 .entry-date {
-  color: $color-text-grey;
-  font-family: proximanova;
+  color: $color-text-light;
+  font-family: $font-primary;
   font-size: 16px;
   font-weight: 300;
   margin: 25px 0 2px;
@@ -17,11 +16,11 @@ $color-text-grey: #7f8fa4;
 
   &__activity {
     align-items: center;
-    border: 1px #e6eaee solid;
-    border-left: 4px #4f88ef solid;
+    border: 1px $color-form-border solid;
+    border-left: 4px $color-secondary-accent solid;
     border-top: none;
     display: flex;
-    font-family: proximanova;
+    font-family: $font-primary;
     height: 82px;
     justify-content: space-between;
     margin-bottom: -1px;
@@ -41,4 +40,3 @@ $color-text-grey: #7f8fa4;
     border-radius: 4px;
   }
 }
-

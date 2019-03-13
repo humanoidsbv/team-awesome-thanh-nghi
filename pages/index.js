@@ -6,7 +6,6 @@ import PageHeader from '../components/page-header';
 import Main from '../components/main';
 import NewTimeEntry from '../components/new-time-entry';
 import TimeEntries from '../components/time-entries';
-import './style.scss';
 
 const timeEntryData = [
   {

@@ -17,7 +17,7 @@
     display: none;
 
     @media (min-width: 600px) {
-      color: #354052;
+      color: $color-text-dark;
       display: block;
       font-family: $font-primary;
       font-size: 24px;
@@ -26,8 +26,8 @@
   }
 
   &__form {
-    background-color: #f5f8fa;
-    border: 1px #e6eaee solid;
+    background-color: $color-form-background;
+    border: 1px $color-form-border solid;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -57,10 +57,10 @@
   }
 
   &__label {
-    color: #68768c;
+    color: $color-text-medium;
     display: flex;
     flex-direction: column;
-    font-family: proximanova;
+    font-family: $font-primary;
     font-size: 12px;
     margin: 0 10px;
     padding: 5px 0;
@@ -77,11 +77,13 @@
   }
 
   &__input {
-    background: linear-gradient(#f2f4f7, #ffffff);
-    border: 1px #ced0da solid;
+    background: $color-input-gradient;
+    border: 1px $color-input-border solid;
     border-radius: 4px;
+    font-size: 12px;
     height: 36px;
     margin: 10px auto;
+    padding-left: 8px;
 
     @media (min-width: 600px) {
       margin: 5px 0;
@@ -118,9 +120,9 @@
   }
 
   &__add-button {
-    background-color: #35ac45;
+    background-color: $color-button-form;
     border-radius: 4px;
-    color: #ffffff;
+    color: $color-primary-white;
     font-size: 14px;
     height: 36px;
     margin: auto;
