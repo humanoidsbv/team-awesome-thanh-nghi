@@ -5,16 +5,18 @@ import PropTypes from 'prop-types';
 import NewEntryButton from '../new-entry-button';
 
 class NewTimeEntry extends React.Component {
+  static NewTimeEntryModel = {
+    id: '',
+    date: '',
+    client: '',
+    activity: '',
+    startTime: '',
+    endTime: ''
+  };
+
   state = {
-    NewTimeEntryOpen: true,
-    NewEntry: {
-      id: '',
-      date: '',
-      client: '',
-      activity: '',
-      startTime: '',
-      endTime: ''
-    }
+    NewTimeEntryOpen: false,
+    NewEntry: NewTimeEntry.NewTimeEntryModel
   };
 
   onNewTimeEntryClick = () => {
@@ -34,11 +36,24 @@ class NewTimeEntry extends React.Component {
   submit = () => {
     const { onSubmit } = this.props;
     const { NewEntry } = this.state;
+    const { clearNewEntry } = this;
+    const { onNewTimeEntryClick } = this;
     onSubmit(NewEntry);
+    clearNewEntry();
+    onNewTimeEntryClick();
+  }
+
+  clearNewEntry = () => {
+    this.setState(() => ({
+      NewEntry: NewTimeEntry.NewTimeEntryModel
+    }));
   }
 
   render() {
-    const { NewTimeEntryOpen } = this.state;
+    const { NewTimeEntryOpen, NewEntry } = this.state;
+    const {
+      date, client, activity, startTime, endTime
+    } = NewEntry;
     return (
       <React.Fragment>
         <NewEntryButton
@@ -66,6 +81,7 @@ class NewTimeEntry extends React.Component {
                 name="client"
                 onChange={this.onInputChange}
                 type="text"
+                value={client}
               />
             </label>
             <label
@@ -79,6 +95,7 @@ class NewTimeEntry extends React.Component {
                 name="activity"
                 onChange={this.onInputChange}
                 type="text"
+                value={activity}
               />
             </label>
             <label
@@ -92,6 +109,7 @@ class NewTimeEntry extends React.Component {
                 name="date"
                 onChange={this.onInputChange}
                 type="date"
+                value={date}
               />
             </label>
             <div className="new-time-entry__time-wrapper">
@@ -106,6 +124,7 @@ class NewTimeEntry extends React.Component {
                   name="startTime"
                   onChange={this.onInputChange}
                   type="time"
+                  value={startTime}
                 />
               </label>
               <label
@@ -119,6 +138,7 @@ class NewTimeEntry extends React.Component {
                   name="endTime"
                   onChange={this.onInputChange}
                   type="time"
+                  value={endTime}
                 />
               </label>
             </div>
