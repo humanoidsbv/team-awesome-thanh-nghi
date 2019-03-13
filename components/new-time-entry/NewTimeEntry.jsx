@@ -4,10 +4,30 @@ import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
 
 class NewTimeEntry extends React.Component {
-  state = { NewTimeEntryOpen: false };
+  state = {
+    NewTimeEntryOpen: true,
+    NewEntry: {
+      id: '',
+      date: '',
+      client: '',
+      activity: '',
+      startTime: '',
+      endTime: ''
+    }
+  };
 
   onNewTimeEntryClick = () => {
     this.setState(({ NewTimeEntryOpen }) => ({ NewTimeEntryOpen: !NewTimeEntryOpen }));
+  }
+
+  onInputChange = ({ target: { value, name } }) => {
+    console.log(name);
+    this.setState(() => ({
+      NewEntry: {
+        ...this.state.NewEntry,
+        [name]: value || ''
+      }
+    }));
   }
 
   render() {
@@ -36,6 +56,8 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--employer new-time-entry__input--large"
                 id="employer"
+                name="client"
+                onChange={this.onInputChange}
                 type="text"
               />
             </label>
@@ -47,6 +69,8 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--activity new-time-entry__input--large"
                 id="activity"
+                name="activity"
+                onChange={this.onInputChange}
                 type="text"
               />
             </label>
@@ -58,6 +82,8 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
                 id="date"
+                name="date"
+                onChange={this.onInputChange}
                 type="date"
               />
             </label>
@@ -70,6 +96,8 @@ class NewTimeEntry extends React.Component {
                 <input
                   className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
                   id="from"
+                  name="startTime"
+                  onChange={this.onInputChange}
                   type="time"
                 />
               </label>
@@ -81,6 +109,8 @@ class NewTimeEntry extends React.Component {
                 <input
                   className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
                   id="to"
+                  name="endTime"
+                  onChange={this.onInputChange}
                   type="time"
                 />
               </label>

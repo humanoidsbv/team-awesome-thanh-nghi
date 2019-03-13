@@ -5,27 +5,46 @@ import TimeEntry from '../time-entry';
 
 const timeEntryData = [
   {
+    id: '1',
     date: '29-07-2018',
     client: 'Port of Rotterdam',
     startTime: '09:00',
     endTime: '17:00'
   },
   {
+    id: '2',
     date: '30-07-2018',
     client: 'Hike One',
     startTime: '10:00',
+    endTime: '18:00'
+  },
+  {
+    id: '3',
+    date: '31-07-2018',
+    client: 'ING Bank',
+    startTime: '09:00',
     endTime: '18:00'
   }
 ];
 
 class TimeEntries extends React.Component {
-  state = { timeEntries: timeEntryData }
+  state = { entries: timeEntryData };
 
   render() {
+    const { entries } = this.state;
     return (
       <React.Fragment>
-        <TimeEntry date="29-07-2018" client="Port of Rotterdam" startTime="09:00" endTime="17:00" />
-        <TimeEntry date="30-07-2018" client="Hike One" startTime="10:00" endTime="18:00" />
+        {entries.map(({
+          client, date, startTime, endTime, id
+        }) => (
+          <TimeEntry
+            key={id}
+            date={date}
+            client={client}
+            startTime={startTime}
+            endTime={endTime}
+          />
+        ))}
       </React.Fragment>
     );
   }
