@@ -15,18 +15,6 @@ const TimeEntry = ({
           {`${startTime} - ${endTime}`}
         </div>
       </li>
-      <li className="entry-content__activity">
-        <div className="entry-content__client">{client}</div>
-        <div className="entry-content__time">
-          {`${startTime} - ${endTime}`}
-        </div>
-      </li>
-      <li className="entry-content__activity">
-        <div className="entry-content__client">{client}</div>
-        <div className="entry-content__time">
-          {`${startTime} - ${endTime}`}
-        </div>
-      </li>
     </ul>
   </React.Fragment>
 );

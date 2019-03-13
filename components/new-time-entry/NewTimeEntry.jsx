@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './new-time-entry.scss';
+import PropTypes from 'prop-types';
 import NewEntryButton from '../new-entry-button';
 
 class NewTimeEntry extends React.Component {
@@ -21,13 +22,19 @@ class NewTimeEntry extends React.Component {
   }
 
   onInputChange = ({ target: { value, name } }) => {
-    console.log(name);
+    const { NewEntry } = this.state;
     this.setState(() => ({
       NewEntry: {
-        ...this.state.NewEntry,
+        ...NewEntry,
         [name]: value || ''
       }
     }));
+  }
+
+  submit = () => {
+    const { onSubmit } = this.props;
+    const { NewEntry } = this.state;
+    onSubmit(NewEntry);
   }
 
   render() {
@@ -117,6 +124,7 @@ class NewTimeEntry extends React.Component {
             </div>
             <button
               className="new-time-entry__add-button"
+              onClick={this.submit}
               type="button"
             >
                 Add
@@ -127,4 +135,9 @@ class NewTimeEntry extends React.Component {
     );
   }
 }
+
+NewTimeEntry.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
+
 export default NewTimeEntry;
