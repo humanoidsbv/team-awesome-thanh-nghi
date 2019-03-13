@@ -61,7 +61,7 @@ class NewTimeEntry extends React.Component {
                 type="date"
               />
             </label>
-            <div className="new-time-entry__time-wrapper">
+            <div className="new-time-entry__fieldset">
               <label
                 className="new-time-entry__label new-time-entry__label--from"
                 htmlFor="from"
