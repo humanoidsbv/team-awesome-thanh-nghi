@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './navigation.scss';
 
 const Navigation = ({ handleClick }) => (
+
   <React.Fragment>
-    {/* <h1 className="header__logo">team awesome</h1> */}
+    <h1 className="header__logo">team awesome</h1>
     <button
       className="menu-button"
       onClick={handleClick}
@@ -68,5 +70,9 @@ const Navigation = ({ handleClick }) => (
     </nav>
   </React.Fragment>
 );
+
+Navigation.propTypes = {
+  handleClick: PropTypes.func.isRequired
+};
 
 export default Navigation;

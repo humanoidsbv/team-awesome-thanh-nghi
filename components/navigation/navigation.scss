@@ -1,14 +1,22 @@
 @import "../../pages/style";
 
+.header__logo {
+  color: $color-text-white;
+  font-family: bello-script;
+  font-size: 26px;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
 .menu-button__icon--close {
   display: none;
 }
 
-.header--navigation-visible .menu-button__icon {
+.header-navigation--visible .menu-button__icon {
   display: none;
 }
 
-.header--navigation-visible .menu-button__icon--close {
+.header-navigation--visible .menu-button__icon--close {
   display: block;
 }
 
@@ -25,7 +33,7 @@
   width: 100vw;
 }
 
-.header--navigation-visible .menu {
+.header-navigation--visible .menu {
   transform: translate(0, 0);
 }
 
@@ -41,7 +49,7 @@
 }
 
 .menu__link {
-  color: #ffffff;
+  color: $color-text-white;
   text-decoration: none;
 }
 
@@ -60,6 +68,9 @@
 }
 
 @media (min-width: 600px) {
+  .header__logo {
+    display: none;
+  }
 
   .menu {
     height: 70px;

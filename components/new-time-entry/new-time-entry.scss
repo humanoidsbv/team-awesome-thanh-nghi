@@ -1,0 +1,134 @@
+.new-time-entry {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    display: flex;
+  }
+
+  &--visible {
+    display: flex;
+  }
+
+  &__title{
+    display: none;
+
+    @media (min-width: 600px) {
+      color: #354052;
+      display: block;
+      font-family: proximanova;
+      font-size: 24px;
+      font-weight: 300;
+    }
+  }
+
+  &__form {
+    background-color: #f5f8fa;
+    border: 1px #e6eaee solid;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    height: 422px;
+    margin-top: 20px;
+    position: relative;
+
+    @media (min-width: 600px) {
+      align-items: center;
+      flex-direction: row;
+      height: 94px;
+      margin-top: 0;
+    }
+  }
+
+  &__close-button {
+    font-size: 10px;
+    font-weight: 800;
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    width: 25px;
+
+    @media (min-width: 600px) {
+      display: none;
+    }
+  }
+
+  &__label {
+    color: #68768c;
+    display: flex;
+    flex-direction: column;
+    font-family: proximanova;
+    font-size: 12px;
+    margin: 0 10px;
+    padding: 5px 0;
+
+    &--employer {
+      margin-left: 10px;
+      padding-top: 10px;
+
+      @media (min-width: 600px) {
+        margin-left: 30px;
+
+      }
+    }
+  }
+
+  &__input {
+    background: linear-gradient(#f2f4f7, #ffffff);
+    border: 1px #ced0da solid;
+    border-radius: 4px;
+    height: 36px;
+    margin: 10px auto;
+
+    @media (min-width: 600px) {
+      margin: 5px 0;
+    }
+
+    &--large {
+      width: 311px;
+
+      @media (min-width: 600px) {
+        width: 245px;
+      }
+    }
+
+    &--medium {
+      width: 311px;
+
+      @media (min-width: 600px) {
+        width: 130px;
+      }
+    }
+
+    &--small {
+      width: 149px;
+
+      @media (min-width: 600px) {
+      width: 64px;
+      }
+    }
+  }
+
+  &__fieldset {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__add-button {
+    background-color: #35ac45;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 14px;
+    height: 36px;
+    margin: auto;
+    width: 311px;
+
+    @media (min-width: 600px) {
+      margin-left: auto;
+      margin-right: 30px;
+      width: 90px;
+    }
+  }
+}
+
