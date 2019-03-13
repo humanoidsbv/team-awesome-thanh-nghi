@@ -7,7 +7,6 @@ import Main from '../components/main';
 import NewTimeEntry from '../components/new-time-entry';
 import TimeEntries from '../components/time-entries';
 import './style.scss';
-import './fonts.scss';
 
 export default () => (
   <React.Fragment>
