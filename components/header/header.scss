@@ -1,4 +1,4 @@
-@import "../../pages/style";
+@import "../../shared/styles/main.scss";
 
 body {
   margin: 0;
@@ -6,7 +6,7 @@ body {
 
 .header {
   align-items: center;
-  background-color: $color-primary;
+  background-color: $color-primary-blue;
   display: flex;
   height: 50px;
   justify-content: center;
