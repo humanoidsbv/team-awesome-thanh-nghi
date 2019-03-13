@@ -1,66 +1,66 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './new-time-entry.scss';
-import PropTypes from 'prop-types';
 import NewEntryButton from '../new-entry-button';
 
 class NewTimeEntry extends React.Component {
-  static NewTimeEntryModel = {
-    id: '',
-    date: '',
-    client: '',
+  static newTimeEntryModel = {
     activity: '',
-    startTime: '',
-    endTime: ''
+    client: '',
+    date: '',
+    endTime: '',
+    id: '',
+    startTime: ''
   };
 
   state = {
-    NewTimeEntryOpen: false,
-    NewEntry: NewTimeEntry.NewTimeEntryModel
+    newTimeEntry: NewTimeEntry.newTimeEntryModel,
+    newTimeEntryIsVisible: false
   };
 
   onNewTimeEntryClick = () => {
-    this.setState(({ NewTimeEntryOpen }) => ({ NewTimeEntryOpen: !NewTimeEntryOpen }));
+    this.setState(({ newTimeEntryIsVisible }) => ({
+      newTimeEntryIsVisible: !newTimeEntryIsVisible
+    }));
   }
 
-  onInputChange = ({ target: { value, name } }) => {
-    const { NewEntry } = this.state;
+  handleChange = ({ target: { value, name } }) => {
+    const { newTimeEntry } = this.state;
     this.setState(() => ({
-      NewEntry: {
-        ...NewEntry,
+      newTimeEntry: {
+        ...newTimeEntry,
         [name]: value || ''
       }
     }));
   }
 
-  submit = () => {
+  handleSubmit = () => {
     const { onSubmit } = this.props;
-    const { NewEntry } = this.state;
+    const { newTimeEntry } = this.state;
     const { clearNewEntry } = this;
     const { onNewTimeEntryClick } = this;
-    onSubmit(NewEntry);
+    onSubmit(newTimeEntry);
     clearNewEntry();
     onNewTimeEntryClick();
   }
 
   clearNewEntry = () => {
-    this.setState(() => ({
-      NewEntry: NewTimeEntry.NewTimeEntryModel
-    }));
+    this.setState(() => ({ newTimeEntry: NewTimeEntry.newTimeEntryModel }));
   }
 
   render() {
-    const { NewTimeEntryOpen, NewEntry } = this.state;
+    const { newTimeEntry, newTimeEntryIsVisible } = this.state;
     const {
       date, client, activity, startTime, endTime
-    } = NewEntry;
+    } = newTimeEntry;
     return (
       <React.Fragment>
         <NewEntryButton
           onClick={this.onNewTimeEntryClick}
-          isVisible={!NewTimeEntryOpen}
+          isVisible={!newTimeEntryIsVisible}
         />
-        <div className={`new-time-entry ${NewTimeEntryOpen ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
+        <div className={`new-time-entry ${newTimeEntryIsVisible ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
           <h2 className="new-time-entry__title">New time entry</h2>
           <form className="new-time-entry__form">
             <button
@@ -79,7 +79,7 @@ class NewTimeEntry extends React.Component {
                 className="new-time-entry__input new-time-entry__input--employer new-time-entry__input--large"
                 id="employer"
                 name="client"
-                onChange={this.onInputChange}
+                onChange={this.handleChange}
                 type="text"
                 value={client}
               />
@@ -93,7 +93,7 @@ class NewTimeEntry extends React.Component {
                 className="new-time-entry__input new-time-entry__input--activity new-time-entry__input--large"
                 id="activity"
                 name="activity"
-                onChange={this.onInputChange}
+                onChange={this.handleChange}
                 type="text"
                 value={activity}
               />
@@ -107,7 +107,7 @@ class NewTimeEntry extends React.Component {
                 className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
                 id="date"
                 name="date"
-                onChange={this.onInputChange}
+                onChange={this.handleChange}
                 type="date"
                 value={date}
               />
@@ -122,7 +122,7 @@ class NewTimeEntry extends React.Component {
                   className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
                   id="from"
                   name="startTime"
-                  onChange={this.onInputChange}
+                  onChange={this.handleChange}
                   type="time"
                   value={startTime}
                 />
@@ -136,7 +136,7 @@ class NewTimeEntry extends React.Component {
                   className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
                   id="to"
                   name="endTime"
-                  onChange={this.onInputChange}
+                  onChange={this.handleChange}
                   type="time"
                   value={endTime}
                 />
@@ -144,7 +144,7 @@ class NewTimeEntry extends React.Component {
             </div>
             <button
               className="new-time-entry__add-button"
-              onClick={this.submit}
+              onClick={this.handleSubmit}
               type="button"
             >
                 Add

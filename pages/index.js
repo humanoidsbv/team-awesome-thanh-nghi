@@ -35,10 +35,10 @@ const timeEntryData = [
 class App extends React.Component {
   state = { timeEntries: timeEntryData };
 
-  addNewEntry = (newEntry) => {
+  addNewEntry = (newTimeEntry) => {
     this.setState(({ timeEntries }) => ({
       timeEntries: [
-        newEntry,
+        newTimeEntry,
         ...timeEntries
       ]
     }));
