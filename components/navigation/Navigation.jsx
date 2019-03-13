@@ -6,7 +6,7 @@ import './navigation.scss';
 const Navigation = ({ handleClick }) => (
 
   <React.Fragment>
-    <h1 className="header__logo">team awesome</h1>
+    {/* <h1 className="header__logo">team awesome</h1> */}
     <button
       className="menu-button"
       onClick={handleClick}
