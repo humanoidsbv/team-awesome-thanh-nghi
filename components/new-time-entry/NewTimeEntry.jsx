@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
