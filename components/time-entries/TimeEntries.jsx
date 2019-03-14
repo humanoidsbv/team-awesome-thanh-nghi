@@ -4,6 +4,13 @@ import PropTypes from 'prop-types';
 import './time-entries.scss';
 import TimeEntry from '../time-entry';
 
+function dateToLocaleString(date) {
+  const newDate = new Date(date);
+  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  const localeDate = newDate.toLocaleString('nl-NL', options);
+  return localeDate;
+}
+
 const TimeEntries = ({ timeEntries }) => (
   <React.Fragment>
     {timeEntries.map(({
@@ -11,7 +18,7 @@ const TimeEntries = ({ timeEntries }) => (
     }) => (
       <TimeEntry
         key={id}
-        date={date}
+        date={dateToLocaleString(date)}
         client={client}
         startTime={startTime}
         endTime={endTime}

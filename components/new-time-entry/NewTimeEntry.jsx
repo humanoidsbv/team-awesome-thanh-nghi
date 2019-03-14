@@ -19,6 +19,12 @@ class NewTimeEntry extends React.Component {
     newTimeEntryIsVisible: false
   };
 
+  getDateToIso = (date) => {
+    const dateSplit = date.split('-').reverse();
+    const dateToIso = new Date(dateSplit).toISOString();
+    return dateToIso;
+  }
+
   onNewTimeEntryClick = () => {
     this.setState(({ newTimeEntryIsVisible }) => ({
       newTimeEntryIsVisible: !newTimeEntryIsVisible
@@ -27,6 +33,8 @@ class NewTimeEntry extends React.Component {
 
   handleChange = ({ target: { value, name } }) => {
     const { newTimeEntry } = this.state;
+
+
     this.setState(() => ({
       newTimeEntry: {
         ...newTimeEntry,
@@ -40,7 +48,11 @@ class NewTimeEntry extends React.Component {
     const { newTimeEntry } = this.state;
     const { clearNewEntry } = this;
     const { onNewTimeEntryClick } = this;
-    onSubmit(newTimeEntry);
+    const { getDateToIso } = this;
+    const { date } = newTimeEntry;
+    const isoDate = getDateToIso(date);
+    const newTimeEntryIso = { ...newTimeEntry, date: isoDate };
+    onSubmit(newTimeEntryIso);
     clearNewEntry();
     onNewTimeEntryClick();
   }
@@ -108,7 +120,7 @@ class NewTimeEntry extends React.Component {
                 id="date"
                 name="date"
                 onChange={this.handleChange}
-                type="date"
+                type="text"
                 value={date}
               />
             </label>
@@ -123,7 +135,7 @@ class NewTimeEntry extends React.Component {
                   id="from"
                   name="startTime"
                   onChange={this.handleChange}
-                  type="time"
+                  type="text"
                   value={startTime}
                 />
               </label>
@@ -137,7 +149,7 @@ class NewTimeEntry extends React.Component {
                   id="to"
                   name="endTime"
                   onChange={this.handleChange}
-                  type="time"
+                  type="text"
                   value={endTime}
                 />
               </label>
