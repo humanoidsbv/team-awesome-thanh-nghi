@@ -1,10 +1,11 @@
-@import "../../pages/style";
+@import "../../shared/styles/main.scss";
 
 .header__logo {
-  color: $color-text-white;
-  font-family: bello-script;
+  color: $color-primary-white;
+  font-family: $font-logo;
   font-size: 26px;
   font-weight: normal;
+  margin: auto;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .menu {
-  background-color: $color-primary;
+  background-color: $color-primary-blue;
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -49,13 +50,13 @@
 }
 
 .menu__link {
-  color: $color-text-white;
+  color: $color-primary-white;
   text-decoration: none;
 }
 
 .menu__item {
   border-radius: 5px;
-  font-family: proximanova;
+  font-family: $font-primary;
   font-size: 24px;
   list-style-type: none;
   margin: 15px 0;
@@ -64,7 +65,7 @@
 }
 
 .menu__item--active {
-  background-color: #1166a5;
+  background-color: $color-secondary-active;
 }
 
 @media (min-width: 600px) {
@@ -87,9 +88,9 @@
     align-items: center;
     flex-direction: row;
     height: 70px;
+    left: 25px;
     margin: 0;
     position: absolute;
-    left: 25px;
   }
 
   .menu__item {

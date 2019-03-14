@@ -1,9 +1,11 @@
+@import "../../shared/styles/main.scss";
+
 .new-entry-button {
-  background: linear-gradient(#39b54a, #34aa44);
-  border-color: #249533;
+  background-image: $color-button-gradient;
+  border-color: $color-button-border;
   border-radius: 4px;
-  color: #ffffff;
-  font-family: proximanova;
+  color: $color-primary-white;
+  font-family: $font-primary;
   font-size: 14px;
   height: 36px;
   margin: 20px 0 5px;

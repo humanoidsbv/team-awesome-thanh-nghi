@@ -1,4 +1,4 @@
-@import "../../pages/style";
+@import "../../shared/styles/main.scss";
 
 .profile {
   display: none;
@@ -14,7 +14,7 @@
   }
 
   .profile__button {
-    background-color: $color-text-white;
+    background-color: $color-primary-white;
     border: 0;
     border-radius: 25px;
     display: flex;
@@ -38,7 +38,7 @@
 
   .dropdown {
     border: none;
-    background-color: #ffffff00;
+    background-color: $color-transparant;
     margin: 0 0 0 10px;
   }
 }

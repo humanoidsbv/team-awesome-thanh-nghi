@@ -1,24 +1,77 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
 
 class NewTimeEntry extends React.Component {
-  state = { NewTimeEntryOpen: false };
+  static newTimeEntryModel = {
+    activity: '',
+    client: '',
+    date: '',
+    endTime: '',
+    id: '',
+    startTime: ''
+  };
+
+  state = {
+    newTimeEntry: NewTimeEntry.newTimeEntryModel,
+    newTimeEntryIsVisible: false
+  };
+
+  // TODO: put this logic in a service -> generic and reusable
+  getDateToIso = (date) => {
+    const dateSplit = date.split('-').reverse();
+    const dateToIso = new Date(dateSplit).toISOString();
+    return dateToIso;
+  }
 
   onNewTimeEntryClick = () => {
-    this.setState(({ NewTimeEntryOpen }) => ({ NewTimeEntryOpen: !NewTimeEntryOpen }));
+    this.setState(({ newTimeEntryIsVisible }) => ({
+      newTimeEntryIsVisible: !newTimeEntryIsVisible
+    }));
+  }
+
+  handleChange = ({ target: { value, name } }) => {
+    const { newTimeEntry } = this.state;
+
+
+    this.setState(() => ({
+      newTimeEntry: {
+        ...newTimeEntry,
+        [name]: value || ''
+      }
+    }));
+  }
+
+  handleSubmit = () => {
+    const { onSubmit } = this.props;
+    const { newTimeEntry } = this.state;
+    const { getDateToIso } = this;
+    const { date } = newTimeEntry;
+    const isoDate = getDateToIso(date);
+    const newTimeEntryIso = { ...newTimeEntry, date: isoDate };
+    onSubmit(newTimeEntryIso);
+    this.clearNewEntry();
+    this.onNewTimeEntryClick();
+  }
+
+  clearNewEntry = () => {
+    this.setState(() => ({ newTimeEntry: NewTimeEntry.newTimeEntryModel }));
   }
 
   render() {
-    const { NewTimeEntryOpen } = this.state;
+    const { newTimeEntry, newTimeEntryIsVisible } = this.state;
+    const {
+      date, client, activity, startTime, endTime
+    } = newTimeEntry;
     return (
       <React.Fragment>
         <NewEntryButton
           onClick={this.onNewTimeEntryClick}
-          isVisible={!NewTimeEntryOpen}
+          isVisible={!newTimeEntryIsVisible}
         />
-        <div className={`new-time-entry ${NewTimeEntryOpen ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
+        <div className={`new-time-entry ${newTimeEntryIsVisible ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
           <h2 className="new-time-entry__title">New time entry</h2>
           <form className="new-time-entry__form">
             <button
@@ -36,7 +89,10 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--employer new-time-entry__input--large"
                 id="employer"
+                name="client"
+                onChange={this.handleChange}
                 type="text"
+                value={client}
               />
             </label>
             <label
@@ -47,7 +103,10 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--activity new-time-entry__input--large"
                 id="activity"
+                name="activity"
+                onChange={this.handleChange}
                 type="text"
+                value={activity}
               />
             </label>
             <label
@@ -58,7 +117,10 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
                 id="date"
-                type="date"
+                name="date"
+                onChange={this.handleChange}
+                type="text"
+                value={date}
               />
             </label>
             <div className="new-time-entry__fieldset">
@@ -70,7 +132,10 @@ class NewTimeEntry extends React.Component {
                 <input
                   className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
                   id="from"
-                  type="time"
+                  name="startTime"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={startTime}
                 />
               </label>
               <label
@@ -81,12 +146,16 @@ class NewTimeEntry extends React.Component {
                 <input
                   className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
                   id="to"
-                  type="time"
+                  name="endTime"
+                  onChange={this.handleChange}
+                  type="text"
+                  value={endTime}
                 />
               </label>
             </div>
             <button
               className="new-time-entry__add-button"
+              onClick={this.handleSubmit}
               type="button"
             >
                 Add
@@ -97,4 +166,9 @@ class NewTimeEntry extends React.Component {
     );
   }
 }
+
+NewTimeEntry.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};
+
 export default NewTimeEntry;
