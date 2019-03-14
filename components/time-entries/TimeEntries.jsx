@@ -15,15 +15,22 @@ const TimeEntries = ({ timeEntries }) => (
   <React.Fragment>
     {timeEntries.map(({
       client, date, startTime, endTime, id
-    }) => (
-      <TimeEntry
-        key={id}
-        date={dateToLocaleString(date)}
-        client={client}
-        startTime={startTime}
-        endTime={endTime}
-      />
-    ))}
+    }, i) => {
+      const localizeDate = dateToLocaleString(date);
+      return (
+        <React.Fragment>
+          {(i === 0 || date !== timeEntries[i - 1].date)
+            && <h2 className="entry-date">{localizeDate}</h2>
+          }
+          <TimeEntry
+            key={id}
+            client={client}
+            startTime={startTime}
+            endTime={endTime}
+          />
+        </React.Fragment>
+      );
+    })}
   </React.Fragment>
 );
 
