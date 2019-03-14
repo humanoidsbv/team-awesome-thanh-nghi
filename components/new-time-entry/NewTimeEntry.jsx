@@ -19,6 +19,7 @@ class NewTimeEntry extends React.Component {
     newTimeEntryIsVisible: false
   };
 
+  // TODO: put this logic in a service -> generic and reusable
   getDateToIso = (date) => {
     const dateSplit = date.split('-').reverse();
     const dateToIso = new Date(dateSplit).toISOString();
@@ -46,15 +47,13 @@ class NewTimeEntry extends React.Component {
   handleSubmit = () => {
     const { onSubmit } = this.props;
     const { newTimeEntry } = this.state;
-    const { clearNewEntry } = this;
-    const { onNewTimeEntryClick } = this;
     const { getDateToIso } = this;
     const { date } = newTimeEntry;
     const isoDate = getDateToIso(date);
     const newTimeEntryIso = { ...newTimeEntry, date: isoDate };
     onSubmit(newTimeEntryIso);
-    clearNewEntry();
-    onNewTimeEntryClick();
+    this.clearNewEntry();
+    this.onNewTimeEntryClick();
   }
 
   clearNewEntry = () => {
