@@ -80,6 +80,7 @@
     background-image: $color-input-gradient;
     border: 1px $color-input-border solid;
     border-radius: 4px;
+    box-sizing: border-box;
     font-size: 14px;
     height: 36px;
     margin: 10px auto;

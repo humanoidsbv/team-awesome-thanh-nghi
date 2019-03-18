@@ -5,8 +5,17 @@ export function dateToLocaleString(date) {
   return localeDate;
 }
 
-export function getDateToIso(date) {
-  const dateSplit = date.split('-').reverse();
-  const dateToIso = new Date(dateSplit).toISOString();
-  return dateToIso;
+export function getDateTimeToIso(date, time) {
+  const dateSplit = date.split('-').reverse().join('-');
+  const dateTimeToIso = new Date(`
+    ${dateSplit} ${time}
+  `).toISOString();
+  return dateTimeToIso;
+}
+
+export function timeToLocaleString(date) {
+  const newDate = new Date(date);
+  const options = { hour: '2-digit', minute: '2-digit' };
+  const localeDate = newDate.toLocaleString('nl-NL', options);
+  return localeDate;
 }

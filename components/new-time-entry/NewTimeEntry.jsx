@@ -4,20 +4,20 @@ import React from 'react';
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
 
-import { getDateToIso } from '../../shared/services/converter-time';
+import { getDateTimeToIso } from '../../shared/services/converter-time';
 
-// reminder: erase default values
+// reminder: erase default values when done
 class NewTimeEntry extends React.Component {
   static newTimeEntryModel = {
-    activity: 'Front-end',
-    client: 'Google',
-    date: '18-03-2019',
-    endTime: '17:00',
-    startTime: '10:00'
+    activity: '',
+    client: '',
+    date: '',
+    endTime: '',
+    startTime: ''
   };
 
   state = {
-    newTimeEntry: NewTimeEntry.newTimeEntryModel,
+    newTimeEntry: { ...NewTimeEntry.newTimeEntryModel },
     newTimeEntryIsVisible: false
   };
 
@@ -43,13 +43,18 @@ class NewTimeEntry extends React.Component {
     const { onSubmit } = this.props;
     const { newTimeEntry } = this.state;
 
-    onSubmit({ ...newTimeEntry, date: getDateToIso(newTimeEntry.date) });
+    onSubmit({
+      activity: newTimeEntry.activity,
+      client: newTimeEntry.client,
+      endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
+      startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
+    });
     this.clearNewEntry();
     this.onNewTimeEntryClick();
   }
 
   clearNewEntry = () => {
-    this.setState(() => ({ newTimeEntry: NewTimeEntry.newTimeEntryModel }));
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.newTimeEntryModel } }));
   }
 
   render() {

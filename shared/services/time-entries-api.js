@@ -5,7 +5,7 @@ export const getTimeEntries = () => (
     .then(response => response.json())
 );
 
-export const saveTimeEntries = timeEntry => (
+export const saveTimeEntry = timeEntry => (
   fetch(fetchUrl, {
     method: 'POST',
     body: JSON.stringify(timeEntry),

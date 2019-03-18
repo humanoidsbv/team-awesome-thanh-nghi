@@ -4,23 +4,26 @@ import PropTypes from 'prop-types';
 import './time-entries.scss';
 import TimeEntry from '../time-entry';
 
-import { dateToLocaleString } from '../../shared/services/converter-time';
+import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
 const TimeEntries = ({ timeEntries }) => (
   <React.Fragment>
     {timeEntries.map(({
-      client, date, endTime, id, startTime
+      client, endTime, id, startTime
     }, i) => {
-      const localizeDate = dateToLocaleString(date);
+      const localizeDate = dateToLocaleString(startTime);
+      const localizeEndTime = timeToLocaleString(endTime);
+      const localizeStartTime = timeToLocaleString(startTime);
+
       return (
-        <React.Fragment key={id}>
-          {(i === 0 || date !== timeEntries[i - 1].date)
+        <React.Fragment key={id + i}>
+          {(i === 0 || localizeDate !== dateToLocaleString(timeEntries[i - 1].startTime))
             && <h2 className="entry-date">{localizeDate}</h2>
           }
           <TimeEntry
             client={client}
-            endTime={endTime}
-            startTime={startTime}
+            endTime={localizeEndTime}
+            startTime={localizeStartTime}
           />
         </React.Fragment>
       );

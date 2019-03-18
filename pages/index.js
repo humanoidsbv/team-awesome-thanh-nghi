@@ -7,7 +7,7 @@ import Main from '../components/main';
 import NewTimeEntry from '../components/new-time-entry';
 import TimeEntries from '../components/time-entries';
 
-import { getTimeEntries, saveTimeEntries } from '../shared/services/time-entries-api';
+import { getTimeEntries, saveTimeEntry } from '../shared/services/time-entries-api';
 
 class App extends React.Component {
   state = { timeEntries: [] };
@@ -28,7 +28,7 @@ class App extends React.Component {
         ...timeEntries
       ]
     }));
-    saveTimeEntries(newTimeEntry);
+    saveTimeEntry(newTimeEntry);
   }
 
   render() {
