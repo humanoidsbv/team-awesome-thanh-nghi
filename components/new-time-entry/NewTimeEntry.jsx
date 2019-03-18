@@ -4,27 +4,22 @@ import React from 'react';
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
 
+import { getDateToIso } from '../../shared/services/converter-time';
+
+// reminder: erase default values
 class NewTimeEntry extends React.Component {
   static newTimeEntryModel = {
-    activity: '',
-    client: '',
-    date: '',
-    endTime: '',
-    id: '',
-    startTime: ''
+    activity: 'Front-end',
+    client: 'Google',
+    date: '18-03-2019',
+    endTime: '17:00',
+    startTime: '10:00'
   };
 
   state = {
     newTimeEntry: NewTimeEntry.newTimeEntryModel,
     newTimeEntryIsVisible: false
   };
-
-  // TODO: put this logic in a service -> generic and reusable
-  getDateToIso = (date) => {
-    const dateSplit = date.split('-').reverse();
-    const dateToIso = new Date(dateSplit).toISOString();
-    return dateToIso;
-  }
 
   onNewTimeEntryClick = () => {
     this.setState(({ newTimeEntryIsVisible }) => ({
@@ -47,11 +42,8 @@ class NewTimeEntry extends React.Component {
   handleSubmit = () => {
     const { onSubmit } = this.props;
     const { newTimeEntry } = this.state;
-    const { getDateToIso } = this;
-    const { date } = newTimeEntry;
-    const isoDate = getDateToIso(date);
-    const newTimeEntryIso = { ...newTimeEntry, date: isoDate };
-    onSubmit(newTimeEntryIso);
+
+    onSubmit({ ...newTimeEntry, date: getDateToIso(newTimeEntry.date) });
     this.clearNewEntry();
     this.onNewTimeEntryClick();
   }
@@ -65,6 +57,7 @@ class NewTimeEntry extends React.Component {
     const {
       date, client, activity, startTime, endTime
     } = newTimeEntry;
+
     return (
       <React.Fragment>
         <NewEntryButton

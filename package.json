@@ -4,8 +4,7 @@
   "description": "Team Awesome",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
-    "server": "json-server --watch -p 4000 db.json",
+    "dev": "next & json-server --watch -p 4000 db.json",
     "build": "next build",
     "start": "next start"
   },

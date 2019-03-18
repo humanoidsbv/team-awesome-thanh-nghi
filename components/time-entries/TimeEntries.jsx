@@ -4,13 +4,7 @@ import PropTypes from 'prop-types';
 import './time-entries.scss';
 import TimeEntry from '../time-entry';
 
-// TODO: put this logic in a service -> generic and reusable
-function dateToLocaleString(date) {
-  const newDate = new Date(date);
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  const localeDate = newDate.toLocaleString('nl-NL', options);
-  return localeDate;
-}
+import { dateToLocaleString } from '../../shared/services/converter-time';
 
 const TimeEntries = ({ timeEntries }) => (
   <React.Fragment>
@@ -19,14 +13,13 @@ const TimeEntries = ({ timeEntries }) => (
     }, i) => {
       const localizeDate = dateToLocaleString(date);
       return (
-        <React.Fragment>
+        <React.Fragment key={id}>
           {(i === 0 || date !== timeEntries[i - 1].date)
             && <h2 className="entry-date">{localizeDate}</h2>
           }
           <TimeEntry
             client={client}
             endTime={endTime}
-            key={id}
             startTime={startTime}
           />
         </React.Fragment>
