@@ -31,7 +31,7 @@ const timeEntryData = [
   }
 ];
 
-class App extends React.Component {
+class Index extends React.Component {
   state = { timeEntries: timeEntryData };
 
   addNewEntry = (newTimeEntry) => {
@@ -62,4 +62,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Index;
