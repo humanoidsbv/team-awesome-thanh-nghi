@@ -22,10 +22,16 @@
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
     "next": "^8.0.3",
+    "next-redux-saga": "^4.0.1",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
     "node-sass": "^4.11.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react-dom": "^16.8.4",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-saga": "^1.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
