@@ -9,11 +9,11 @@ import { getDateTimeToIso } from '../../shared/services/converter-time';
 // reminder: erase default values when done
 class NewTimeEntry extends React.Component {
   static newTimeEntryModel = {
-    activity: '',
-    client: '',
-    date: '',
-    endTime: '',
-    startTime: ''
+    activity: 'lol',
+    client: 'Humanoids',
+    date: '10-10-2019',
+    endTime: '10:00',
+    startTime: '11:00'
   };
 
   state = {

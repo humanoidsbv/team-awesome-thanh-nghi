@@ -34,7 +34,8 @@ const TimeEntries = ({ timeEntries, deleteTimeEntry }) => (
 );
 
 TimeEntries.propTypes = {
-  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  deleteTimeEntry: PropTypes.func.isRequired
 };
 
 export default TimeEntries;

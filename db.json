@@ -2,13 +2,6 @@
   "time-entries": [
     {
       "activity": "Front-end",
-      "client": "Google",
-      "endTime": "2019-03-18T12:00:00.000Z",
-      "startTime": "2019-03-18T08:00:00.000Z",
-      "id": 1
-    },
-    {
-      "activity": "Front-end",
       "client": "ING Bank",
       "endTime": "2019-03-18T18:00:00.000Z",
       "startTime": "2019-03-18T13:00:00.000Z",
@@ -27,6 +20,13 @@
       "endTime": "2019-03-20T16:00:00.000Z",
       "startTime": "2019-03-20T10:00:00.000Z",
       "id": 4
+    },
+    {
+      "activity": "Front-End",
+      "client": "Humanoids",
+      "endTime": "2019-03-21T17:00:00.000Z",
+      "startTime": "2019-03-21T11:00:00.000Z",
+      "id": 5
     }
   ]
 }

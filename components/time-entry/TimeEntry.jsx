@@ -32,8 +32,10 @@ const TimeEntry = ({
 
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
-  startTime: PropTypes.string.isRequired,
-  endTime: PropTypes.string.isRequired
+  deleteTimeEntry: PropTypes.func.isRequired,
+  endTime: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  startTime: PropTypes.string.isRequired
 };
 
 export default TimeEntry;

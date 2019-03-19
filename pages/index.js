@@ -21,21 +21,21 @@ class App extends React.Component {
     this.setState({ timeEntries: dataTimeEntries });
   }
 
-  addNewEntry = (newTimeEntry) => {
-    saveTimeEntry(newTimeEntry);
+  addNewEntry = async (newTimeEntry) => {
+    const response = await saveTimeEntry(newTimeEntry);
     this.setState(({ timeEntries }) => ({
       timeEntries: [
-        newTimeEntry,
+        response,
         ...timeEntries
       ]
     }));
   }
 
-  deleteTimeEntry = (id) => {
+  deleteTimeEntry = async (id) => {
+    await removeTimeEntry(id);
     this.setState(({ timeEntries }) => ({
       timeEntries: timeEntries.filter(timeEntry => timeEntry.id !== id)
     }));
-    removeTimeEntry(id);
   }
 
   render() {
