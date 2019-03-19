@@ -12,8 +12,8 @@ class NewTimeEntry extends React.Component {
     activity: 'lol',
     client: 'Humanoids',
     date: '10-10-2019',
-    endTime: '10:00',
-    startTime: '11:00'
+    endTime: '18:00',
+    startTime: '10:00'
   };
 
   state = {

@@ -32,6 +32,8 @@ class App extends React.Component {
   }
 
   deleteTimeEntry = async (id) => {
+    const prompt = window.confirm('Do you want to delete this entry?');
+    if (!prompt) return;
     await removeTimeEntry(id);
     this.setState(({ timeEntries }) => ({
       timeEntries: timeEntries.filter(timeEntry => timeEntry.id !== id)

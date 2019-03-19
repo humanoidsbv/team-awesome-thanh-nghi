@@ -15,18 +15,18 @@
       "id": 3
     },
     {
-      "activity": "Testen",
-      "client": "Test",
-      "endTime": "2019-03-20T16:00:00.000Z",
-      "startTime": "2019-03-20T10:00:00.000Z",
-      "id": 4
-    },
-    {
       "activity": "Front-End",
       "client": "Humanoids",
       "endTime": "2019-03-21T17:00:00.000Z",
       "startTime": "2019-03-21T11:00:00.000Z",
       "id": 5
+    },
+    {
+      "activity": "lol",
+      "client": "Humanoids",
+      "endTime": "2019-10-10T16:00:00.000Z",
+      "startTime": "2019-10-10T08:00:00.000Z",
+      "id": 7
     }
   ]
 }
