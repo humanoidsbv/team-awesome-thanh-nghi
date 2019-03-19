@@ -14,3 +14,9 @@ export const saveTimeEntry = timeEntry => (
     }
   }).then(response => response.json())
 );
+
+export const removeTimeEntry = id => (
+  fetch(`${fetchUrl}/${id}`, {
+    method: 'DELETE'
+  })
+);

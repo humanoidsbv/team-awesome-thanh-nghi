@@ -7,7 +7,7 @@ import Main from '../components/main';
 import NewTimeEntry from '../components/new-time-entry';
 import TimeEntries from '../components/time-entries';
 
-import { getTimeEntries, saveTimeEntry } from '../shared/services/time-entries-api';
+import { getTimeEntries, saveTimeEntry, removeTimeEntry } from '../shared/services/time-entries-api';
 
 class App extends React.Component {
   state = { timeEntries: [] };
@@ -32,7 +32,10 @@ class App extends React.Component {
   }
 
   deleteTimeEntry = (id) => {
-    console.log(id);
+    this.setState(({ timeEntries }) => ({
+      timeEntries: timeEntries.filter(timeEntry => timeEntry.id !== id)
+    }));
+    removeTimeEntry(id);
   }
 
   render() {
