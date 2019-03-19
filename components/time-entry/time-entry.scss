@@ -17,7 +17,7 @@
   &__activity {
     align-items: center;
     border: 1px $color-form-border solid;
-    border-left: 4px $color-secondary-accent solid;
+    border-left: 4px $color-primary-blue solid;
     border-top: none;
     display: flex;
     font-family: $font-primary;
@@ -38,5 +38,37 @@
 
   &__activity:first-child:last-child {
     border-radius: 4px;
+  }
+
+  &__button-icon {
+    height: 16px;
+    width: 16px;
+    padding: 0 4px;
+  }
+
+  &__button {
+    display: none;
+
+    @media (min-width: 600px) {
+      align-items: center;
+      background-color: $color-secondary-alert;
+      border: none;
+      border-radius: 4px;
+      color: $color-primary-white;
+      display: flex;
+      font-family: $font-primary;
+      font-size: 14px;
+      height: 30px;
+      margin: 0 auto 0 30px;
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+      width: 79px;
+    }
+  }
+
+  &__activity:hover &__button {
+    @media (min-width: 600px) {
+      opacity: 1;
+    }
   }
 }

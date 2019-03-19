@@ -4,27 +4,22 @@ import React from 'react';
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
 
+import { getDateTimeToIso } from '../../shared/services/converter-time';
+
+// reminder: erase default values when done
 class NewTimeEntry extends React.Component {
   static newTimeEntryModel = {
-    activity: '',
-    client: '',
-    date: '',
-    endTime: '',
-    id: '',
-    startTime: ''
+    activity: 'lol',
+    client: 'Humanoids',
+    date: '10-10-2019',
+    endTime: '18:00',
+    startTime: '10:00'
   };
 
   state = {
-    newTimeEntry: NewTimeEntry.newTimeEntryModel,
+    newTimeEntry: { ...NewTimeEntry.newTimeEntryModel },
     newTimeEntryIsVisible: false
   };
-
-  // TODO: put this logic in a service -> generic and reusable
-  getDateToIso = (date) => {
-    const dateSplit = date.split('-').reverse();
-    const dateToIso = new Date(dateSplit).toISOString();
-    return dateToIso;
-  }
 
   onNewTimeEntryClick = () => {
     this.setState(({ newTimeEntryIsVisible }) => ({
@@ -47,17 +42,19 @@ class NewTimeEntry extends React.Component {
   handleSubmit = () => {
     const { onSubmit } = this.props;
     const { newTimeEntry } = this.state;
-    const { getDateToIso } = this;
-    const { date } = newTimeEntry;
-    const isoDate = getDateToIso(date);
-    const newTimeEntryIso = { ...newTimeEntry, date: isoDate };
-    onSubmit(newTimeEntryIso);
+
+    onSubmit({
+      activity: newTimeEntry.activity,
+      client: newTimeEntry.client,
+      endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
+      startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
+    });
     this.clearNewEntry();
     this.onNewTimeEntryClick();
   }
 
   clearNewEntry = () => {
-    this.setState(() => ({ newTimeEntry: NewTimeEntry.newTimeEntryModel }));
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.newTimeEntryModel } }));
   }
 
   render() {
@@ -65,6 +62,7 @@ class NewTimeEntry extends React.Component {
     const {
       date, client, activity, startTime, endTime
     } = newTimeEntry;
+
     return (
       <React.Fragment>
         <NewEntryButton

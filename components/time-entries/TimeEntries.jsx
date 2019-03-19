@@ -4,30 +4,28 @@ import PropTypes from 'prop-types';
 import './time-entries.scss';
 import TimeEntry from '../time-entry';
 
-// TODO: put this logic in a service -> generic and reusable
-function dateToLocaleString(date) {
-  const newDate = new Date(date);
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  const localeDate = newDate.toLocaleString('nl-NL', options);
-  return localeDate;
-}
+import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
-const TimeEntries = ({ timeEntries }) => (
+const TimeEntries = ({ timeEntries, deleteTimeEntry }) => (
   <React.Fragment>
     {timeEntries.map(({
-      client, date, endTime, id, startTime
+      client, endTime, id, startTime
     }, i) => {
-      const localizeDate = dateToLocaleString(date);
+      const localizeDate = dateToLocaleString(startTime);
+      const localizeEndTime = timeToLocaleString(endTime);
+      const localizeStartTime = timeToLocaleString(startTime);
+
       return (
-        <React.Fragment>
-          {(i === 0 || date !== timeEntries[i - 1].date)
+        <React.Fragment key={id}>
+          {(i === 0 || localizeDate !== dateToLocaleString(timeEntries[i - 1].startTime))
             && <h2 className="entry-date">{localizeDate}</h2>
           }
           <TimeEntry
+            deleteTimeEntry={deleteTimeEntry}
             client={client}
-            endTime={endTime}
-            key={id}
-            startTime={startTime}
+            id={id}
+            endTime={localizeEndTime}
+            startTime={localizeStartTime}
           />
         </React.Fragment>
       );
@@ -36,7 +34,8 @@ const TimeEntries = ({ timeEntries }) => (
 );
 
 TimeEntries.propTypes = {
-  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired
+  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  deleteTimeEntry: PropTypes.func.isRequired
 };
 
 export default TimeEntries;
