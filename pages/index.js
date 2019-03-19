@@ -9,7 +9,7 @@ import TimeEntries from '../components/time-entries';
 
 import { getTimeEntries, saveTimeEntry, removeTimeEntry } from '../shared/services/time-entries-api';
 
-class App extends React.Component {
+class Index extends React.Component {
   state = { timeEntries: [] };
 
   componentDidMount() {
@@ -20,6 +20,7 @@ class App extends React.Component {
     const dataTimeEntries = await getTimeEntries();
     this.setState({ timeEntries: dataTimeEntries });
   }
+
 
   addNewEntry = async (newTimeEntry) => {
     const response = await saveTimeEntry(newTimeEntry);
@@ -62,4 +63,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Index;
