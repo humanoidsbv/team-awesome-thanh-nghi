@@ -22,13 +22,17 @@ class App extends React.Component {
   }
 
   addNewEntry = (newTimeEntry) => {
+    saveTimeEntry(newTimeEntry);
     this.setState(({ timeEntries }) => ({
       timeEntries: [
         newTimeEntry,
         ...timeEntries
       ]
     }));
-    saveTimeEntry(newTimeEntry);
+  }
+
+  deleteTimeEntry = (id) => {
+    console.log(id);
   }
 
   render() {
@@ -43,7 +47,10 @@ class App extends React.Component {
         <PageHeader />
         <Main>
           <NewTimeEntry onSubmit={this.addNewEntry} />
-          <TimeEntries timeEntries={timeEntries} />
+          <TimeEntries
+            deleteTimeEntry={this.deleteTimeEntry}
+            timeEntries={timeEntries}
+          />
         </Main>
       </React.Fragment>
     );

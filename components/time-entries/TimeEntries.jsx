@@ -6,7 +6,7 @@ import TimeEntry from '../time-entry';
 
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
-const TimeEntries = ({ timeEntries }) => (
+const TimeEntries = ({ timeEntries, deleteTimeEntry }) => (
   <React.Fragment>
     {timeEntries.map(({
       client, endTime, id, startTime
@@ -16,12 +16,14 @@ const TimeEntries = ({ timeEntries }) => (
       const localizeStartTime = timeToLocaleString(startTime);
 
       return (
-        <React.Fragment key={id + i}>
+        <React.Fragment key={id}>
           {(i === 0 || localizeDate !== dateToLocaleString(timeEntries[i - 1].startTime))
             && <h2 className="entry-date">{localizeDate}</h2>
           }
           <TimeEntry
+            deleteTimeEntry={deleteTimeEntry}
             client={client}
+            id={id}
             endTime={localizeEndTime}
             startTime={localizeStartTime}
           />
