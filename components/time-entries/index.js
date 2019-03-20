@@ -1,3 +1,3 @@
-import TimeEntries from './TimeEntries';
+import TimeEntriesContainer from './TimeEntriesContainer';
 
-export default TimeEntries;
+export default TimeEntriesContainer;

@@ -52,11 +52,8 @@ class Index extends React.Component {
         <Header />
         <PageHeader />
         <Main>
-          <NewTimeEntry onSubmit={this.addNewEntry} />
-          <TimeEntries
-            deleteTimeEntry={this.deleteTimeEntry}
-            timeEntries={timeEntries}
-          />
+          <NewTimeEntry />
+          <TimeEntries />
         </Main>
       </React.Fragment>
     );
