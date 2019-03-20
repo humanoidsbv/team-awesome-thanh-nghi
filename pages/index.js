@@ -23,6 +23,7 @@ class Index extends React.Component {
 
 
   addNewEntry = async (newTimeEntry) => {
+    console.log(newTimeEntry);
     const response = await saveTimeEntry(newTimeEntry);
     this.setState(({ timeEntries }) => ({
       timeEntries: [

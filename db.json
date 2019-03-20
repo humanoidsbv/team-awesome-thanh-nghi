@@ -29,7 +29,11 @@
       "id": 6
     },
     {
+      "type": "ADD_NEW_TIME_ENTRY",
       "id": 7
+    },
+    {
+      "id": 8
     }
   ]
 }
