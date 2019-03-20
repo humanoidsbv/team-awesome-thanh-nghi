@@ -24,24 +24,32 @@ export const requestTimeEntriesError = error => ({
   payload: error
 });
 
-export const addNewTimeEntry = newTimeEntry => ({
-  type: ADD_NEW_TIME_ENTRY,
-  payload: newTimeEntry
+export const addNewTimeEntry = () => ({
+  type: ADD_NEW_TIME_ENTRY
 });
 
 export const addNewTimeEntrySuccess = newTimeEntry => ({
-  type: ADD_NEW_TIME_ENTRY,
+  type: ADD_NEW_TIME_ENTRY_SUCCESS,
   payload: newTimeEntry
 });
 
 export const addNewTimeEntryError = error => ({
-  type: ADD_NEW_TIME_ENTRY,
+  type: ADD_NEW_TIME_ENTRY_ERROR,
   payload: error
 });
 
-export const deleteTimeEntry = id => ({
-  type: DELETE_TIME_ENTRY,
+export const deleteTimeEntry = () => ({
+  type: DELETE_TIME_ENTRY
+});
+
+export const deleteTimeEntrySuccess = id => ({
+  type: DELETE_TIME_ENTRY_SUCCESS,
   payload: id
+});
+
+export const deleteTimeEntryError = error => ({
+  type: DELETE_TIME_ENTRY_ERROR,
+  payload: error
 });
 
 export const initialState = {
