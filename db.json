@@ -20,13 +20,6 @@
       "endTime": "2019-03-22T16:30:00.000Z",
       "startTime": "2019-03-22T08:30:00.000Z",
       "id": 11
-    },
-    {
-      "activity": "Design",
-      "client": "Hike One",
-      "endTime": "2019-03-25T16:00:00.000Z",
-      "startTime": "2019-03-25T09:00:00.000Z",
-      "id": 12
     }
   ]
 }
