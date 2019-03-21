@@ -11,7 +11,7 @@ class NewTimeEntry extends React.Component {
   static newTimeEntryModel = {
     activity: 'lol',
     client: 'Humanoids',
-    date: '10-10-2019',
+    date: '20-03-2019',
     endTime: '18:00',
     startTime: '10:00'
   };
@@ -40,10 +40,10 @@ class NewTimeEntry extends React.Component {
   }
 
   handleSubmit = () => {
-    const { onSubmit } = this.props;
+    const { onAdd } = this.props;
     const { newTimeEntry } = this.state;
 
-    onSubmit({
+    onAdd({
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
@@ -166,7 +166,7 @@ class NewTimeEntry extends React.Component {
 }
 
 NewTimeEntry.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired
 };
 
 export default NewTimeEntry;

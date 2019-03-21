@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { requestTimeEntries, deleteTimeEntry } from '../../ducks/time-entries';
+import { retrieveTimeEntriesRequest, deleteTimeEntryRequest } from '../../ducks/time-entries';
 
 import TimeEntries from './TimeEntries';
 
 class TimeEntriesContainer extends React.Component {
   componentDidMount() {
-    const { onRequestTimeEntries } = this.props;
-    onRequestTimeEntries();
+    const { onRetrieve } = this.props;
+    onRetrieve();
   }
 
   render() {
@@ -23,8 +23,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  deleteTimeEntry,
-  onRequestTimeEntries: requestTimeEntries
+  onDelete: deleteTimeEntryRequest,
+  onRetrieve: retrieveTimeEntriesRequest
 }, dispatch);
 
 TimeEntriesContainer.propTypes = TimeEntries.propTypes;

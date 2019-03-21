@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 import './time-entry.scss';
 
 const TimeEntry = ({
-  client, deleteTimeEntry, id, startTime, endTime
+  client, id, onDelete, startTime, endTime
 }) => (
   <React.Fragment>
     <ul className="entry-content">
       <li className="entry-content__activity">
         <div className="entry-content__client">{client}</div>
         <button
-          onClick={() => deleteTimeEntry(id)}
+          onClick={() => onDelete(id)}
           className="entry-content__button"
           type="button"
         >
@@ -32,7 +32,7 @@ const TimeEntry = ({
 
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
-  deleteTimeEntry: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
   endTime: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
   startTime: PropTypes.string.isRequired

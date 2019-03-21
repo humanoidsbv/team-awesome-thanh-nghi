@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addNewTimeEntry } from '../../ducks/time-entries';
+import { addNewTimeEntryRequest } from '../../ducks/time-entries';
 
 import NewTimeEntry from './NewTimeEntry';
 
@@ -10,7 +10,7 @@ const NewTimeEntryContainer = props => (
 );
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  onSubmit: addNewTimeEntry
+  onAdd: addNewTimeEntryRequest
 }, dispatch);
 
 NewTimeEntryContainer.propTypes = NewTimeEntry.propTypes;

@@ -1,39 +1,25 @@
 {
   "time-entries": [
     {
-      "activity": "Front-end",
-      "client": "ING Bank",
-      "endTime": "2019-03-18T18:00:00.000Z",
-      "startTime": "2019-03-18T13:00:00.000Z",
-      "id": 2
+      "activity": "lol",
+      "client": "Humanoids",
+      "endTime": "2019-03-20T16:00:00.000Z",
+      "startTime": "2019-03-20T08:00:00.000Z",
+      "id": 9
+    },
+    {
+      "activity": "lol",
+      "client": "Google",
+      "endTime": "2019-03-21T17:00:00.000Z",
+      "startTime": "2019-03-21T09:00:00.000Z",
+      "id": 10
     },
     {
       "activity": "Design",
       "client": "Port of Rotterdam",
-      "endTime": "2019-03-19T17:00:00.000Z",
-      "startTime": "2019-03-19T08:00:00.000Z",
-      "id": 3
-    },
-    {
-      "activity": "Front-End",
-      "client": "Humanoids",
-      "endTime": "2019-03-21T17:00:00.000Z",
-      "startTime": "2019-03-21T11:00:00.000Z",
-      "id": 5
-    },
-    {
-      "activity": "lol",
-      "client": "Humanoids",
-      "endTime": "2019-03-22T17:00:00.000Z",
-      "startTime": "2019-03-22T09:00:00.000Z",
-      "id": 6
-    },
-    {
-      "type": "ADD_NEW_TIME_ENTRY",
-      "id": 7
-    },
-    {
-      "id": 8
+      "endTime": "2019-03-22T16:30:00.000Z",
+      "startTime": "2019-03-22T08:30:00.000Z",
+      "id": 11
     }
   ]
 }
