@@ -9,11 +9,11 @@ import { getDateTimeToIso } from '../../shared/services/converter-time';
 // reminder: erase default values when done
 class NewTimeEntry extends React.Component {
   static newTimeEntryModel = {
-    activity: 'lol',
-    client: 'Humanoids',
-    date: '10-10-2019',
-    endTime: '18:00',
-    startTime: '10:00'
+    activity: '',
+    client: '',
+    date: '',
+    endTime: '',
+    startTime: ''
   };
 
   state = {
@@ -40,10 +40,10 @@ class NewTimeEntry extends React.Component {
   }
 
   handleSubmit = () => {
-    const { onSubmit } = this.props;
+    const { onAdd } = this.props;
     const { newTimeEntry } = this.state;
 
-    onSubmit({
+    onAdd({
       activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
@@ -60,14 +60,14 @@ class NewTimeEntry extends React.Component {
   render() {
     const { newTimeEntry, newTimeEntryIsVisible } = this.state;
     const {
-      date, client, activity, startTime, endTime
+      activity, client, date, endTime, startTime
     } = newTimeEntry;
 
     return (
       <React.Fragment>
         <NewEntryButton
-          onClick={this.onNewTimeEntryClick}
           isVisible={!newTimeEntryIsVisible}
+          onClick={this.onNewTimeEntryClick}
         />
         <div className={`new-time-entry ${newTimeEntryIsVisible ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
           <h2 className="new-time-entry__title">New time entry</h2>
@@ -166,7 +166,7 @@ class NewTimeEntry extends React.Component {
 }
 
 NewTimeEntry.propTypes = {
-  onSubmit: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired
 };
 
 export default NewTimeEntry;

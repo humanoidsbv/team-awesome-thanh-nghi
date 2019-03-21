@@ -1,3 +1,3 @@
-import NewTimeEntry from './NewTimeEntry';
+import NewTimeEntryContainer from './NewTimeEntryContainer';
 
-export default NewTimeEntry;
+export default NewTimeEntryContainer;

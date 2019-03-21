@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers({});
+import { timeEntriesReducer } from './time-entries';
+
+const rootReducer = combineReducers({
+  timeEntries: timeEntriesReducer
+});
 
 export default rootReducer;

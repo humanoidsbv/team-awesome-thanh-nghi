@@ -43,7 +43,7 @@
   &__button-icon {
     height: 16px;
     width: 16px;
-    padding: 0 4px;
+    padding: 0 7px 0 0;
   }
 
   &__button {
@@ -59,8 +59,9 @@
       font-family: $font-primary;
       font-size: 14px;
       height: 30px;
-      margin: 0 auto 0 30px;
+      margin: 0 auto 0 40px;
       opacity: 0;
+      padding: 0 7px;
       transition: opacity 0.3s ease-out;
       width: 79px;
     }
