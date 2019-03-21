@@ -1,28 +1,29 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
+
 import {
   RETRIEVE_TIME_ENTRIES_REQUEST, retrieveTimeEntriesSuccess,
-  ADD_NEW_TIME_ENTRY_REQUEST, addNewTimeEntrySuccess,
+  ADD_TIME_ENTRY_REQUEST, addTimeEntrySuccess,
   DELETE_TIME_ENTRY_REQUEST, deleteTimeEntrySuccess
 } from '../ducks/time-entries';
 import { getTimeEntries, saveTimeEntry, removeTimeEntry } from '../shared/services/time-entries-api';
 
-function* onGetTimeEntries() {
+function* getTimeEntriesSaga() {
   const response = yield call(getTimeEntries);
   yield put(retrieveTimeEntriesSuccess(response));
 }
 
-function* onSaveTimeEntry(action) {
+function* saveTimeEntrySaga(action) {
   const newTimeEntry = yield call(saveTimeEntry, action.payload);
-  yield put(addNewTimeEntrySuccess(newTimeEntry));
+  yield put(addTimeEntrySuccess(newTimeEntry));
 }
 
-function* onRemoveTimeEntry(action) {
+function* removeTimeEntrySaga(action) {
   const deleteTimeEntry = yield call(removeTimeEntry, action.payload);
   yield put(deleteTimeEntrySuccess(deleteTimeEntry));
 }
 
 export default function* watchTimeEntries() {
-  yield takeLatest(RETRIEVE_TIME_ENTRIES_REQUEST, onGetTimeEntries);
-  yield takeLatest(ADD_NEW_TIME_ENTRY_REQUEST, onSaveTimeEntry);
-  yield takeLatest(DELETE_TIME_ENTRY_REQUEST, onRemoveTimeEntry);
+  yield takeLatest(RETRIEVE_TIME_ENTRIES_REQUEST, getTimeEntriesSaga);
+  yield takeLatest(ADD_TIME_ENTRY_REQUEST, saveTimeEntrySaga);
+  yield takeLatest(DELETE_TIME_ENTRY_REQUEST, removeTimeEntrySaga);
 }

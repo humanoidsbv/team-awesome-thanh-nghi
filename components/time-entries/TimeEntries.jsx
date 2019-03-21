@@ -6,7 +6,7 @@ import TimeEntry from '../time-entry';
 
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
-const TimeEntries = ({ timeEntries, onDelete }) => (
+const TimeEntries = ({ onDelete, timeEntries }) => (
   <React.Fragment>
     {timeEntries.map(({
       client, endTime, id, startTime
@@ -21,10 +21,10 @@ const TimeEntries = ({ timeEntries, onDelete }) => (
             && <h2 className="entry-date">{localizeDate}</h2>
           }
           <TimeEntry
-            onDelete={onDelete}
             client={client}
-            id={id}
             endTime={localizeEndTime}
+            id={id}
+            onDelete={onDelete}
             startTime={localizeStartTime}
           />
         </React.Fragment>
@@ -34,8 +34,8 @@ const TimeEntries = ({ timeEntries, onDelete }) => (
 );
 
 TimeEntries.propTypes = {
-  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default TimeEntries;

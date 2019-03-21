@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './time-entry.scss';
 
 const TimeEntry = ({
-  client, id, onDelete, startTime, endTime
+  client, endTime, id, onDelete, startTime
 }) => (
   <React.Fragment>
     <ul className="entry-content">
@@ -32,9 +32,9 @@ const TimeEntry = ({
 
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
   endTime: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  onDelete: PropTypes.func.isRequired,
   startTime: PropTypes.string.isRequired
 };
 

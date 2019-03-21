@@ -7,25 +7,20 @@ import Main from '../components/main';
 import NewTimeEntry from '../components/new-time-entry';
 import TimeEntries from '../components/time-entries';
 
-class Index extends React.Component {
-  state = { };
+const Index = () => (
 
-  render() {
-    return (
-      <React.Fragment>
-        <Head>
-          <title>Team Awesome!</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        </Head>
-        <Header />
-        <PageHeader />
-        <Main>
-          <NewTimeEntry />
-          <TimeEntries />
-        </Main>
-      </React.Fragment>
-    );
-  }
-}
+  <React.Fragment>
+    <Head>
+      <title>Team Awesome!</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+    <Header />
+    <PageHeader />
+    <Main>
+      <NewTimeEntry />
+      <TimeEntries />
+    </Main>
+  </React.Fragment>
+);
 
 export default Index;

@@ -2,9 +2,9 @@
 export const RETRIEVE_TIME_ENTRIES_REQUEST = 'RETRIEVE_TIME_ENTRIES_REQUEST';
 export const RETRIEVE_TIME_ENTRIES_SUCCESS = 'RETRIEVE_TIME_ENTRIES_SUCCESS';
 export const RETRIEVE_TIME_ENTRIES_ERROR = 'RETRIEVE_TIME_ENTRIES_ERROR';
-export const ADD_NEW_TIME_ENTRY_REQUEST = 'ADD_NEW_TIME_ENTRY_REQUEST';
-export const ADD_NEW_TIME_ENTRY_SUCCESS = 'ADD_NEW_TIME_ENTRY_SUCCESS';
-export const ADD_NEW_TIME_ENTRY_ERROR = 'ADD_NEW_TIME_ENTRY_ERROR';
+export const ADD_TIME_ENTRY_REQUEST = 'ADD_TIME_ENTRY_REQUEST';
+export const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
+export const ADD_TIME_ENTRY_ERROR = 'ADD_TIME_ENTRY_ERROR';
 export const DELETE_TIME_ENTRY_REQUEST = 'DELETE_TIME_ENTRY_REQUEST';
 export const DELETE_TIME_ENTRY_SUCCESS = 'DELETE_TIME_ENTRY_SUCCESS';
 export const DELETE_TIME_ENTRY_ERROR = 'DELETE_TIME_ENTRY_ERROR';
@@ -24,18 +24,18 @@ export const retrieveTimeEntriesError = error => ({
   payload: error
 });
 
-export const addNewTimeEntryRequest = newTimeEntry => ({
-  type: ADD_NEW_TIME_ENTRY_REQUEST,
+export const addTimeEntryRequest = newTimeEntry => ({
+  type: ADD_TIME_ENTRY_REQUEST,
   payload: newTimeEntry
 });
 
-export const addNewTimeEntrySuccess = newTimeEntry => ({
-  type: ADD_NEW_TIME_ENTRY_SUCCESS,
+export const addTimeEntrySuccess = newTimeEntry => ({
+  type: ADD_TIME_ENTRY_SUCCESS,
   payload: newTimeEntry
 });
 
-export const addNewTimeEntryError = error => ({
-  type: ADD_NEW_TIME_ENTRY_ERROR,
+export const addTimeEntryError = error => ({
+  type: ADD_TIME_ENTRY_ERROR,
   payload: error
 });
 
@@ -76,13 +76,13 @@ export const timeEntriesReducer = (state = initialState, action) => {
         isLoading: false
       };
 
-    case ADD_NEW_TIME_ENTRY_REQUEST:
+    case ADD_TIME_ENTRY_REQUEST:
       return {
         ...state,
         isLoading: true
       };
 
-    case ADD_NEW_TIME_ENTRY_SUCCESS:
+    case ADD_TIME_ENTRY_SUCCESS:
       return {
         ...state,
         isLoading: false,
