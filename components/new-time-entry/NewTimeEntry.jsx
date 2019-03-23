@@ -6,18 +6,25 @@ import NewEntryButton from '../new-entry-button';
 
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
-// reminder: erase default values when done
 class NewTimeEntry extends React.Component {
-  static newTimeEntryModel = {
-    activity: '',
-    client: '',
-    date: '',
-    endTime: '',
-    startTime: ''
+  static stateDefault = {
+    newTimeEntryModel: {
+      activity: '',
+      client: '',
+      date: '',
+      endTime: '',
+      startTime: ''
+    }
   };
 
+  constructor(props) {
+    super(props);
+    this.formValidationRef = React.createRef();
+  }
+
   state = {
-    newTimeEntry: { ...NewTimeEntry.newTimeEntryModel },
+    newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel },
+    formValidity: true,
     newTimeEntryIsVisible: false
   };
 
@@ -42,19 +49,23 @@ class NewTimeEntry extends React.Component {
   handleSubmit = () => {
     const { onAdd } = this.props;
     const { newTimeEntry } = this.state;
+    const formValidity = this.formValidationRef.current.checkValidity();
+    this.setState(() => ({ formValidity }));
 
-    onAdd({
-      activity: newTimeEntry.activity,
-      client: newTimeEntry.client,
-      endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
-      startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
-    });
-    this.clearNewEntry();
-    this.onNewTimeEntryClick();
+    if (formValidity) {
+      onAdd({
+        activity: newTimeEntry.activity,
+        client: newTimeEntry.client,
+        endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
+        startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
+      });
+      this.onNewTimeEntryClick();
+      this.clearNewEntry();
+    }
   }
 
   clearNewEntry = () => {
-    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.newTimeEntryModel } }));
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel } }));
   }
 
   render() {
@@ -71,7 +82,10 @@ class NewTimeEntry extends React.Component {
         />
         <div className={`new-time-entry ${newTimeEntryIsVisible ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
           <h2 className="new-time-entry__title">New time entry</h2>
-          <form className="new-time-entry__form">
+          <form
+            className="new-time-entry__form"
+            ref={this.formValidationRef}
+          >
             <button
               className="new-time-entry__close-button"
               onClick={this.onNewTimeEntryClick}
@@ -89,6 +103,7 @@ class NewTimeEntry extends React.Component {
                 id="employer"
                 name="client"
                 onChange={this.handleChange}
+                required
                 type="text"
                 value={client}
               />
@@ -103,6 +118,7 @@ class NewTimeEntry extends React.Component {
                 id="activity"
                 name="activity"
                 onChange={this.handleChange}
+                required
                 type="text"
                 value={activity}
               />
@@ -115,8 +131,12 @@ class NewTimeEntry extends React.Component {
               <input
                 className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
                 id="date"
+                maxLength={10}
+                minLength={10}
                 name="date"
                 onChange={this.handleChange}
+                pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
+                required
                 type="text"
                 value={date}
               />
@@ -130,8 +150,12 @@ class NewTimeEntry extends React.Component {
                 <input
                   className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
                   id="from"
+                  maxLength={5}
+                  minLength={5}
                   name="startTime"
                   onChange={this.handleChange}
+                  pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
+                  required
                   type="text"
                   value={startTime}
                 />
@@ -144,8 +168,12 @@ class NewTimeEntry extends React.Component {
                 <input
                   className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
                   id="to"
+                  maxLength={5}
+                  minLength={5}
                   name="endTime"
                   onChange={this.handleChange}
+                  pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
+                  required
                   type="text"
                   value={endTime}
                 />

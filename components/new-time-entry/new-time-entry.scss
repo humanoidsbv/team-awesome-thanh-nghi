@@ -112,6 +112,10 @@
       width: 64px;
       }
     }
+
+    &:invalid {
+      border: $color-secondary-alert 1px solid;
+    }
   }
 
   &__fieldset {
