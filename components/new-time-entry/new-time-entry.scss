@@ -89,6 +89,14 @@
       margin: 5px 0;
     }
 
+    &--valid {
+      border: 1px $color-input-border solid;
+    }
+
+    &--invalid {
+      border: $color-secondary-alert 1px solid;
+    }
+
     &--large {
       width: 311px;
 
@@ -111,10 +119,6 @@
       @media (min-width: 600px) {
       width: 64px;
       }
-    }
-
-    &:invalid {
-      border: $color-secondary-alert 1px solid;
     }
   }
 

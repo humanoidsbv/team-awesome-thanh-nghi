@@ -24,7 +24,7 @@ class NewTimeEntry extends React.Component {
 
   state = {
     newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel },
-    formValidity: true,
+    formValidity: false,
     newTimeEntryIsVisible: false
   };
 
@@ -46,6 +46,10 @@ class NewTimeEntry extends React.Component {
     }));
   }
 
+  clearNewEntry = () => {
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel } }));
+  }
+
   handleSubmit = () => {
     const { onAdd } = this.props;
     const { newTimeEntry } = this.state;
@@ -64,8 +68,15 @@ class NewTimeEntry extends React.Component {
     }
   }
 
-  clearNewEntry = () => {
-    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel } }));
+  handleBlur = ({ target }) => {
+    const formValidity = target.checkValidity();
+    if (formValidity) {
+      target.classList.add('new-time-entry__input--valid');
+      target.classList.remove('new-time-entry__input--invalid');
+    } else {
+      target.classList.add('new-time-entry__input--invalid');
+      target.classList.remove('new-time-entry__input--valid');
+    }
   }
 
   render() {
@@ -103,7 +114,6 @@ class NewTimeEntry extends React.Component {
                 id="employer"
                 name="client"
                 onChange={this.handleChange}
-                required
                 type="text"
                 value={client}
               />
@@ -118,7 +128,6 @@ class NewTimeEntry extends React.Component {
                 id="activity"
                 name="activity"
                 onChange={this.handleChange}
-                required
                 type="text"
                 value={activity}
               />
@@ -134,6 +143,7 @@ class NewTimeEntry extends React.Component {
                 maxLength={10}
                 minLength={10}
                 name="date"
+                onBlur={this.handleBlur}
                 onChange={this.handleChange}
                 pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
                 required
@@ -153,6 +163,7 @@ class NewTimeEntry extends React.Component {
                   maxLength={5}
                   minLength={5}
                   name="startTime"
+                  onBlur={this.handleBlur}
                   onChange={this.handleChange}
                   pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
                   required
@@ -171,6 +182,7 @@ class NewTimeEntry extends React.Component {
                   maxLength={5}
                   minLength={5}
                   name="endTime"
+                  onBlur={this.handleBlur}
                   onChange={this.handleChange}
                   pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
                   required
