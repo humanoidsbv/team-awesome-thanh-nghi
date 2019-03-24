@@ -52,9 +52,8 @@ class NewTimeEntry extends React.Component {
 
   handleSubmit = () => {
     const { onAdd } = this.props;
-    const { newTimeEntry } = this.state;
-    const formValidity = this.formValidationRef.current.checkValidity();
-    this.setState(() => ({ formValidity }));
+    const { newTimeEntry, formValidity } = this.state;
+    this.setState(() => ({ formValidity: this.formValidationRef.current.checkValidity() }));
 
     if (formValidity) {
       onAdd({
@@ -69,8 +68,7 @@ class NewTimeEntry extends React.Component {
   }
 
   handleBlur = ({ target }) => {
-    const formValidity = target.checkValidity();
-    if (formValidity) {
+    if (target.checkValidity()) {
       target.classList.add('new-time-entry__input--valid');
       target.classList.remove('new-time-entry__input--invalid');
     } else {
