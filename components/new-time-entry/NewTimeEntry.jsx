@@ -38,12 +38,12 @@ class NewTimeEntry extends React.Component {
   }
 
   state = {
-    newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel },
     formValidity: false,
+    newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel },
     newTimeEntryIsVisible: false
   };
 
-  onNewTimeEntryClick = () => {
+  toggleForm = () => {
     this.setState(({ newTimeEntryIsVisible }) => ({
       newTimeEntryIsVisible: !newTimeEntryIsVisible
     }));
@@ -79,16 +79,16 @@ class NewTimeEntry extends React.Component {
       endTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.endTime.value),
       startTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.startTime.value)
     });
-    this.onNewTimeEntryClick();
+    this.toggleForm();
     this.clearNewEntry();
   }
 
-  handleBlur = ({ target }) => {
+  handleBlur = ({ target, target: { name } }) => {
     const { newTimeEntry } = this.state;
     this.setState(() => ({
       newTimeEntry: {
         ...newTimeEntry,
-        [target.name]: { ...newTimeEntry[target.name], isInvalid: !target.checkValidity() }
+        [name]: { ...newTimeEntry[name], isInvalid: !target.checkValidity() }
       },
       formValidity: this.formValidationRef.current.checkValidity()
     }));
@@ -96,7 +96,7 @@ class NewTimeEntry extends React.Component {
 
   render() {
     const {
-      formValidity, isInvalid, newTimeEntry, newTimeEntryIsVisible
+      formValidity, newTimeEntry, newTimeEntryIsVisible
     } = this.state;
     const {
       activity, client, date, endTime, startTime
@@ -106,7 +106,7 @@ class NewTimeEntry extends React.Component {
       <React.Fragment>
         <NewEntryButton
           isVisible={!newTimeEntryIsVisible}
-          onClick={this.onNewTimeEntryClick}
+          onClick={this.toggleForm}
         />
         <div className={`
           new-time-entry
@@ -120,7 +120,7 @@ class NewTimeEntry extends React.Component {
           >
             <button
               className="new-time-entry__close-button"
-              onClick={this.onNewTimeEntryClick}
+              onClick={this.toggleForm}
               type="button"
             >
               x
@@ -239,7 +239,10 @@ class NewTimeEntry extends React.Component {
               </label>
             </div>
             <button
-              className={`new-time-entry__add-button ${formValidity ? '' : 'new-time-entry__add-button--disabled'} `}
+              className={`
+                new-time-entry__add-button
+                new-time-entry__add-button--${formValidity ? 'enabled' : 'disabled'}
+              `}
               onClick={this.handleSubmit}
               type="button"
             >
