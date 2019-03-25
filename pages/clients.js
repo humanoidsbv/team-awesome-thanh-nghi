@@ -14,7 +14,10 @@ const Clients = () => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <Header />
-    <PageHeader />
+    <PageHeader
+      pageTitle="Clients"
+      pageSubTitle="5 Clients"
+    />
     <Main>
       <ClientEntries />
     </Main>
