@@ -1,0 +1,57 @@
+@import "../../shared/styles/main.scss";
+
+.clients-header {
+  align-items: center;
+  display: flex;
+  height: 90px;
+  font-family: $font-primary;
+  width: 100%;
+
+  &__title {
+    display: none;
+
+    @media (min-width: 600px) {
+      color: $color-text-dark;
+      display: flex;
+      font-size: 24px;
+      font-weight: 400;
+      margin-left: 5px;
+    }
+  }
+
+  &__add-button {
+    background-image: $color-button-gradient;
+    border-color: $color-button-border;
+    border-radius: 4px;
+    color: $color-primary-white;
+    font-size: 14px;
+    height: 36px;
+    margin: 0;
+    width: 343px;
+
+    @media (min-width: 600px) {
+      margin: 0 15px 0 auto;
+      width: 156px;
+    }
+  }
+
+  &__add-icon {
+    padding-right: 15px;
+  }
+
+  &__sort {
+    display: none;
+
+    @media (min-width: 600px) {
+      background-color: $color-primary-white;
+      border-color: $color-input-border;
+      border-radius: 4px;
+      color: $color-text-light;
+      display: flex;
+      font-family: $font-primary;
+      font-size: 14px;
+      height: 36px;
+      width: 120px;
+    }
+  }
+}
