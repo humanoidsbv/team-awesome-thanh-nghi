@@ -27,27 +27,6 @@
       "endTime": "2019-03-23T16:30:00.000Z",
       "startTime": "2019-03-23T09:00:00.000Z",
       "id": 12
-    },
-    {
-      "activity": "test ",
-      "client": "hoi",
-      "endTime": "2012-12-12T20:00:00.000Z",
-      "startTime": "2012-12-12T11:00:00.000Z",
-      "id": 13
-    },
-    {
-      "activity": "test ",
-      "client": "hoi test",
-      "endTime": "2012-12-12T20:00:00.000Z",
-      "startTime": "2012-12-12T11:00:00.000Z",
-      "id": 14
-    },
-    {
-      "activity": "test",
-      "client": "hoi",
-      "endTime": "2012-12-12T20:00:00.000Z",
-      "startTime": "2012-12-12T11:00:00.000Z",
-      "id": 15
     }
   ]
 }

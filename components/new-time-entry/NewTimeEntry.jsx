@@ -108,7 +108,11 @@ class NewTimeEntry extends React.Component {
           isVisible={!newTimeEntryIsVisible}
           onClick={this.onNewTimeEntryClick}
         />
-        <div className={`new-time-entry ${newTimeEntryIsVisible ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
+        <div className={`
+          new-time-entry
+          new-time-entry--${newTimeEntryIsVisible ? 'visible' : 'invisible'}
+        `}
+        >
           <h2 className="new-time-entry__title">New time entry</h2>
           <form
             className="new-time-entry__form"
@@ -127,10 +131,17 @@ class NewTimeEntry extends React.Component {
             >
               EMPLOYER
               <input
-                className="new-time-entry__input new-time-entry__input--employer new-time-entry__input--large"
+                className={`
+                  new-time-entry__input
+                  new-time-entry__input--large
+                  new-time-entry__input--${client.isInvalid ? 'invalid' : 'valid'}
+                `}
                 id="employer"
+                minLength={2}
                 name="client"
+                onBlur={this.handleBlur}
                 onChange={this.handleChange}
+                required
                 type="text"
                 value={client.value}
               />
@@ -141,10 +152,17 @@ class NewTimeEntry extends React.Component {
             >
               ACTIVITY
               <input
-                className="new-time-entry__input new-time-entry__input--activity new-time-entry__input--large"
+                className={`
+                  new-time-entry__input
+                  new-time-entry__input--large
+                  new-time-entry__input--${activity.isInvalid ? 'invalid' : 'valid'}
+                `}
                 id="activity"
+                minLength={2}
                 name="activity"
+                onBlur={this.handleBlur}
                 onChange={this.handleChange}
+                required
                 type="text"
                 value={activity.value}
               />
@@ -155,7 +173,11 @@ class NewTimeEntry extends React.Component {
             >
               DATE
               <input
-                className={`new-time-entry__input new-time-entry__input--date new-time-entry__input--medium ${date.isInvalid ? 'new-time-entry__input--invalid' : 'new-time-entry__input--valid'}`}
+                className={`
+                  new-time-entry__input
+                  new-time-entry__input--medium
+                  new-time-entry__input--${date.isInvalid ? 'invalid' : 'valid'}
+                `}
                 id="date"
                 maxLength={10}
                 minLength={10}
@@ -175,7 +197,11 @@ class NewTimeEntry extends React.Component {
               >
                 FROM
                 <input
-                  className={`new-time-entry__input new-time-entry__input--from new-time-entry__input--small ${startTime.isInvalid ? 'new-time-entry__input--invalid' : 'new-time-entry__input--valid'}`}
+                  className={`
+                    new-time-entry__input
+                    new-time-entry__input--small
+                    new-time-entry__input--${startTime.isInvalid ? 'invalid' : 'valid'}
+                  `}
                   id="from"
                   maxLength={5}
                   minLength={5}
@@ -194,7 +220,11 @@ class NewTimeEntry extends React.Component {
               >
                 TO
                 <input
-                  className={`new-time-entry__input new-time-entry__input--to new-time-entry__input--small ${endTime.isInvalid ? 'new-time-entry__input--invalid' : 'new-time-entry__input--valid'}`}
+                  className={`
+                    new-time-entry__input
+                    new-time-entry__input--small
+                    new-time-entry__input--${endTime.isInvalid ? 'invalid' : 'valid'}
+                  `}
                   id="to"
                   maxLength={5}
                   minLength={5}
