@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './client-entry.scss';
+import './client.scss';
 
-const ClientEntry = () => (
+const Client = () => (
   <React.Fragment>
     <div>hoi</div>
   </React.Fragment>
 );
 
-export default ClientEntry;
+export default Client;

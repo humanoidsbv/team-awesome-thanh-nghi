@@ -4,9 +4,9 @@ import Head from 'next/head';
 import Header from '../components/header';
 import PageHeader from '../components/page-header';
 import Main from '../components/main';
-import ClientEntries from '../components/client-entries';
+import Clients from '../components/clients';
 
-const Clients = () => (
+const ClientsPage = () => (
 
   <React.Fragment>
     <Head>
@@ -19,9 +19,9 @@ const Clients = () => (
       pageSubTitle="5 Clients"
     />
     <Main>
-      <ClientEntries />
+      <Clients />
     </Main>
   </React.Fragment>
 );
 
-export default Clients;
+export default ClientsPage;

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import './client-entries.scss';
-import ClientEntry from '../client-entry';
+import './clients.scss';
+import Client from '../client';
 
-const ClientEntries = () => (
+const Clients = () => (
   <React.Fragment>
     <div className="clients-header">
       <h2 className="clients-header__title">All Clients</h2>
@@ -24,10 +24,10 @@ const ClientEntries = () => (
         <option value="date"> Date </option>
       </select>
     </div>
-    <div className="clients-entries">
-      <ClientEntry />
+    <div className="clients-list">
+      <Client />
     </div>
   </React.Fragment>
 );
 
-export default ClientEntries;
+export default Clients;
