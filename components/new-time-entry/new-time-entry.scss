@@ -27,7 +27,7 @@
 
   &__form {
     background-color: $color-form-background;
-    border: 1px $color-form-border solid;
+    border: 1px solid $color-form-border;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -77,7 +77,7 @@
 
   &__input {
     background-image: $color-input-gradient;
-    border: 1px $color-input-border solid;
+    border: 1px solid $color-input-border;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 14px;
@@ -87,6 +87,14 @@
 
     @media (min-width: 600px) {
       margin: 5px 0;
+    }
+
+    &--valid {
+      border: 1px solid $color-input-border;
+    }
+
+    &--invalid {
+      border: 1px solid $color-secondary-alert;
     }
 
     &--large {
@@ -132,6 +140,11 @@
       margin-left: auto;
       margin-right: 30px;
       width: 90px;
+    }
+
+    &--disabled {
+      background: #e6eaee;
+      color: $color-text-medium;
     }
   }
 }

@@ -24,4 +24,3 @@ const initializeStore = (initialState) => {
 };
 
 export default initializeStore;
-

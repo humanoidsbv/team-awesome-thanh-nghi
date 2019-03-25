@@ -6,22 +6,44 @@ import NewEntryButton from '../new-entry-button';
 
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
-// reminder: erase default values when done
 class NewTimeEntry extends React.Component {
-  static newTimeEntryModel = {
-    activity: '',
-    client: '',
-    date: '',
-    endTime: '',
-    startTime: ''
+  static stateDefault = {
+    newTimeEntryModel: {
+      activity: {
+        isInvalid: false,
+        value: ''
+      },
+      client: {
+        isInvalid: false,
+        value: ''
+      },
+      date: {
+        isInvalid: false,
+        value: ''
+      },
+      endTime: {
+        isInvalid: false,
+        value: ''
+      },
+      startTime: {
+        isInvalid: false,
+        value: ''
+      }
+    }
   };
 
+  constructor(props) {
+    super(props);
+    this.formValidationRef = React.createRef();
+  }
+
   state = {
-    newTimeEntry: { ...NewTimeEntry.newTimeEntryModel },
+    formValidity: false,
+    newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel },
     newTimeEntryIsVisible: false
   };
 
-  onNewTimeEntryClick = () => {
+  toggleForm = () => {
     this.setState(({ newTimeEntryIsVisible }) => ({
       newTimeEntryIsVisible: !newTimeEntryIsVisible
     }));
@@ -30,35 +52,52 @@ class NewTimeEntry extends React.Component {
   handleChange = ({ target: { value, name } }) => {
     const { newTimeEntry } = this.state;
 
-
     this.setState(() => ({
       newTimeEntry: {
         ...newTimeEntry,
-        [name]: value || ''
+        [name]: { ...newTimeEntry[name], value }
       }
     }));
+  }
+
+  clearNewEntry = () => {
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel } }));
   }
 
   handleSubmit = () => {
     const { onAdd } = this.props;
     const { newTimeEntry } = this.state;
+    const formValidity = this.formValidationRef.current.checkValidity();
+
+    if (!formValidity) {
+      return;
+    }
 
     onAdd({
-      activity: newTimeEntry.activity,
-      client: newTimeEntry.client,
-      endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
-      startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
+      activity: newTimeEntry.activity.value,
+      client: newTimeEntry.client.value,
+      endTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.endTime.value),
+      startTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.startTime.value)
     });
+    this.toggleForm();
     this.clearNewEntry();
-    this.onNewTimeEntryClick();
   }
 
-  clearNewEntry = () => {
-    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.newTimeEntryModel } }));
+  handleBlur = ({ target, target: { name } }) => {
+    const { newTimeEntry } = this.state;
+    this.setState(() => ({
+      newTimeEntry: {
+        ...newTimeEntry,
+        [name]: { ...newTimeEntry[name], isInvalid: !target.checkValidity() }
+      },
+      formValidity: this.formValidationRef.current.checkValidity()
+    }));
   }
 
   render() {
-    const { newTimeEntry, newTimeEntryIsVisible } = this.state;
+    const {
+      formValidity, newTimeEntry, newTimeEntryIsVisible
+    } = this.state;
     const {
       activity, client, date, endTime, startTime
     } = newTimeEntry;
@@ -67,14 +106,21 @@ class NewTimeEntry extends React.Component {
       <React.Fragment>
         <NewEntryButton
           isVisible={!newTimeEntryIsVisible}
-          onClick={this.onNewTimeEntryClick}
+          onClick={this.toggleForm}
         />
-        <div className={`new-time-entry ${newTimeEntryIsVisible ? 'new-time-entry--visible' : 'new-time-entry--invisible'}`}>
+        <div className={`
+          new-time-entry
+          new-time-entry--${newTimeEntryIsVisible ? 'visible' : 'invisible'}
+        `}
+        >
           <h2 className="new-time-entry__title">New time entry</h2>
-          <form className="new-time-entry__form">
+          <form
+            className="new-time-entry__form"
+            ref={this.formValidationRef}
+          >
             <button
               className="new-time-entry__close-button"
-              onClick={this.onNewTimeEntryClick}
+              onClick={this.toggleForm}
               type="button"
             >
               x
@@ -85,12 +131,19 @@ class NewTimeEntry extends React.Component {
             >
               EMPLOYER
               <input
-                className="new-time-entry__input new-time-entry__input--employer new-time-entry__input--large"
+                className={`
+                  new-time-entry__input
+                  new-time-entry__input--large
+                  new-time-entry__input--${client.isInvalid ? 'invalid' : 'valid'}
+                `}
                 id="employer"
+                minLength={2}
                 name="client"
+                onBlur={this.handleBlur}
                 onChange={this.handleChange}
+                required
                 type="text"
-                value={client}
+                value={client.value}
               />
             </label>
             <label
@@ -99,12 +152,19 @@ class NewTimeEntry extends React.Component {
             >
               ACTIVITY
               <input
-                className="new-time-entry__input new-time-entry__input--activity new-time-entry__input--large"
+                className={`
+                  new-time-entry__input
+                  new-time-entry__input--large
+                  new-time-entry__input--${activity.isInvalid ? 'invalid' : 'valid'}
+                `}
                 id="activity"
+                minLength={2}
                 name="activity"
+                onBlur={this.handleBlur}
                 onChange={this.handleChange}
+                required
                 type="text"
-                value={activity}
+                value={activity.value}
               />
             </label>
             <label
@@ -113,12 +173,21 @@ class NewTimeEntry extends React.Component {
             >
               DATE
               <input
-                className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
+                className={`
+                  new-time-entry__input
+                  new-time-entry__input--medium
+                  new-time-entry__input--${date.isInvalid ? 'invalid' : 'valid'}
+                `}
                 id="date"
+                maxLength={10}
+                minLength={10}
                 name="date"
+                onBlur={this.handleBlur}
                 onChange={this.handleChange}
+                pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
+                required
                 type="text"
-                value={date}
+                value={date.value}
               />
             </label>
             <div className="new-time-entry__fieldset">
@@ -128,12 +197,21 @@ class NewTimeEntry extends React.Component {
               >
                 FROM
                 <input
-                  className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
+                  className={`
+                    new-time-entry__input
+                    new-time-entry__input--small
+                    new-time-entry__input--${startTime.isInvalid ? 'invalid' : 'valid'}
+                  `}
                   id="from"
+                  maxLength={5}
+                  minLength={5}
                   name="startTime"
+                  onBlur={this.handleBlur}
                   onChange={this.handleChange}
+                  pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
+                  required
                   type="text"
-                  value={startTime}
+                  value={startTime.value}
                 />
               </label>
               <label
@@ -142,17 +220,29 @@ class NewTimeEntry extends React.Component {
               >
                 TO
                 <input
-                  className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
+                  className={`
+                    new-time-entry__input
+                    new-time-entry__input--small
+                    new-time-entry__input--${endTime.isInvalid ? 'invalid' : 'valid'}
+                  `}
                   id="to"
+                  maxLength={5}
+                  minLength={5}
                   name="endTime"
+                  onBlur={this.handleBlur}
                   onChange={this.handleChange}
+                  pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
+                  required
                   type="text"
-                  value={endTime}
+                  value={endTime.value}
                 />
               </label>
             </div>
             <button
-              className="new-time-entry__add-button"
+              className={`
+                new-time-entry__add-button
+                new-time-entry__add-button--${formValidity ? 'enabled' : 'disabled'}
+              `}
               onClick={this.handleSubmit}
               type="button"
             >
