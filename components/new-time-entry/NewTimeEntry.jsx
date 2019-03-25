@@ -9,11 +9,26 @@ import { getDateTimeToIso } from '../../shared/services/converter-time';
 class NewTimeEntry extends React.Component {
   static stateDefault = {
     newTimeEntryModel: {
-      activity: '',
-      client: '',
-      date: '',
-      endTime: '',
-      startTime: ''
+      activity: {
+        isInvalid: false,
+        value: ''
+      },
+      client: {
+        isInvalid: false,
+        value: ''
+      },
+      date: {
+        isInvalid: false,
+        value: ''
+      },
+      endTime: {
+        isInvalid: false,
+        value: ''
+      },
+      startTime: {
+        isInvalid: false,
+        value: ''
+      }
     }
   };
 
@@ -37,11 +52,10 @@ class NewTimeEntry extends React.Component {
   handleChange = ({ target: { value, name } }) => {
     const { newTimeEntry } = this.state;
 
-
     this.setState(() => ({
       newTimeEntry: {
         ...newTimeEntry,
-        [name]: value || ''
+        [name]: { ...newTimeEntry[name], value }
       }
     }));
   }
@@ -52,33 +66,38 @@ class NewTimeEntry extends React.Component {
 
   handleSubmit = () => {
     const { onAdd } = this.props;
-    const { newTimeEntry, formValidity } = this.state;
-    this.setState(() => ({ formValidity: this.formValidationRef.current.checkValidity() }));
+    const { newTimeEntry } = this.state;
+    const formValidity = this.formValidationRef.current.checkValidity();
 
-    if (formValidity) {
-      onAdd({
-        activity: newTimeEntry.activity,
-        client: newTimeEntry.client,
-        endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
-        startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
-      });
-      this.onNewTimeEntryClick();
-      this.clearNewEntry();
+    if (!formValidity) {
+      return;
     }
+
+    onAdd({
+      activity: newTimeEntry.activity.value,
+      client: newTimeEntry.client.value,
+      endTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.endTime.value),
+      startTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.startTime.value)
+    });
+    this.onNewTimeEntryClick();
+    this.clearNewEntry();
   }
 
   handleBlur = ({ target }) => {
-    if (target.checkValidity()) {
-      target.classList.add('new-time-entry__input--valid');
-      target.classList.remove('new-time-entry__input--invalid');
-    } else {
-      target.classList.add('new-time-entry__input--invalid');
-      target.classList.remove('new-time-entry__input--valid');
-    }
+    const { newTimeEntry } = this.state;
+    this.setState(() => ({
+      newTimeEntry: {
+        ...newTimeEntry,
+        [target.name]: { ...newTimeEntry[target.name], isInvalid: !target.checkValidity() }
+      },
+      formValidity: this.formValidationRef.current.checkValidity()
+    }));
   }
 
   render() {
-    const { newTimeEntry, newTimeEntryIsVisible } = this.state;
+    const {
+      formValidity, isInvalid, newTimeEntry, newTimeEntryIsVisible
+    } = this.state;
     const {
       activity, client, date, endTime, startTime
     } = newTimeEntry;
@@ -113,7 +132,7 @@ class NewTimeEntry extends React.Component {
                 name="client"
                 onChange={this.handleChange}
                 type="text"
-                value={client}
+                value={client.value}
               />
             </label>
             <label
@@ -127,7 +146,7 @@ class NewTimeEntry extends React.Component {
                 name="activity"
                 onChange={this.handleChange}
                 type="text"
-                value={activity}
+                value={activity.value}
               />
             </label>
             <label
@@ -136,7 +155,7 @@ class NewTimeEntry extends React.Component {
             >
               DATE
               <input
-                className="new-time-entry__input new-time-entry__input--date new-time-entry__input--medium"
+                className={`new-time-entry__input new-time-entry__input--date new-time-entry__input--medium ${date.isInvalid ? 'new-time-entry__input--invalid' : 'new-time-entry__input--valid'}`}
                 id="date"
                 maxLength={10}
                 minLength={10}
@@ -146,7 +165,7 @@ class NewTimeEntry extends React.Component {
                 pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
                 required
                 type="text"
-                value={date}
+                value={date.value}
               />
             </label>
             <div className="new-time-entry__fieldset">
@@ -156,7 +175,7 @@ class NewTimeEntry extends React.Component {
               >
                 FROM
                 <input
-                  className="new-time-entry__input new-time-entry__input--from new-time-entry__input--small"
+                  className={`new-time-entry__input new-time-entry__input--from new-time-entry__input--small ${startTime.isInvalid ? 'new-time-entry__input--invalid' : 'new-time-entry__input--valid'}`}
                   id="from"
                   maxLength={5}
                   minLength={5}
@@ -166,7 +185,7 @@ class NewTimeEntry extends React.Component {
                   pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
                   required
                   type="text"
-                  value={startTime}
+                  value={startTime.value}
                 />
               </label>
               <label
@@ -175,7 +194,7 @@ class NewTimeEntry extends React.Component {
               >
                 TO
                 <input
-                  className="new-time-entry__input new-time-entry__input--to new-time-entry__input--small"
+                  className={`new-time-entry__input new-time-entry__input--to new-time-entry__input--small ${endTime.isInvalid ? 'new-time-entry__input--invalid' : 'new-time-entry__input--valid'}`}
                   id="to"
                   maxLength={5}
                   minLength={5}
@@ -185,12 +204,12 @@ class NewTimeEntry extends React.Component {
                   pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
                   required
                   type="text"
-                  value={endTime}
+                  value={endTime.value}
                 />
               </label>
             </div>
             <button
-              className="new-time-entry__add-button"
+              className={`new-time-entry__add-button ${formValidity ? '' : 'new-time-entry__add-button--disabled'} `}
               onClick={this.handleSubmit}
               type="button"
             >

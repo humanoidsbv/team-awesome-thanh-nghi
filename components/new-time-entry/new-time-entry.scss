@@ -141,6 +141,11 @@
       margin-right: 30px;
       width: 90px;
     }
+
+    &--disabled {
+      background: $color-form-border;
+      color: $color-text-medium;
+    }
   }
 }
 
