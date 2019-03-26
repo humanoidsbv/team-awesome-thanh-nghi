@@ -66,6 +66,14 @@
     border-radius: 4px;
     font-family: $font-primary;
     padding: 15px 0;
+
+    @media(min-width: 600px) {
+      background-color: $color-primary-white;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 30px 0;
+    }
   }
 
   &__wrapper-group {
@@ -73,16 +81,31 @@
     flex-direction: column;
     justify-content: center;
     padding: 0 15px;
+
+    @media(min-width: 600px) {
+      width: 480px;
+      padding: 0 25px;
+    }
   }
 
   &__wrapper-pair {
-
+    @media(min-width: 600px){
+    display: flex;
+    justify-content: space-between;
+    }
   }
 
   &__label {
     color: $color-text-medium;
     font-size: 12px;
     margin-top: 10px;
+
+    &--city {
+      @media(min-width: 600px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 
   &__input {
@@ -94,5 +117,16 @@
     height: 36px;
     margin-top: 10px;
     width: 100%;
+
+    @media(min-width: 600px) {
+      background: $color-primary-white;
+      margin-top: 8px;
+    }
+
+    &--pair {
+      @media(min-width: 600px) {
+        width: 250px;
+      }
+    }
   }
 }

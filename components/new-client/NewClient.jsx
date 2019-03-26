@@ -108,7 +108,7 @@ const NewClient = () => (
             >
               City
               <input
-                className="new-client__input new-client__input--pair"
+                className="new-client__input new-client__input--pair new-client__label--city"
                 id="city"
                 name="city"
                 type="text"

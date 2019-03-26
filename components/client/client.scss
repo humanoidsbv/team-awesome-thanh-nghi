@@ -6,6 +6,7 @@
   &__item {
     align-items: center;
     border: 1px solid $color-form-border;
+    border-left: 4px solid $color-primary-blue;
     border-radius: 4px;
     display: flex;
     font-family: $font-primary;
