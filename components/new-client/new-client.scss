@@ -54,6 +54,12 @@
     background-image: $color-button-gradient;
     border: 1px solid $color-button-border;
     color: $color-primary-white;
+
+    &--disabled {
+      background: #e6eaee;
+      border: 1px solid $color-input-border;
+      color: $color-text-medium;
+    }
   }
 }
 
@@ -116,11 +122,16 @@
     font-size: 14px;
     height: 36px;
     margin-top: 10px;
+    padding-left: 10px;
     width: 100%;
 
     @media(min-width: 600px) {
       background: $color-primary-white;
       margin-top: 8px;
+    }
+
+    &--invalid {
+      border: 1px solid $color-secondary-alert;
     }
 
     &--pair {
