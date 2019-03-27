@@ -4,38 +4,53 @@ import PropTypes from 'prop-types';
 import './client.scss';
 
 const Client = ({
-  address, city, date, mail, name, website, zipcode
+  city, date, description, name, number
 }) => (
   <React.Fragment>
     <ul className="client-content">
       <li className="client-content__item">
-        <div className="entry-content__name">{name}</div>
-        <div className="entry-content__adress-wrapper">
-          <div className="entry-content__address">{address}</div>
-          <div className="entry-content__zipcode">{zipcode}</div>
-          <div className="entry-content__city">{city}</div>
+        <img
+          alt="Logo"
+          className="client-content__logo"
+          src="../static/images/logo-at.jpeg"
+        />
+        <div className="client-content__wrapper-name">
+          <div className="client-content__element client-content__title">{name}</div>
+          <div className="client-content__element client-content__subtitle">{description}</div>
         </div>
-        <div className="entry-content__wrapper">
-          <div className="entry-content__mail">{mail}</div>
-          <div className="entry-content__website">{website}</div>
+        <div className="client-content__wrapper client-content__first-wrapper">
+          <div className="client-content__element client-content__title">{city}</div>
+          <div className="client-content__element client-content__subtitle">Location</div>
         </div>
-        <div>
-          <div className="entry-content__startdate">{date}</div>
-          <div className="entry-content__startdate">Starting date</div>
+        <div className="client-content__wrapper">
+          <div className="client-content__element client-content__title">{number}</div>
+          <div className="client-content__element client-content__subtitle">Client number</div>
         </div>
+        <div className="client-content__wrapper">
+          <div className="client-content__element client-content__title">{date}</div>
+          <div className="client-content__element client-content__subtitle">Starting date</div>
+        </div>
+        <button
+          className="client-content__button"
+          type="button"
+        >
+          <img
+            alt="Arrow down"
+            className="client-content__button-img"
+            src="../static/images/icon-arrow-down.svg"
+          />
+        </button>
       </li>
     </ul>
   </React.Fragment>
 );
 
 Client.propTypes = {
-  address: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  mail: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
-  zipcode: PropTypes.string.isRequired
+  number: PropTypes.string.isRequired
 };
 
 export default Client;

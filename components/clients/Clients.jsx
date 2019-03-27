@@ -31,16 +31,18 @@ const Clients = ({ clients }) => (
     <div className="clients-list">
       <React.Fragment>
         {clients.map(({
-          address, city, date, id, mail, name, website, zipcode
+          address, city, date, description, id, mail, name, number, website, zipcode
         }) => (
           <React.Fragment key={id}>
             <Client
               address={address}
               city={city}
               date={date}
+              description={description}
               id={id}
               mail={mail}
               name={name}
+              number={number}
               website={website}
               zipcode={zipcode}
             />
