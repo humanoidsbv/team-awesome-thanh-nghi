@@ -27,13 +27,44 @@
       "endTime": "2019-03-23T16:30:00.000Z",
       "startTime": "2019-03-23T09:00:00.000Z",
       "id": 12
+    }
+  ],
+  "clients": [
+    {
+      "address": "Havenstraat 123",
+      "city": "Rotterdam",
+      "date": "March 2019",
+      "description": "Port",
+      "id": 1,
+      "mail": "portofrotterdam@portmail.nl",
+      "name": "Port of Rotterdam",
+      "number": "C-001",
+      "website": "www.portofrotterdam.nl",
+      "zipcode": "1234AB"
     },
     {
-      "activity": "hallo",
-      "client": "hoi",
-      "endTime": "2012-12-12T20:00:00.000Z",
-      "startTime": "2012-12-12T11:00:00.000Z",
-      "id": 13
+      "address": "Bankstraat 123",
+      "city": "Rotterdam",
+      "date": "March 2019",
+      "description": "Bank",
+      "id": 2,
+      "mail": "bankofrotterdam@bankmail.nl",
+      "name": "Bank of Rotterdam",
+      "number": "C-002",
+      "website": "www.bankofrotterdam.nl",
+      "zipcode": "1234AZ"
+    },
+    {
+      "name": "Humanoids",
+      "description": "Development & Design",
+      "number": "C-000",
+      "date": "March 2019",
+      "address": "Stationsplein 45 Unit A1.209",
+      "zipcode": "3013AK",
+      "city": "Rotterdam",
+      "mail": "info@humanoids.nl",
+      "website": "https://humanoids.nl/",
+      "id": 3
     }
   ]
 }

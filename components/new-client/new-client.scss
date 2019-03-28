@@ -1,0 +1,139 @@
+@import "../../shared/styles/main.scss";
+
+.new-client-header {
+  align-items: center;
+  display: flex;
+  font-family: $font-primary;
+  height: 90px;
+  justify-content: space-between;
+  width: 100%;
+
+  &__title {
+    display: none;
+
+    @media(min-width: 600px) {
+      color: $color-text-dark;
+      display: block;
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    @media(min-width: 600px){
+      width: 230px;
+    }
+  }
+
+  &__button {
+    border-radius: 4px;
+    font-size: 14px;
+    height: 36px;
+    width: 149px;
+
+    @media(min-width: 600px) {
+      width: 100px;
+    }
+  }
+
+  &__button-cancel {
+    background-color: $color-support-grey;
+    border: 1px solid $color-input-border;
+    color: $color-support-medium;
+  }
+
+  &__button-save {
+    background-image: $color-button-gradient;
+    border: 1px solid $color-button-border;
+    color: $color-primary-white;
+
+    &--disabled {
+      background: #e6eaee;
+      border: 1px solid $color-input-border;
+      color: $color-text-medium;
+    }
+  }
+}
+
+.new-client {
+  width: 100%;
+
+  &__form {
+    background-color: $color-form-background;
+    border: 1px solid $color-form-border;
+    border-radius: 4px;
+    font-family: $font-primary;
+    padding: 15px 0;
+
+    @media(min-width: 600px) {
+      background-color: $color-primary-white;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 30px 0;
+    }
+  }
+
+  &__wrapper-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+
+    @media(min-width: 600px) {
+      width: 480px;
+      padding: 0 25px;
+    }
+  }
+
+  &__wrapper-pair {
+    @media(min-width: 600px){
+    display: flex;
+    justify-content: space-between;
+    }
+  }
+
+  &__label {
+    color: $color-text-medium;
+    font-size: 12px;
+    margin-top: 10px;
+
+    &--city {
+      @media(min-width: 600px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__input {
+    background-image: $color-input-gradient;
+    border: 1px solid $color-input-border;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 14px;
+    height: 36px;
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 100%;
+
+    @media(min-width: 600px) {
+      background: $color-primary-white;
+      margin-top: 8px;
+    }
+
+    &--invalid {
+      border: 1px solid $color-secondary-alert;
+    }
+
+    &--pair {
+      @media(min-width: 600px) {
+        width: 250px;
+      }
+    }
+  }
+}

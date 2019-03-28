@@ -7,29 +7,12 @@ import NewEntryButton from '../new-entry-button';
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
 class NewTimeEntry extends React.Component {
-  static stateDefault = {
-    newTimeEntryModel: {
-      activity: {
-        isInvalid: false,
-        value: ''
-      },
-      client: {
-        isInvalid: false,
-        value: ''
-      },
-      date: {
-        isInvalid: false,
-        value: ''
-      },
-      endTime: {
-        isInvalid: false,
-        value: ''
-      },
-      startTime: {
-        isInvalid: false,
-        value: ''
-      }
-    }
+  static newTimeEntryModel = {
+    activity: '',
+    client: '',
+    date: '',
+    endTime: '',
+    startTime: ''
   };
 
   constructor(props) {
@@ -38,8 +21,9 @@ class NewTimeEntry extends React.Component {
   }
 
   state = {
-    formValidity: false,
-    newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel },
+    isFieldInvalid: {},
+    isFormValid: false,
+    newTimeEntry: { ...NewTimeEntry.newTimeEntryModel },
     newTimeEntryIsVisible: false
   };
 
@@ -49,58 +33,41 @@ class NewTimeEntry extends React.Component {
     }));
   }
 
-  handleChange = ({ target: { value, name } }) => {
-    const { newTimeEntry } = this.state;
-
-    this.setState(() => ({
-      newTimeEntry: {
-        ...newTimeEntry,
-        [name]: { ...newTimeEntry[name], value }
-      }
+  handleBlur = ({ target }) => {
+    this.setState(prevState => ({
+      isFieldInvalid: { ...prevState.isFieldInvalid, [target.name]: !target.checkValidity() },
+      isFormValid: this.formValidationRef.current.checkValidity()
     }));
   }
 
-  clearNewEntry = () => {
-    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.stateDefault.newTimeEntryModel } }));
+  handleChange = ({ target }) => {
+    this.setState(prevState => ({
+      newTimeEntry: { ...prevState.newTimeEntry, [target.name]: target.value }
+    }));
   }
 
   handleSubmit = () => {
+    const { isFormValid, newTimeEntry } = this.state;
     const { onAdd } = this.props;
-    const { newTimeEntry } = this.state;
-    const formValidity = this.formValidationRef.current.checkValidity();
 
-    if (!formValidity) {
+    if (!isFormValid) {
       return;
     }
 
     onAdd({
-      activity: newTimeEntry.activity.value,
-      client: newTimeEntry.client.value,
-      endTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.endTime.value),
-      startTime: getDateTimeToIso(newTimeEntry.date.value, newTimeEntry.startTime.value)
+      activity: newTimeEntry.activity,
+      client: newTimeEntry.client,
+      endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
+      startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
     });
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.newTimeEntryModel } }));
     this.toggleForm();
-    this.clearNewEntry();
-  }
-
-  handleBlur = ({ target, target: { name } }) => {
-    const { newTimeEntry } = this.state;
-    this.setState(() => ({
-      newTimeEntry: {
-        ...newTimeEntry,
-        [name]: { ...newTimeEntry[name], isInvalid: !target.checkValidity() }
-      },
-      formValidity: this.formValidationRef.current.checkValidity()
-    }));
   }
 
   render() {
     const {
-      formValidity, newTimeEntry, newTimeEntryIsVisible
+      isFieldInvalid, isFormValid, newTimeEntry, newTimeEntryIsVisible
     } = this.state;
-    const {
-      activity, client, date, endTime, startTime
-    } = newTimeEntry;
 
     return (
       <React.Fragment>
@@ -134,7 +101,7 @@ class NewTimeEntry extends React.Component {
                 className={`
                   new-time-entry__input
                   new-time-entry__input--large
-                  new-time-entry__input--${client.isInvalid ? 'invalid' : 'valid'}
+                  new-time-entry__input--${isFieldInvalid.client ? 'invalid' : 'valid'}
                 `}
                 id="employer"
                 minLength={2}
@@ -143,7 +110,7 @@ class NewTimeEntry extends React.Component {
                 onChange={this.handleChange}
                 required
                 type="text"
-                value={client.value}
+                value={newTimeEntry.client}
               />
             </label>
             <label
@@ -155,7 +122,7 @@ class NewTimeEntry extends React.Component {
                 className={`
                   new-time-entry__input
                   new-time-entry__input--large
-                  new-time-entry__input--${activity.isInvalid ? 'invalid' : 'valid'}
+                  new-time-entry__input--${isFieldInvalid.activity ? 'invalid' : 'valid'}
                 `}
                 id="activity"
                 minLength={2}
@@ -164,7 +131,7 @@ class NewTimeEntry extends React.Component {
                 onChange={this.handleChange}
                 required
                 type="text"
-                value={activity.value}
+                value={newTimeEntry.activity}
               />
             </label>
             <label
@@ -176,7 +143,7 @@ class NewTimeEntry extends React.Component {
                 className={`
                   new-time-entry__input
                   new-time-entry__input--medium
-                  new-time-entry__input--${date.isInvalid ? 'invalid' : 'valid'}
+                  new-time-entry__input--${isFieldInvalid.date ? 'invalid' : 'valid'}
                 `}
                 id="date"
                 maxLength={10}
@@ -187,7 +154,7 @@ class NewTimeEntry extends React.Component {
                 pattern="(0[1-9]|[12][0-9]|3[01])[-](0[1-9]|1[0-2])[-]([0-9]{4})"
                 required
                 type="text"
-                value={date.value}
+                value={newTimeEntry.date}
               />
             </label>
             <div className="new-time-entry__fieldset">
@@ -200,7 +167,7 @@ class NewTimeEntry extends React.Component {
                   className={`
                     new-time-entry__input
                     new-time-entry__input--small
-                    new-time-entry__input--${startTime.isInvalid ? 'invalid' : 'valid'}
+                    new-time-entry__input--${isFieldInvalid.startTime ? 'invalid' : 'valid'}
                   `}
                   id="from"
                   maxLength={5}
@@ -211,7 +178,7 @@ class NewTimeEntry extends React.Component {
                   pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
                   required
                   type="text"
-                  value={startTime.value}
+                  value={newTimeEntry.startTime}
                 />
               </label>
               <label
@@ -223,7 +190,7 @@ class NewTimeEntry extends React.Component {
                   className={`
                     new-time-entry__input
                     new-time-entry__input--small
-                    new-time-entry__input--${endTime.isInvalid ? 'invalid' : 'valid'}
+                    new-time-entry__input--${isFieldInvalid.endTime ? 'invalid' : 'valid'}
                   `}
                   id="to"
                   maxLength={5}
@@ -234,14 +201,14 @@ class NewTimeEntry extends React.Component {
                   pattern="([01][0-9]|2[0-3])[:]([0-5][0-9])"
                   required
                   type="text"
-                  value={endTime.value}
+                  value={newTimeEntry.endTime}
                 />
               </label>
             </div>
             <button
               className={`
                 new-time-entry__add-button
-                new-time-entry__add-button--${formValidity ? 'enabled' : 'disabled'}
+                new-time-entry__add-button--${isFormValid ? 'enabled' : 'disabled'}
               `}
               onClick={this.handleSubmit}
               type="button"

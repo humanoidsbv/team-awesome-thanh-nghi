@@ -106,6 +106,7 @@ export const timeEntriesReducer = (state = initialState, action) => {
         ...state,
         isLoading: false
       };
+
     default:
       return state;
   }

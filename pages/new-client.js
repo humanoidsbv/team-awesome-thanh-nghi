@@ -4,11 +4,9 @@ import Head from 'next/head';
 import Header from '../components/header';
 import PageHeader from '../components/page-header';
 import Main from '../components/main';
-import NewTimeEntry from '../components/new-time-entry';
-import TimeEntries from '../components/time-entries';
+import NewClient from '../components/new-client';
 
-const Index = () => (
-
+const NewClientPage = () => (
   <React.Fragment>
     <Head>
       <title>Team Awesome!</title>
@@ -16,14 +14,13 @@ const Index = () => (
     </Head>
     <Header />
     <PageHeader
-      title="Timesheets"
-      subtitle="5 Entries"
+      title="Clients"
+      subtitle="5 Clients"
     />
     <Main>
-      <NewTimeEntry />
-      <TimeEntries />
+      <NewClient />
     </Main>
   </React.Fragment>
 );
 
-export default Index;
+export default NewClientPage;

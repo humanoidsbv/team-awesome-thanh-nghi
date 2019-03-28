@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './page-header.scss';
 
-const PageHeader = () => (
+const PageHeader = ({ title, subtitle }) => (
   <div className="page-header-bar">
-    <h2 className="page-header-bar__title">Timesheets</h2>
+    <h2 className="page-header-bar__title">{title}</h2>
     <div className="page-header-bar__divider">|</div>
-    <p className="page-header-bar__number">12 Entries</p>
+    <p className="page-header-bar__subtitle">{subtitle}</p>
     <input
       className="page-header-bar__search"
       placeholder="Search"
@@ -14,5 +15,10 @@ const PageHeader = () => (
     />
   </div>
 );
+
+PageHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired
+};
 
 export default PageHeader;
