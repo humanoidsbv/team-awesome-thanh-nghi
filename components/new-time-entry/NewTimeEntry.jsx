@@ -68,6 +68,7 @@ class NewTimeEntry extends React.Component {
     const {
       isFieldInvalid, isFormValid, newTimeEntry, newTimeEntryIsVisible
     } = this.state;
+    const { clients } = this.props;
 
     return (
       <React.Fragment>
@@ -92,7 +93,7 @@ class NewTimeEntry extends React.Component {
             >
               x
             </button>
-            <label
+            {/* <label
               className="new-time-entry__label new-time-entry__label--employer"
               htmlFor="employer"
             >
@@ -112,7 +113,20 @@ class NewTimeEntry extends React.Component {
                 type="text"
                 value={newTimeEntry.client}
               />
-            </label>
+            </label> */}
+            <select
+              name="client"
+              onChange={this.handleChange}
+            >
+              <option defaultValue value="">
+                Select a client
+              </option>
+              {clients.map(({ id, name }) => (
+                <option key={id} value={id}>
+                  {name}
+                </option>
+              ))}
+            </select>
             <label
               className="new-time-entry__label new-time-entry__label--activity"
               htmlFor="activity"
@@ -223,6 +237,7 @@ class NewTimeEntry extends React.Component {
 }
 
 NewTimeEntry.propTypes = {
+  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onAdd: PropTypes.func.isRequired
 };
 

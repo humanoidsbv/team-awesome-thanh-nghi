@@ -1,3 +1,6 @@
+import { createSelector } from 'reselect';
+import { clientsSelector } from '../ducks/clients';
+
 // ACTIONS
 export const RETRIEVE_TIME_ENTRIES_REQUEST = 'RETRIEVE_TIME_ENTRIES_REQUEST';
 export const RETRIEVE_TIME_ENTRIES_SUCCESS = 'RETRIEVE_TIME_ENTRIES_SUCCESS';
@@ -111,3 +114,23 @@ export const timeEntriesReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+// SELECTORS
+export const rootSelector = state => state.timeEntries;
+
+export const timeEntriesItemsSelector = createSelector(
+  rootSelector,
+  timeEntries => timeEntries.items
+);
+
+export const timeEntriesSelector = createSelector(
+  timeEntriesItemsSelector,
+  clientsSelector,
+  (timeEntries, clients) => timeEntries.map((timeEntry) => {
+    const { name } = clients.find(client => timeEntry.client === client.id) || {};
+    return {
+      ...timeEntry,
+      clientName: name || 'Unknown'
+    };
+  })
+);

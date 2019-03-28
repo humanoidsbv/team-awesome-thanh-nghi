@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect';
+
 // ACTIONS
 export const RETRIEVE_CLIENTS_REQUEST = 'RETRIEVE_CLIENTS_REQUEST';
 export const RETRIEVE_CLIENTS_SUCCESS = 'RETRIEVE_CLIENTS_SUCCESS';
@@ -66,3 +68,19 @@ export const clientsReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+// SELECTORS
+export const rootSelector = state => state.clients;
+
+export const clientsSelector = createSelector(
+  rootSelector,
+  clients => clients.items
+);
+
+export const clientsOptionsSelector = createSelector(
+  clientsSelector,
+  items => items.map(item => ({
+    id: item.id,
+    name: item.name
+  }))
+);

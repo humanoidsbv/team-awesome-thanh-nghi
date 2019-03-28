@@ -9,7 +9,7 @@ import { dateToLocaleString, timeToLocaleString } from '../../shared/services/co
 const TimeEntries = ({ onDelete, timeEntries }) => (
   <React.Fragment>
     {timeEntries.map(({
-      client, endTime, id, startTime
+      clientName, endTime, id, startTime
     }, i) => {
       const localizeDate = dateToLocaleString(startTime);
       const localizeEndTime = timeToLocaleString(endTime);
@@ -21,7 +21,7 @@ const TimeEntries = ({ onDelete, timeEntries }) => (
             && <h2 className="entry-date">{localizeDate}</h2>
           }
           <TimeEntry
-            client={client}
+            client={clientName}
             endTime={localizeEndTime}
             id={id}
             onDelete={onDelete}
