@@ -1,10 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import { withRouter } from 'next/router';
 
 import './navigation.scss';
 
-const Navigation = ({ handleClick }) => (
+const menuItems = [
+  {
+    href: '/index',
+    label: 'Timesheets'
+  },
+  {
+    href: '/team-members',
+    label: 'Team members'
+  },
+  {
+    href: '/projects',
+    label: 'Projects'
+  },
+  {
+    href: '/clients',
+    label: 'Clients'
+  },
+  {
+    href: '/documents',
+    label: 'Documents'
+  }
+];
+
+const Navigation = ({ handleClick, router }) => (
 
   <React.Fragment>
     <h1 className="header__logo">team awesome</h1>
@@ -27,57 +51,31 @@ const Navigation = ({ handleClick }) => (
 
     <nav className="menu">
       <ul className="menu__list">
-        <li className="menu__item menu__item--active">
-          <Link href="/index">
-            <a
-              className="menu__link"
-              href="#null"
-            >
-              Timesheets
-            </a>
-          </Link>
-        </li>
-        <li className="menu__item">
-          <a
-            className="menu__link"
-            href="#null"
+        {menuItems.map(menuItem => (
+          <li
+            className={`
+              menu__item
+              menu__item--${router.pathname === menuItem.href
+              ? 'active'
+              : 'inactive'}
+            `}
+            key={menuItem.label}
           >
-            Team members
-          </a>
-        </li>
-        <li className="menu__item">
-          <a
-            className="menu__link"
-            href="#null"
-          >
-            Projects
-          </a>
-        </li>
-        <li className="menu__item">
-          <Link href="/clients">
-            <a
-              className="menu__link"
-              href="#null"
-            >
-              Clients
-            </a>
-          </Link>
-        </li>
-        <li className="menu__item">
-          <a
-            className="menu__link"
-            href="#null"
-          >
-            Documents
-          </a>
-        </li>
+            <Link href={menuItem.href}>
+              <a className="menu__link" href="#null">
+                {menuItem.label}
+              </a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   </React.Fragment>
 );
 
 Navigation.propTypes = {
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  router: PropTypes.object.isRequired
 };
 
-export default Navigation;
+export default withRouter(Navigation);

@@ -1,7 +1,7 @@
 @import "../../shared/styles/main.scss";
 
 .client-content {
-  padding-inline-start: 0;
+  padding-left: 0;
   width: 100%;
 
   &__item {
@@ -9,6 +9,7 @@
     border: 1px solid $color-form-border;
     border-left: 4px solid $color-primary-blue;
     border-radius: 4px;
+    box-sizing: border-box;
     display: flex;
     font-family: $font-primary;
     height: 82px;
@@ -30,10 +31,10 @@
       display: block;
       width: 150px;
     }
-  }
 
-  &__first-wrapper {
-    margin-left: auto;
+    &--first {
+      margin-left: auto;
+    }
   }
 
   &__title {
@@ -49,9 +50,10 @@
 
   &__button {
     margin: 0 20px 0 auto;
+
     @media (min-width: 600px) {
-    border: none;
-    margin: 0 20px;
+      border: none;
+      margin: 0 20px;
     }
   }
 }

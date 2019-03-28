@@ -7,7 +7,6 @@ import Main from '../components/main';
 import Clients from '../components/clients';
 
 const ClientsPage = () => (
-
   <React.Fragment>
     <Head>
       <title>Team Awesome!</title>
@@ -15,8 +14,8 @@ const ClientsPage = () => (
     </Head>
     <Header />
     <PageHeader
-      pageTitle="Clients"
-      pageSubTitle="5 Clients"
+      title="Clients"
+      subtitle="5 Clients"
     />
     <Main>
       <Clients />

@@ -18,7 +18,7 @@ const Client = ({
           <div className="client-content__element client-content__title">{name}</div>
           <div className="client-content__element client-content__subtitle">{description}</div>
         </div>
-        <div className="client-content__wrapper client-content__first-wrapper">
+        <div className="client-content__wrapper client-content__wrapper--first">
           <div className="client-content__element client-content__title">{city}</div>
           <div className="client-content__element client-content__subtitle">Location</div>
         </div>

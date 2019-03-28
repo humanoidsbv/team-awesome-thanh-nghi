@@ -16,8 +16,8 @@ const Index = () => (
     </Head>
     <Header />
     <PageHeader
-      pageTitle="Timesheets"
-      pageSubTitle="5 Entries"
+      title="Timesheets"
+      subtitle="5 Entries"
     />
     <Main>
       <NewTimeEntry />

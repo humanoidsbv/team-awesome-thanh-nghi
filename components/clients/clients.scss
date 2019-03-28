@@ -27,7 +27,7 @@
     font-size: 14px;
     height: 36px;
     margin: 0;
-    width: 343px;
+    width: 100%;
 
     @media (min-width: 600px) {
       margin: 0 15px 0 auto;
@@ -47,7 +47,7 @@
       border-color: $color-input-border;
       border-radius: 4px;
       color: $color-text-light;
-      display: flex;
+      display: inline-block;
       font-family: $font-primary;
       font-size: 14px;
       height: 36px;

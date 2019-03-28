@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 import './page-header.scss';
 
-const PageHeader = ({ pageTitle, pageSubTitle }) => (
+const PageHeader = ({ title, subtitle }) => (
   <div className="page-header-bar">
-    <h2 className="page-header-bar__title">{pageTitle}</h2>
+    <h2 className="page-header-bar__title">{title}</h2>
     <div className="page-header-bar__divider">|</div>
-    <p className="page-header-bar__subtitle">{pageSubTitle}</p>
+    <p className="page-header-bar__subtitle">{subtitle}</p>
     <input
       className="page-header-bar__search"
       placeholder="Search"
@@ -17,8 +17,8 @@ const PageHeader = ({ pageTitle, pageSubTitle }) => (
 );
 
 PageHeader.propTypes = {
-  pageTitle: PropTypes.string.isRequired,
-  pageSubTitle: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired
 };
 
 export default PageHeader;
