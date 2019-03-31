@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Router from 'next/router';
 
 import './new-client.scss';
+import { getDateToIso } from '../../shared/services/converter-time';
 
 class NewClient extends React.Component {
   constructor(props) {
@@ -38,7 +39,10 @@ class NewClient extends React.Component {
       return;
     }
 
-    onAdd(newClient);
+    onAdd({
+      ...newClient,
+      date: getDateToIso(newClient.date)
+    });
 
     Router.push('/clients');
   }

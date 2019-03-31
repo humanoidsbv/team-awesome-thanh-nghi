@@ -116,10 +116,10 @@ export const timeEntriesReducer = (state = initialState, action) => {
 };
 
 // SELECTORS
-export const rootSelector = state => state.timeEntries;
+export const timeEntriesRootSelector = state => state.timeEntries;
 
 export const timeEntriesItemsSelector = createSelector(
-  rootSelector,
+  timeEntriesRootSelector,
   timeEntries => timeEntries.items
 );
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { addTimeEntryRequest } from '../../ducks/time-entries';
-import { retrieveClientsRequest, clientsOptionsSelector } from '../../ducks/clients';
+import { retrieveClientsRequest, clientNameIdSelector } from '../../ducks/clients';
 import NewTimeEntry from './NewTimeEntry';
 
 class NewTimeEntryContainer extends React.Component {
@@ -20,7 +20,7 @@ class NewTimeEntryContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  clients: clientsOptionsSelector(state)
+  clients: clientNameIdSelector(state)
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

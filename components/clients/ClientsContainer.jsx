@@ -2,7 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { retrieveClientsRequest } from '../../ducks/clients';
+import {
+  retrieveClientsRequest, sortClients, sortDirectionClients,
+  clientsSortBySelector, clientsSortDirectionSelector, clientsSelector
+} from '../../ducks/clients';
 import Clients from './Clients';
 
 class ClientsContainer extends React.Component {
@@ -19,11 +22,16 @@ class ClientsContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  clients: state.clients.items
+  clients: clientsSelector(state),
+  sortBy: clientsSortBySelector(state),
+  sortDirection: clientsSortDirectionSelector(state)
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  onRetrieve: retrieveClientsRequest
+  clientsSelector,
+  onRetrieve: retrieveClientsRequest,
+  sortClients,
+  sortDirectionClients
 }, dispatch);
 
 ClientsContainer.propTypes = Clients.propTypes;
