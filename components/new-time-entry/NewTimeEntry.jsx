@@ -3,6 +3,7 @@ import React from 'react';
 
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
+import SelectElement from '../../shared/components/SelectElement';
 
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
@@ -93,31 +94,21 @@ class NewTimeEntry extends React.Component {
             >
               x
             </button>
-            <div
-              className="new-time-entry__label new-time-entry__label--employer"
-            >
-              EMPLOYER
-              <select
-                className={`
-                  new-time-entry__input
-                  new-time-entry__input--large
-                  new-time-entry__input--${isFieldInvalid.client ? 'invalid' : 'valid'}
-                `}
+            <div className="new-time-entry__wrapper--employer">
+              <p className="new-time-entry__label--employer">
+                EMPLOYER
+              </p>
+              <SelectElement
+                className="select-element__input"
+                defaultValue={{ label: 'Select a client', value: '' }}
                 id="employer"
+                isInvalid={isFieldInvalid.client}
                 name="client"
                 onBlur={this.handleBlur}
                 onChange={this.handleChange}
+                options={clients}
                 required
-              >
-                <option defaultValue value="">
-                  Select a client
-                </option>
-                {clients.map(({ id, name }) => (
-                  <option key={id} value={id}>
-                    {name}
-                  </option>
-                ))}
-              </select>
+              />
             </div>
             <label
               className="new-time-entry__label new-time-entry__label--activity"

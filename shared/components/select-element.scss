@@ -1,0 +1,29 @@
+@import "../../shared/styles/main.scss";
+.select-element {
+  background-color: $color-primary-white;
+  border: 1px solid $color-input-border;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 36px;
+
+  &__input {
+    background-image: $color-input-gradient;
+    border: 1px solid $color-input-border;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 36px;
+    margin: 0 0 0 auto;
+    padding-left: 8px;
+    width: 311px;
+
+    @media (min-width: 600px) {
+      width: 245px;
+    }
+  }
+
+  &--invalid {
+    border: 1px solid $color-secondary-alert;
+  }
+}
+

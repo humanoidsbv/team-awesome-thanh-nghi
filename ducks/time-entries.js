@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { clientsSelector } from '../ducks/clients';
+import { clientsSelector } from './clients';
 
 // ACTIONS
 export const RETRIEVE_TIME_ENTRIES_REQUEST = 'RETRIEVE_TIME_ENTRIES_REQUEST';
@@ -11,6 +11,7 @@ export const ADD_TIME_ENTRY_ERROR = 'ADD_TIME_ENTRY_ERROR';
 export const DELETE_TIME_ENTRY_REQUEST = 'DELETE_TIME_ENTRY_REQUEST';
 export const DELETE_TIME_ENTRY_SUCCESS = 'DELETE_TIME_ENTRY_SUCCESS';
 export const DELETE_TIME_ENTRY_ERROR = 'DELETE_TIME_ENTRY_ERROR';
+export const FILTER_TIME_ENTRIES = 'FILTER_TIME_ENTRIES';
 
 // ACTION CREATORS
 export const retrieveTimeEntriesRequest = () => ({
@@ -57,10 +58,17 @@ export const deleteTimeEntryError = error => ({
   payload: error
 });
 
+export const filterTimeEntries = filter => ({
+  type: FILTER_TIME_ENTRIES,
+  payload: filter
+});
+
+// INITIAL STATE
 export const initialState = {
   items: [],
   isLoading: false,
-  error: ''
+  error: '',
+  currentFilter: ''
 };
 
 // REDUCERS
@@ -110,6 +118,12 @@ export const timeEntriesReducer = (state = initialState, action) => {
         isLoading: false
       };
 
+    case FILTER_TIME_ENTRIES:
+      return {
+        ...state,
+        currentFilter: action.payload
+      };
+
     default:
       return state;
   }
@@ -123,7 +137,7 @@ export const timeEntriesItemsSelector = createSelector(
   timeEntries => timeEntries.items
 );
 
-export const timeEntriesSelector = createSelector(
+export const timeEntriesClientIdSelector = createSelector(
   timeEntriesItemsSelector,
   clientsSelector,
   (timeEntries, clients) => timeEntries.map((timeEntry) => {
@@ -133,4 +147,16 @@ export const timeEntriesSelector = createSelector(
       clientName: name || 'Unknown'
     };
   })
+);
+
+export const timeEntriesFilterSelector = createSelector(
+  timeEntriesRootSelector,
+  timeEntries => timeEntries.currentFilter
+);
+
+export const timeEntriesSelector = createSelector(
+  timeEntriesClientIdSelector,
+  timeEntriesFilterSelector,
+  (timeEntries, currentFilter) => timeEntries
+    .filter(timeEntry => !currentFilter || timeEntry.client === currentFilter)
 );

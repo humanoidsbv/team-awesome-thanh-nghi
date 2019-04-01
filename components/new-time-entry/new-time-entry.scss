@@ -65,13 +65,20 @@
     padding: 5px 0;
 
     &--employer {
-      margin-left: 10px;
-      padding-top: 10px;
+      color: $color-text-medium;
+      font-family: $font-primary;
+      font-size: 12px;
+      margin: 0 0 5px 0;
+    }
+  }
 
-      @media (min-width: 600px) {
-        margin-left: 30px;
+  &__wrapper--employer {
+    margin: 30px 0 20px;
+    padding: 0 12px;
 
-      }
+    @media (min-width: 600px) {
+      margin: 0 20px;
+      padding: 0;
     }
   }
 
