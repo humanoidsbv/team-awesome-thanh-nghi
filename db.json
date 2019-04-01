@@ -33,7 +33,7 @@
     {
       "address": "Havenstraat 123",
       "city": "Rotterdam",
-      "date": "2019-02-12T00:00:00.000Z",
+      "startDate": "2019-02-12T00:00:00.000Z",
       "description": "Port",
       "id": "1",
       "emailAddress": "portofrotterdam@portmail.nl",
@@ -45,7 +45,7 @@
     {
       "address": "Bankstraat 123",
       "city": "Amsterdam",
-      "date": "2019-03-12T00:00:00.000Z",
+      "startDate": "2019-03-12T00:00:00.000Z",
       "description": "Bank",
       "id": "2",
       "emailAddress": "bankofrotterdam@bankmail.nl",
@@ -58,7 +58,7 @@
       "name": "Humanoids",
       "description": "Development & Design",
       "clientNumber": "C-000",
-      "date": "2019-01-12T00:00:00.000Z",
+      "startDate": "2019-01-12T00:00:00.000Z",
       "address": "Stationsplein 45 Unit A1.209",
       "zipcode": "3013AK",
       "city": "Rotterdam",

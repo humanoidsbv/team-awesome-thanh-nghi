@@ -7,7 +7,7 @@ export function dateToLocaleString(date) {
 export function dateToLocaleStringMonthYear(date) {
   const newDate = new Date(date);
   const options = { month: 'long', year: 'numeric' };
-  return newDate.toLocaleString('en-NL', options);
+  return newDate.toLocaleString(navigator.language, options);
 }
 
 export function getDateToIso(date) {

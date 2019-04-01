@@ -41,7 +41,7 @@ class NewClient extends React.Component {
 
     onAdd({
       ...newClient,
-      date: getDateToIso(newClient.date)
+      startDate: getDateToIso(newClient.startDate)
     });
 
     Router.push('/clients');
@@ -142,20 +142,20 @@ class NewClient extends React.Component {
               </label>
               <label
                 className="new-client__label"
-                htmlFor="date"
+                htmlFor="startDate"
               >
                 Starting date
                 <input
                   className={`
                     new-client__input
-                    new-client__input--${isFieldInvalid.date ? 'invalid' : 'valid'}
+                    new-client__input--${isFieldInvalid.startDate ? 'invalid' : 'valid'}
                   `}
-                  id="date"
+                  id="startDate"
                   minLength={2}
                   onBlur={this.handleBlur}
                   onChange={this.handleChange}
                   required
-                  name="date"
+                  name="startDate"
                   type="text"
                 />
               </label>

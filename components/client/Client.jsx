@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './client.scss';
 
 const Client = ({
-  city, date, description, name, clientNumber
+  city, startDate, description, name, clientNumber
 }) => (
   <React.Fragment>
     <ul className="client-content">
@@ -27,7 +27,7 @@ const Client = ({
           <div className="client-content__element client-content__subtitle">Client number</div>
         </div>
         <div className="client-content__wrapper">
-          <div className="client-content__element client-content__title">{date}</div>
+          <div className="client-content__element client-content__title">{startDate}</div>
           <div className="client-content__element client-content__subtitle">Starting date</div>
         </div>
         <button
@@ -47,7 +47,7 @@ const Client = ({
 
 Client.propTypes = {
   city: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   clientNumber: PropTypes.string.isRequired

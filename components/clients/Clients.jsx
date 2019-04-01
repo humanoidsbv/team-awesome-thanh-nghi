@@ -42,21 +42,21 @@ class Clients extends React.Component {
             <option value="name-descending">Client Name Z-A</option>
             <option value="city-ascending">Location A-Z</option>
             <option value="city-descending">Location Z-A</option>
-            <option value="clientNumber-ascending">Client Number A-Z</option>
-            <option value="clientNumber-descending">Client Number Z-A</option>
-            <option value="date-ascending">Date Old-New</option>
-            <option value="date-descending">Date New-Old</option>
+            <option value="clientNumber-ascending">Client Number 0-9</option>
+            <option value="clientNumber-descending">Client Number 9-0</option>
+            <option value="startDate-ascending">Starting Date Old-New</option>
+            <option value="startDate-descending">Starting Date New-Old</option>
           </select>
         </div>
         <div className="clients-list">
           {clients.map((client) => {
-            const localizedAddedDate = dateToLocaleStringMonthYear(client.date);
+            const localizedStartDate = dateToLocaleStringMonthYear(client.startDate);
             return (
               <React.Fragment key={client.id}>
                 <Client
                   address={client.address}
                   city={client.city}
-                  date={localizedAddedDate}
+                  startDate={localizedStartDate}
                   description={client.description}
                   id={client.id}
                   key={client.id}
