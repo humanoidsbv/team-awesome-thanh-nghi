@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Router from 'next/router';
 
 import './new-client.scss';
-import { getDateToIso } from '../../shared/services/converter-time';
 
 class NewClient extends React.Component {
   constructor(props) {
@@ -41,7 +40,7 @@ class NewClient extends React.Component {
 
     onAdd({
       ...newClient,
-      startDate: getDateToIso(newClient.startDate)
+      dateAdded: new Date()
     });
 
     Router.push('/clients');
@@ -137,25 +136,6 @@ class NewClient extends React.Component {
                   onBlur={this.handleBlur}
                   onChange={this.handleChange}
                   required
-                  type="text"
-                />
-              </label>
-              <label
-                className="new-client__label"
-                htmlFor="startDate"
-              >
-                Starting date
-                <input
-                  className={`
-                    new-client__input
-                    new-client__input--${isFieldInvalid.startDate ? 'invalid' : 'valid'}
-                  `}
-                  id="startDate"
-                  minLength={2}
-                  onBlur={this.handleBlur}
-                  onChange={this.handleChange}
-                  required
-                  name="startDate"
                   type="text"
                 />
               </label>
