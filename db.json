@@ -2,69 +2,81 @@
   "time-entries": [
     {
       "activity": "lol",
-      "client": "Humanoids",
+      "client": "3",
       "endTime": "2019-03-20T16:00:00.000Z",
       "startTime": "2019-03-20T08:00:00.000Z",
-      "id": 9
+      "id": "9"
     },
     {
       "activity": "lol",
-      "client": "Google",
+      "client": "2",
       "endTime": "2019-03-21T17:00:00.000Z",
       "startTime": "2019-03-21T09:00:00.000Z",
-      "id": 10
+      "id": "10"
     },
     {
       "activity": "Design",
-      "client": "Port of Rotterdam",
+      "client": "1",
       "endTime": "2019-03-22T16:30:00.000Z",
       "startTime": "2019-03-22T08:30:00.000Z",
-      "id": 11
+      "id": "11"
     },
     {
       "activity": "Front-End",
-      "client": "NS",
+      "client": "1",
       "endTime": "2019-03-23T16:30:00.000Z",
       "startTime": "2019-03-23T09:00:00.000Z",
-      "id": 12
+      "id": "12"
     }
   ],
   "clients": [
     {
       "address": "Havenstraat 123",
       "city": "Rotterdam",
-      "date": "March 2019",
+      "dateAdded": "2019-02-12T00:00:00.000Z",
       "description": "Port",
-      "id": 1,
-      "mail": "portofrotterdam@portmail.nl",
+      "id": "1",
+      "emailAddress": "portofrotterdam@portmail.nl",
       "name": "Port of Rotterdam",
-      "number": "C-001",
+      "clientNumber": "C-001",
       "website": "www.portofrotterdam.nl",
       "zipcode": "1234AB"
     },
     {
       "address": "Bankstraat 123",
-      "city": "Rotterdam",
-      "date": "March 2019",
+      "city": "Amsterdam",
+      "dateAdded": "2019-03-12T00:00:00.000Z",
       "description": "Bank",
-      "id": 2,
-      "mail": "bankofrotterdam@bankmail.nl",
-      "name": "Bank of Rotterdam",
-      "number": "C-002",
-      "website": "www.bankofrotterdam.nl",
+      "id": "2",
+      "emailAddress": "bankofrotterdam@bankmail.nl",
+      "name": "Bank of Amsterdam",
+      "clientNumber": "C-002",
+      "website": "www.bankofamsterdam.nl",
       "zipcode": "1234AZ"
     },
     {
       "name": "Humanoids",
       "description": "Development & Design",
-      "number": "C-000",
-      "date": "March 2019",
+      "clientNumber": "C-000",
+      "dateAdded": "2019-01-12T00:00:00.000Z",
       "address": "Stationsplein 45 Unit A1.209",
       "zipcode": "3013AK",
       "city": "Rotterdam",
-      "mail": "info@humanoids.nl",
+      "emailAddress": "info@humanoids.nl",
       "website": "https://humanoids.nl/",
-      "id": 3
+      "id": "3"
+    },
+    {
+      "name": "Test",
+      "description": "work",
+      "clientNumber": "C-005",
+      "address": "Straat 123",
+      "zipcode": "1234AZ",
+      "city": "Blabla",
+      "emailAddress": "blablabla@gmail.com",
+      "website": "www.testhoi.nl",
+      "dateAdded": "2019-04-01T11:14:27.349Z",
+      "id": "riB7AWq"
     }
   ]
 }

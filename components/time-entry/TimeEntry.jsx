@@ -47,7 +47,7 @@ class TimeEntry extends React.Component {
 TimeEntry.propTypes = {
   client: PropTypes.string.isRequired,
   endTime: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   onDelete: PropTypes.func.isRequired,
   startTime: PropTypes.string.isRequired
 };

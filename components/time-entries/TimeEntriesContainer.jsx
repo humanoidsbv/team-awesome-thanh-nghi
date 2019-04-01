@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { retrieveTimeEntriesRequest, deleteTimeEntryRequest } from '../../ducks/time-entries';
+import { retrieveTimeEntriesRequest, deleteTimeEntryRequest, timeEntriesSelector } from '../../ducks/time-entries';
 import TimeEntries from './TimeEntries';
 
 class TimeEntriesContainer extends React.Component {
@@ -19,7 +19,7 @@ class TimeEntriesContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  timeEntries: state.timeEntries.items
+  timeEntries: timeEntriesSelector(state)
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

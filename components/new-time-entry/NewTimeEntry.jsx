@@ -68,6 +68,7 @@ class NewTimeEntry extends React.Component {
     const {
       isFieldInvalid, isFormValid, newTimeEntry, newTimeEntryIsVisible
     } = this.state;
+    const { clients } = this.props;
 
     return (
       <React.Fragment>
@@ -92,27 +93,32 @@ class NewTimeEntry extends React.Component {
             >
               x
             </button>
-            <label
+            <div
               className="new-time-entry__label new-time-entry__label--employer"
-              htmlFor="employer"
             >
               EMPLOYER
-              <input
+              <select
                 className={`
                   new-time-entry__input
                   new-time-entry__input--large
                   new-time-entry__input--${isFieldInvalid.client ? 'invalid' : 'valid'}
                 `}
                 id="employer"
-                minLength={2}
                 name="client"
                 onBlur={this.handleBlur}
                 onChange={this.handleChange}
                 required
-                type="text"
-                value={newTimeEntry.client}
-              />
-            </label>
+              >
+                <option defaultValue value="">
+                  Select a client
+                </option>
+                {clients.map(({ id, name }) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <label
               className="new-time-entry__label new-time-entry__label--activity"
               htmlFor="activity"
@@ -223,6 +229,7 @@ class NewTimeEntry extends React.Component {
 }
 
 NewTimeEntry.propTypes = {
+  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onAdd: PropTypes.func.isRequired
 };
 

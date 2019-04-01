@@ -38,7 +38,10 @@ class NewClient extends React.Component {
       return;
     }
 
-    onAdd(newClient);
+    onAdd({
+      ...newClient,
+      dateAdded: new Date()
+    });
 
     Router.push('/clients');
   }
@@ -118,40 +121,21 @@ class NewClient extends React.Component {
               </label>
               <label
                 className="new-client__label"
-                htmlFor="number"
+                htmlFor="clientNumber"
               >
                 Client number
                 <input
                   className={`
                     new-client__input
-                    new-client__input--${isFieldInvalid.number ? 'invalid' : 'valid'}
+                    new-client__input--${isFieldInvalid.clientNumber ? 'invalid' : 'valid'}
                   `}
-                  id="number"
+                  id="clientNumber"
                   maxLength={5}
                   minLength={2}
-                  name="number"
+                  name="clientNumber"
                   onBlur={this.handleBlur}
                   onChange={this.handleChange}
                   required
-                  type="text"
-                />
-              </label>
-              <label
-                className="new-client__label"
-                htmlFor="date"
-              >
-                Starting date
-                <input
-                  className={`
-                    new-client__input
-                    new-client__input--${isFieldInvalid.date ? 'invalid' : 'valid'}
-                  `}
-                  id="date"
-                  minLength={2}
-                  onBlur={this.handleBlur}
-                  onChange={this.handleChange}
-                  required
-                  name="date"
                   type="text"
                 />
               </label>
@@ -221,17 +205,17 @@ class NewClient extends React.Component {
               </div>
               <label
                 className="new-client__label"
-                htmlFor="mail"
+                htmlFor="emailAddress"
               >
                 E-mail
                 <input
                   className={`
                     new-client__input
-                    new-client__input--${isFieldInvalid.mail ? 'invalid' : 'valid'}
+                    new-client__input--${isFieldInvalid.emailAddress ? 'invalid' : 'valid'}
                   `}
-                  id="mail"
+                  id="emailAddress"
                   minLength={2}
-                  name="mail"
+                  name="emailAddress"
                   onBlur={this.handleBlur}
                   onChange={this.handleChange}
                   required
