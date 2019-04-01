@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './client.scss';
 
 const Client = ({
-  city, date, description, name, number
+  city, date, description, name, clientNumber
 }) => (
   <React.Fragment>
     <ul className="client-content">
@@ -23,7 +23,7 @@ const Client = ({
           <div className="client-content__element client-content__subtitle">Location</div>
         </div>
         <div className="client-content__wrapper">
-          <div className="client-content__element client-content__title">{number}</div>
+          <div className="client-content__element client-content__title">{clientNumber}</div>
           <div className="client-content__element client-content__subtitle">Client number</div>
         </div>
         <div className="client-content__wrapper">
@@ -50,7 +50,7 @@ Client.propTypes = {
   date: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired
+  clientNumber: PropTypes.string.isRequired
 };
 
 export default Client;

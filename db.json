@@ -36,9 +36,9 @@
       "date": "2019-02-12T00:00:00.000Z",
       "description": "Port",
       "id": "1",
-      "mail": "portofrotterdam@portmail.nl",
+      "emailAddress": "portofrotterdam@portmail.nl",
       "name": "Port of Rotterdam",
-      "number": "C-001",
+      "clientNumber": "C-001",
       "website": "www.portofrotterdam.nl",
       "zipcode": "1234AB"
     },
@@ -48,21 +48,21 @@
       "date": "2019-03-12T00:00:00.000Z",
       "description": "Bank",
       "id": "2",
-      "mail": "bankofrotterdam@bankmail.nl",
+      "emailAddress": "bankofrotterdam@bankmail.nl",
       "name": "Bank of Amsterdam",
-      "number": "C-002",
+      "clientNumber": "C-002",
       "website": "www.bankofamsterdam.nl",
       "zipcode": "1234AZ"
     },
     {
       "name": "Humanoids",
       "description": "Development & Design",
-      "number": "C-000",
+      "clientNumber": "C-000",
       "date": "2019-01-12T00:00:00.000Z",
       "address": "Stationsplein 45 Unit A1.209",
       "zipcode": "3013AK",
       "city": "Rotterdam",
-      "mail": "info@humanoids.nl",
+      "emailAddress": "info@humanoids.nl",
       "website": "https://humanoids.nl/",
       "id": "3"
     }

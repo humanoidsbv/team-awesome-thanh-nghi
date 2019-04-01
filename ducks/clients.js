@@ -6,7 +6,6 @@ export const RETRIEVE_CLIENTS_SUCCESS = 'RETRIEVE_CLIENTS_SUCCESS';
 export const ADD_CLIENT_REQUEST = 'ADD_CLIENT_REQUEST';
 export const ADD_CLIENT_SUCCESS = 'ADD_CLIENT_SUCCESS';
 export const SORT_CLIENTS = 'SORT_CLIENTS';
-export const SORT_DIRECTION_CLIENTS = 'SORT_DIRECTION_CLIENTS';
 
 // ACTION CREATORS
 export const retrieveClientsRequest = () => ({
@@ -28,22 +27,16 @@ export const addClientSuccess = newClient => ({
   payload: newClient
 });
 
-export const sortClients = sortBy => ({
+export const sortClients = sortSelection => ({
   type: SORT_CLIENTS,
-  payload: sortBy
-});
-
-export const sortDirectionClients = sortDirection => ({
-  type: SORT_DIRECTION_CLIENTS,
-  payload: sortDirection
+  payload: sortSelection
 });
 
 // INITIAL STATE
 
 export const initialState = {
   items: [],
-  sortBy: 'name',
-  sortDirection: 'ascending',
+  sortBy: 'name-ascending',
   isLoading: false,
   error: ''
 };
@@ -86,12 +79,6 @@ export const clientsReducer = (state = initialState, action) => {
         sortBy: action.payload
       };
 
-    case SORT_DIRECTION_CLIENTS:
-      return {
-        ...state,
-        sortDirection: action.payload
-      };
-
     default:
       return state;
   }
@@ -118,24 +105,19 @@ export const clientsSortBySelector = createSelector(
   clients => clients.sortBy
 );
 
-export const clientsSortDirectionSelector = createSelector(
-  clientsRootSelector,
-  clients => clients.sortDirection
-);
-
 export const clientsSelector = createSelector(
   clientsItemsSelector,
   clientsSortBySelector,
-  clientsSortDirectionSelector,
-  (clients, sortBy, sortDirection) => (
-    [...clients].sort((a, b) => {
-      if (a[sortBy] < b[sortBy]) {
-        return sortDirection === 'ascending' ? -1 : 1;
+  (items, sortBy) => (
+    [...items].sort((a, b) => {
+      const [property, order] = sortBy.split('-');
+      if (a[property] === b[property]) {
+        return 0;
       }
-      if (a[sortBy] > b[sortBy]) {
-        return sortDirection === 'ascending' ? 1 : -1;
+      if (order === 'ascending') {
+        return (a[property] < b[property]) ? -1 : 1;
       }
-      return 0;
+      return (a[property] < b[property]) ? 1 : -1;
     })
   )
 );

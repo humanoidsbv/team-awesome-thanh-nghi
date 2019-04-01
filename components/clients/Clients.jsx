@@ -13,13 +13,8 @@ class Clients extends React.Component {
     sortClients(target.value);
   }
 
-  handleChangeSortDirection = ({ target }) => {
-    const { sortDirectionClients } = this.props;
-    sortDirectionClients(target.value);
-  }
-
   render() {
-    const { clients, sortBy, sortDirection } = this.props;
+    const { clients } = this.props;
 
     return (
       <React.Fragment>
@@ -41,38 +36,31 @@ class Clients extends React.Component {
           <select
             className="clients-header__sort"
             onChange={this.handleChangeSortBy}
-            value={sortBy}
           >
-            <option value=""> Sort by: </option>
-            <option value="name"> Client Name </option>
-            <option value="city"> Location </option>
-            <option value="number"> Client Number </option>
-          </select>
-          <select
-            className="clients-header__sort"
-            onChange={this.handleChangeSortDirection}
-            value={sortDirection}
-          >
-            <option value=""> Sort direction: </option>
-            <option value="ascending"> Ascending </option>
-            <option value="descending"> Descending </option>
+            <option value="">Sort by:</option>
+            <option value="name-ascending">Client Name A-Z</option>
+            <option value="name-descending">Client Name Z-A</option>
+            <option value="city-ascending">Location A-Z</option>
+            <option value="city-descending">Location Z-A</option>
+            <option value="clientNumber-ascending">Client Number A-Z</option>
+            <option value="clientNumber-descending">Client Number Z-A</option>
           </select>
         </div>
         <div className="clients-list">
           {clients.map((client) => {
-            const localizeDate = dateToLocaleStringMonthYear(client.date);
+            const localizedAddedDate = dateToLocaleStringMonthYear(client.date);
             return (
               <React.Fragment key={client.id}>
                 <Client
                   address={client.address}
                   city={client.city}
-                  date={localizeDate}
+                  date={localizedAddedDate}
                   description={client.description}
                   id={client.id}
                   key={client.id}
-                  mail={client.mail}
+                  emailAddress={client.emailAddress}
                   name={client.name}
-                  number={client.number}
+                  clientNumber={client.clientNumber}
                   website={client.website}
                   zipcode={client.zipcode}
                 />
@@ -87,10 +75,7 @@ class Clients extends React.Component {
 
 Clients.propTypes = {
   clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  sortBy: PropTypes.string.isRequired,
-  sortClients: PropTypes.func.isRequired,
-  sortDirection: PropTypes.string.isRequired,
-  sortDirectionClients: PropTypes.func.isRequired
+  sortClients: PropTypes.func.isRequired
 };
 
 export default Clients;
