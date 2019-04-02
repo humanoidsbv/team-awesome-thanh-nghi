@@ -35,7 +35,7 @@ class Clients extends React.Component {
           </Link>
           <select
             className="clients-header__sort"
-            onChange={handleChange}
+            onChange={this.handleChange}
           >
             <option value="">Sort by:</option>
             <option value="name-ascending">Client Name A-Z</option>
