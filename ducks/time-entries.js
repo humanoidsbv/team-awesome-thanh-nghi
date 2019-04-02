@@ -68,7 +68,7 @@ export const initialState = {
   items: [],
   isLoading: false,
   error: '',
-  currentFilter: ''
+  filterBy: ''
 };
 
 // REDUCERS
@@ -121,7 +121,7 @@ export const timeEntriesReducer = (state = initialState, action) => {
     case FILTER_TIME_ENTRIES:
       return {
         ...state,
-        currentFilter: action.payload
+        filterBy: action.payload
       };
 
     default:
@@ -151,12 +151,12 @@ export const timeEntriesClientIdSelector = createSelector(
 
 export const timeEntriesFilterSelector = createSelector(
   timeEntriesRootSelector,
-  timeEntries => timeEntries.currentFilter
+  timeEntries => timeEntries.filterBy
 );
 
 export const timeEntriesSelector = createSelector(
   timeEntriesClientIdSelector,
   timeEntriesFilterSelector,
-  (timeEntries, currentFilter) => timeEntries
-    .filter(timeEntry => !currentFilter || timeEntry.client === currentFilter)
+  (timeEntries, filterBy) => timeEntries
+    .filter(timeEntry => !filterBy || timeEntry.client === filterBy)
 );

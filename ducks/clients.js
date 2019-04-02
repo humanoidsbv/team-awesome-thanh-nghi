@@ -95,8 +95,8 @@ export const clientsItemsSelector = createSelector(
 export const clientNameIdSelector = createSelector(
   clientsItemsSelector,
   items => items.map(item => ({
-    value: item.id,
-    label: item.name
+    label: item.name,
+    value: item.id
   }))
 );
 

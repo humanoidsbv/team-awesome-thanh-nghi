@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import './select-element.scss';
+import './select.scss';
 
-const SelectElement = ({
-  defaultValue, id, isInvalid, name, options, onChange, onBlur, required
+const Select = ({
+  className, defaultValue, id, isInvalid, name, options, onChange, onBlur, required
 }) => (
   <select
     className={`
       select-element
       select-element--${isInvalid ? 'invalid' : 'valid'}
+      ${className}
     `}
-    onChange={onChange}
-    required={required}
     id={id}
     name={name}
     onBlur={onBlur}
+    onChange={onChange}
+    required={required}
   >
     {[defaultValue, ...options].map(option => (
       <option
@@ -28,13 +29,14 @@ const SelectElement = ({
   </select>
 );
 
-SelectElement.propTypes = {
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func.isRequired,
+Select.propTypes = {
+  className: PropTypes.string,
   defaultValue: PropTypes.shape({}).isRequired,
   id: PropTypes.string,
   isInvalid: PropTypes.bool,
   name: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired
@@ -42,7 +44,8 @@ SelectElement.propTypes = {
   required: PropTypes.bool
 };
 
-SelectElement.defaultProps = {
+Select.defaultProps = {
+  className: '',
   id: '',
   isInvalid: false,
   name: '',
@@ -50,4 +53,4 @@ SelectElement.defaultProps = {
   required: false
 };
 
-export default SelectElement;
+export default Select;

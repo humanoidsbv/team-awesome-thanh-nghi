@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 import './time-entries.scss';
 import TimeEntry from '../time-entry';
-import SelectElement from '../../shared/components/SelectElement';
+import Select from '../../shared/components/Select';
 
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
 class TimeEntries extends React.Component {
-  handleChangeFilter = ({ target }) => {
+  handleChange = ({ target }) => {
     const { filterTimeEntries } = this.props;
     filterTimeEntries(target.value);
   }
 
   render() {
-    const { onDelete, timeEntries, clients } = this.props;
+    const { clients, onDelete, timeEntries } = this.props;
 
     return (
       <React.Fragment>
@@ -22,9 +22,10 @@ class TimeEntries extends React.Component {
           <h2 className="time-entries__title">
             Time Entries
           </h2>
-          <SelectElement
-            onChange={this.handleChangeFilter}
-            defaultValue={{ label: 'Alle clients', value: '' }}
+          <Select
+            className="select-element__filter"
+            defaultValue={{ label: 'All clients', value: '' }}
+            onChange={this.handleChange}
             options={clients}
           />
         </div>
@@ -56,6 +57,7 @@ class TimeEntries extends React.Component {
 }
 
 TimeEntries.propTypes = {
+  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   filterTimeEntries: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
   timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired

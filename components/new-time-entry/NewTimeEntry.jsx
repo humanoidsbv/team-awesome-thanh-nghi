@@ -3,7 +3,7 @@ import React from 'react';
 
 import './new-time-entry.scss';
 import NewEntryButton from '../new-entry-button';
-import SelectElement from '../../shared/components/SelectElement';
+import Select from '../../shared/components/Select';
 
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
@@ -94,14 +94,14 @@ class NewTimeEntry extends React.Component {
             >
               x
             </button>
-            <div className="new-time-entry__wrapper--employer">
-              <p className="new-time-entry__label--employer">
-                EMPLOYER
+            <div className="new-time-entry__wrapper--client">
+              <p className="new-time-entry__label--client">
+                CLIENT
               </p>
-              <SelectElement
-                className="select-element__input"
+              <Select
+                className="select-element__form"
                 defaultValue={{ label: 'Select a client', value: '' }}
-                id="employer"
+                id="client"
                 isInvalid={isFieldInvalid.client}
                 name="client"
                 onBlur={this.handleBlur}
