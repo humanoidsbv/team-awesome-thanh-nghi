@@ -8,7 +8,7 @@ import Client from '../client';
 import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
 
 class Clients extends React.Component {
-  handleChangeSortBy = ({ target }) => {
+  handleChange = ({ target }) => {
     const { sortClients } = this.props;
     sortClients(target.value);
   }
@@ -35,7 +35,7 @@ class Clients extends React.Component {
           </Link>
           <select
             className="clients-header__sort"
-            onChange={this.handleChangeSortBy}
+            onChange={this.handleChange}
           >
             <option value="">Sort by:</option>
             <option value="name-ascending">Client Name A-Z</option>
