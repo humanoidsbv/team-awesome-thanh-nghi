@@ -28,7 +28,7 @@ const Client = ({
         </div>
         <div className="client-content__wrapper">
           <div className="client-content__element client-content__title">{dateAdded}</div>
-          <div className="client-content__element client-content__subtitle">Starting date</div>
+          <div className="client-content__element client-content__subtitle">Date added</div>
         </div>
         <button
           className="client-content__button"

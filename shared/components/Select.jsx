@@ -31,7 +31,7 @@ const Select = ({
 
 Select.propTypes = {
   className: PropTypes.string,
-  defaultValue: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.shape({}),
   id: PropTypes.string,
   isInvalid: PropTypes.bool,
   name: PropTypes.string,
@@ -46,6 +46,7 @@ Select.propTypes = {
 
 Select.defaultProps = {
   className: '',
+  defaultValue: '',
   id: '',
   isInvalid: false,
   name: '',

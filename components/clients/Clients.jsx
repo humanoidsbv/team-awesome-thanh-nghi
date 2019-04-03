@@ -44,8 +44,8 @@ class Clients extends React.Component {
             <option value="city-descending">Location Z-A</option>
             <option value="clientNumber-ascending">Client Number 0-9</option>
             <option value="clientNumber-descending">Client Number 9-0</option>
-            <option value="dateAdded-ascending">Starting Date Old-New</option>
-            <option value="dateAdded-descending">Starting Date New-Old</option>
+            <option value="dateAdded-ascending">Date Added Old-New</option>
+            <option value="dateAdded-descending">Date Added New-Old</option>
           </select>
         </div>
         <div className="clients-list">

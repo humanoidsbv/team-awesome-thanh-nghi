@@ -31,6 +31,20 @@
     }
   }
 
+  &__sort {
+    background-color: $color-primary-white;
+    border-color: $color-input-border;
+    color: $color-text-light;
+    height: 36px;
+    text-align-last: center;
+    width: 343px;
+
+    @media (min-width: 600px) {
+      text-align-last: left;
+      width: 120px;
+    }
+  }
+
   &--invalid {
     border: 1px solid $color-secondary-alert;
   }
