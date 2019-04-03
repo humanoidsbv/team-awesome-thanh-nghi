@@ -1,6 +1,6 @@
 @import "../../shared/styles/main.scss";
 
-.new-client-header {
+.new-team-member-header {
   align-items: center;
   display: flex;
   font-family: $font-primary;
@@ -59,7 +59,7 @@
   }
 }
 
-.new-client {
+.new-team-member {
   width: 100%;
 
   &__form {
@@ -77,6 +77,11 @@
       margin-top: 20px;
       padding: 30px 0;
     }
+  }
+
+  &__label--client {
+    color: $color-text-medium;
+    font-size: 12px;
   }
 
   &__wrapper-group {

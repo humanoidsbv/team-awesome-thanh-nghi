@@ -1,3 +1,3 @@
-import NewClientContainer from './newClientContainer';
+import NewClientContainer from './NewClientContainer';
 
 export default NewClientContainer;

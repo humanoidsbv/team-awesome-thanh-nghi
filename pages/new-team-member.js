@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Header from '../components/header';
 import PageHeader from '../components/page-header';
 import Main from '../components/main';
+import NewTeamMember from '../components/new-team-member';
 
 const NewTeamMemberPage = () => (
   <React.Fragment>
@@ -16,7 +17,9 @@ const NewTeamMemberPage = () => (
       title="Team Members"
       subtitle="5 Members"
     />
-    <Main />
+    <Main>
+      <NewTeamMember />
+    </Main>
   </React.Fragment>
 );
 
