@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './time-entries.scss';
-import TimeEntry from '../time-entry';
+
+import Main from '../../shared/components/Main';
+import NewTimeEntry from '../new-time-entry';
+import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
+import TimeEntry from '../time-entry';
 
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
@@ -18,39 +22,46 @@ class TimeEntries extends React.Component {
 
     return (
       <React.Fragment>
-        <div className="time-entries">
-          <h2 className="time-entries__title">
-            Time Entries
-          </h2>
-          <Select
-            className="select-element__filter"
-            defaultValue={{ label: 'All clients', value: '' }}
-            onChange={this.handleChange}
-            options={clients}
-          />
-        </div>
-        {timeEntries.map(({
-          clientName, endTime, id, startTime
-        }, i) => {
-          const localizeDate = dateToLocaleString(startTime);
-          const localizeEndTime = timeToLocaleString(endTime);
-          const localizeStartTime = timeToLocaleString(startTime);
+        <PageHeader
+          title="Timesheets"
+          subtitle="5 Entries"
+        />
+        <Main>
+          <NewTimeEntry />
+          <div className="time-entries">
+            <h2 className="time-entries__title">
+              Time Entries
+            </h2>
+            <Select
+              className="select-element__filter"
+              defaultValue={{ label: 'All clients', value: '' }}
+              onChange={this.handleChange}
+              options={clients}
+            />
+          </div>
+          {timeEntries.map(({
+            clientName, endTime, id, startTime
+          }, i) => {
+            const localizeDate = dateToLocaleString(startTime);
+            const localizeEndTime = timeToLocaleString(endTime);
+            const localizeStartTime = timeToLocaleString(startTime);
 
-          return (
-            <React.Fragment key={id}>
-              {(i === 0 || localizeDate !== dateToLocaleString(timeEntries[i - 1].startTime))
-                && <h2 className="entry-date">{localizeDate}</h2>
-              }
-              <TimeEntry
-                client={clientName}
-                endTime={localizeEndTime}
-                id={id}
-                onDelete={onDelete}
-                startTime={localizeStartTime}
-              />
-            </React.Fragment>
-          );
-        })}
+            return (
+              <React.Fragment key={id}>
+                {(i === 0 || localizeDate !== dateToLocaleString(timeEntries[i - 1].startTime))
+                  && <h2 className="entry-date">{localizeDate}</h2>
+                }
+                <TimeEntry
+                  client={clientName}
+                  endTime={localizeEndTime}
+                  id={id}
+                  onDelete={onDelete}
+                  startTime={localizeStartTime}
+                />
+              </React.Fragment>
+            );
+          })}
+        </Main>
       </React.Fragment>
     );
   }
