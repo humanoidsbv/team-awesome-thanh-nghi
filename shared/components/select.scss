@@ -34,13 +34,11 @@
   &__form-new-team-member {
     background-image: $color-input-gradient;
     box-sizing: border-box;
-    // margin-top: 10px;
     padding-left: 10px;
     width: 100%;
 
     @media(min-width: 600px) {
       background: $color-primary-white;
-      // margin-top: 8px;
     }
   }
 

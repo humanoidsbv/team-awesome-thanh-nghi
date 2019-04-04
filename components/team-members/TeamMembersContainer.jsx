@@ -10,8 +10,8 @@ import TeamMembers from './TeamMembers';
 
 class TeamMembersContainer extends React.Component {
   componentDidMount() {
-    const { onRetrieve, onRetrieveClients } = this.props;
-    onRetrieve();
+    const { onRetrieveTeamMembers, onRetrieveClients } = this.props;
+    onRetrieveTeamMembers();
     onRetrieveClients();
   }
 
@@ -28,7 +28,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  onRetrieve: retrieveTeamMembersRequest,
+  onRetrieveTeamMembers: retrieveTeamMembersRequest,
   onRetrieveClients: retrieveClientsRequest,
   sortTeamMembers
 }, dispatch);
