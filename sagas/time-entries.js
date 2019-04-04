@@ -4,7 +4,7 @@ import {
   RETRIEVE_TIME_ENTRIES_REQUEST, retrieveTimeEntriesSuccess,
   ADD_TIME_ENTRY_REQUEST, addTimeEntrySuccess,
   DELETE_TIME_ENTRY_REQUEST, deleteTimeEntrySuccess
-} from '../ducks/time-entries';
+} from '../ducks/time-entries.ts';
 import { getTimeEntries, saveTimeEntry, removeTimeEntry } from '../shared/services/time-entries-api';
 
 function* getTimeEntriesSaga() {

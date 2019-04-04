@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addTimeEntryRequest } from '../../ducks/time-entries';
+import { addTimeEntryRequest } from '../../ducks/time-entries.ts';
 import { retrieveClientsRequest, clientNameIdSelector } from '../../ducks/clients';
 import NewTimeEntry from './NewTimeEntry';
 
