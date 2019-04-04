@@ -1,0 +1,45 @@
+@import "../../shared/styles/main.scss";
+
+.page-header-bar {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .page-header-bar {
+    align-items: center;
+    border-bottom: 1px $color-form-border solid;
+    display: flex;
+    height: 70px;
+    margin-top: 70px;
+    width: 100vw;
+
+    &__title {
+      color: $color-text-dark;
+      font-family: $font-primary;
+      font-size: 18px;
+      font-weight: 500;
+      margin: 19px 15px 19px 30px;
+    }
+
+    &__divider {
+      color: $color-support-light1;
+      font-size: 14px;
+    }
+
+    &__subtitle {
+      color: $color-text-light;
+      font-family: $font-primary;
+      font-size: 14px;
+      margin-left: 15px;
+    }
+
+    &__search {
+      border: 1px $color-support-light1 solid;
+      border-radius: 4px;
+      height: 36px;
+      margin: 0 32px 0 auto;
+      padding-left: 10px;
+      width: 270px;
+    }
+  }
+}
