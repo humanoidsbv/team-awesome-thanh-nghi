@@ -58,18 +58,51 @@
       "emailAddress": "info@humanoids.nl",
       "website": "https://humanoids.nl/",
       "id": "3"
+    }
+  ],
+  "team-members": [
+    {
+      "address": "Laan van Wateringse Veld 82",
+      "city": "Den Haag",
+      "currentClient": "3",
+      "description": "Front End Developer",
+      "emailAddress": "thanh.nghi.tang@humanoids.nl",
+      "id": "1",
+      "firstName": "Thanh Nghi",
+      "lastName": "Tang",
+      "linkedIn": "linkedin.com/thanh-nghi-tang",
+      "memberNumber": "H-008",
+      "startDate": "2019-03-04T00:00:00.000Z",
+      "zipcode": "1234AB"
     },
     {
-      "name": "Test",
-      "description": "work",
-      "clientNumber": "C-005",
-      "address": "Straat 123",
-      "zipcode": "1234AZ",
-      "city": "Blabla",
-      "emailAddress": "blablabla@gmail.com",
-      "website": "www.testhoi.nl",
-      "dateAdded": "2019-04-01T11:14:27.349Z",
-      "id": "riB7AWq"
+      "address": "Blablaweg 123",
+      "city": "Rotterdam",
+      "currentClient": "1",
+      "description": "Designer",
+      "emailAddress": "pietje.puk@humanoids.nl",
+      "id": "2",
+      "firstName": "Pietje",
+      "lastName": "Puk",
+      "linkedIn": "linkedin.com/pietje-puk",
+      "memberNumber": "H-010",
+      "startDate": "2019-04-03T00:00:00.000Z",
+      "zipcode": "1234AZ"
+    },
+    {
+      "currentClient": "3",
+      "firstName": "Doenja",
+      "lastName": "Maris",
+      "description": "Front End Developer",
+      "memberNumber": "H-007",
+      "address": "Goudseweg 12",
+      "zipcode": "2256SH",
+      "city": "Gouda",
+      "emailAddress": "doenja.maris@humanoids.nl",
+      "linkedIn": "linkedin.com/doenja-maris",
+      "startDate": "2019-04-03T15:07:44.742Z",
+      "id": "aSMiO9N"
+// TODO PR: This id is a string, the rest are integers
     }
   ]
 }

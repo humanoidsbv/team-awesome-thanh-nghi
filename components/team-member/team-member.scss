@@ -1,0 +1,58 @@
+@import "../../shared/styles/main.scss";
+
+.member-content {
+  padding-left: 0;
+  width: 100%;
+
+  &__item {
+    align-items: center;
+    border: 1px solid $color-form-border;
+    border-left: 4px solid $color-primary-blue;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    font-family: $font-primary;
+    height: 82px;
+    width: 100%;
+  }
+
+  &__logo {
+    border-radius: 50%;
+    height: 50px;
+    margin: 15px;
+    width: 50px;
+  }
+
+  &__wrapper {
+    display: none;
+
+    @media (min-width: 600px) {
+      display: block;
+      width: 150px;
+    }
+
+    &--first {
+      margin-left: auto;
+    }
+  }
+
+  &__title {
+    color: $color-text-dark;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &__subtitle {
+    color: $color-text-light;
+    font-size: 14px;
+  }
+
+  &__button {
+    margin: 0 20px 0 auto;
+
+    @media (min-width: 600px) {
+      border: none;
+      margin: 0 20px;
+    }
+  }
+}

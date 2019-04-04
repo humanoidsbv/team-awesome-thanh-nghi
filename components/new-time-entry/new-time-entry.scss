@@ -21,7 +21,7 @@
       display: block;
       font-family: $font-primary;
       font-size: 24px;
-      font-weight: 300;
+      font-weight: 400;
     }
   }
 
@@ -150,7 +150,7 @@
     }
 
     &--disabled {
-      background: #e6eaee;
+      background: $color-support-light2;
       color: $color-text-medium;
     }
   }

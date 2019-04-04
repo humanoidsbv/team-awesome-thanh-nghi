@@ -7,7 +7,7 @@
 
   &__filter {
     background-color: $color-primary-white;
-    border: 1px solid $color-support-light;
+    border: 1px solid $color-support-light1;
     color: $color-text-light;
     margin-top: 10px;
     text-align-last: center;
@@ -28,6 +28,31 @@
 
     @media (min-width: 600px) {
       width: 245px;
+    }
+  }
+
+  &__form-new-team-member {
+    background-image: $color-input-gradient;
+    box-sizing: border-box;
+    padding-left: 10px;
+    width: 100%;
+
+    @media(min-width: 600px) {
+      background: $color-primary-white;
+    }
+  }
+
+  &__sort {
+    background-color: $color-primary-white;
+    border-color: $color-input-border;
+    color: $color-text-light;
+    height: 36px;
+    text-align-last: center;
+    width: 343px;
+
+    @media (min-width: 600px) {
+      text-align-last: left;
+      width: 120px;
     }
   }
 

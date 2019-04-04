@@ -5,6 +5,10 @@
   display: flex;
   width: 100%;
 
+  @media (min-width: 600px) {
+    margin-top: 15px;
+  }
+
   &__title{
     display: none;
 
@@ -13,7 +17,7 @@
       display: block;
       font-family: $font-primary;
       font-size: 24px;
-      font-weight: 300;
+      font-weight: 400;
       margin-right: auto;
     }
   }

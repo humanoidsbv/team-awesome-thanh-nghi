@@ -1,0 +1,51 @@
+@import "../../shared/styles/main.scss";
+
+.members-header {
+  align-items: center;
+  display: flex;
+  height: 135px;
+  flex-direction: column;
+  font-family: $font-primary;
+  width: 100%;
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+    height: 90px;
+  }
+
+  &__title {
+    display: none;
+
+    @media (min-width: 600px) {
+      color: $color-text-dark;
+      display: block;
+      font-size: 24px;
+      font-weight: 400;
+      margin-left: 5px;
+    }
+  }
+
+  &__add-button {
+    background-image: $color-button-gradient;
+    border: 1px solid $color-button-border;
+    border-radius: 4px;
+    color: $color-primary-white;
+    font-size: 14px;
+    height: 36px;
+    margin: 20px;
+    width: 343px;
+
+    @media (min-width: 600px) {
+      margin: 0 16px 0 auto;
+      width: 156px;
+    }
+  }
+
+  &__add-icon {
+    padding-right: 15px;
+  }
+}
+
+.members-list {
+  width: 100%;
+}
