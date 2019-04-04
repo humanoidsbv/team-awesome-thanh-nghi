@@ -24,8 +24,10 @@ class TeamMembers extends React.Component {
         <PageHeader
           title="Team Members"
           subtitle="5 Members"
+// TODO PR: make the subtitle dynamic
         />
         <Main>
+{/* TODO PR: Rename this component, call it container or something since it hasn't got anything to do with Main anymore */}
           <div className="members-header">
             <h2 className="members-header__title">All Humanoids</h2>
             <Link href="/new-team-member">
@@ -94,6 +96,7 @@ class TeamMembers extends React.Component {
             {teamMembers.map((teamMember) => {
               const localizedStartDate = dateToLocaleStringMonthYear(teamMember.startDate);
               return (
+// TODO PR: why is a TeamMember wrapped in a fragment? You can place the key on the TeamMember
                 <React.Fragment key={teamMember.id}>
                   <TeamMember
                     currentClient={teamMember.clientName}
