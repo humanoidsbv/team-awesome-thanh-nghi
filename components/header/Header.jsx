@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Navigation from '../navigation';
-import ProfileButton from '../profile-button/ProfileButton';
+import Navigation from './navigation/Navigation';
+import ProfileButton from './profile-button/ProfileButton';
 
 import './header.scss';
 
