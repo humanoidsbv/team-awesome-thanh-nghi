@@ -61,7 +61,6 @@ class NewTimeEntry extends React.Component<NewTimeEntryProps, NewTimeEntryState,
 
   constructor(props) {
     super(props);
-    // this.formValidationRef = React.createRef();
   }
 
   state = {
