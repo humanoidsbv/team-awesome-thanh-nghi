@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './time-entries.scss';
 
@@ -8,10 +7,17 @@ import NewTimeEntry from '../new-time-entry';
 import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
 import TimeEntry from '../time-entry';
-
+import { TimeEntryModel, TimeEntriesState } from '../../ducks/time-entries';
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
-class TimeEntries extends React.Component {
+interface TimeEntriesProps {
+  clients: string[];
+  filterTimeEntries: Function;
+  onDelete: Function;
+  timeEntries: TimeEntryModel[];
+}
+
+class TimeEntries extends React.Component<TimeEntriesProps, TimeEntriesState> {
   handleChange = ({ target }) => {
     const { filterTimeEntries } = this.props;
     filterTimeEntries(target.value);
@@ -66,12 +72,5 @@ class TimeEntries extends React.Component {
     );
   }
 }
-
-TimeEntries.propTypes = {
-  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  filterTimeEntries: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-};
 
 export default TimeEntries;

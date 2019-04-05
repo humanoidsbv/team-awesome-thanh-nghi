@@ -1,9 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './time-entry.scss';
+import { TimeEntriesState } from 'ducks/time-entries';
 
-class TimeEntry extends React.Component {
+interface TimeEntryProps {
+  client: string;
+  endTime: string;
+  id: string;
+  onDelete: Function;
+  startTime: string;
+}
+
+class TimeEntry extends React.Component<TimeEntryProps, TimeEntriesState> {
+
   confirmDelete = (id) => {
     const { onDelete } = this.props;
     const askConfirm = window.confirm('Do you want to delete this entry?');
@@ -43,13 +52,5 @@ class TimeEntry extends React.Component {
     );
   }
 }
-
-TimeEntry.propTypes = {
-  client: PropTypes.string.isRequired,
-  endTime: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  startTime: PropTypes.string.isRequired
-};
 
 export default TimeEntry;

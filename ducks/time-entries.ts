@@ -4,72 +4,72 @@ import { clientsSelector } from './clients';
 // ACTIONS
 export const RETRIEVE_TIME_ENTRIES_REQUEST = 'RETRIEVE_TIME_ENTRIES_REQUEST';
 export const RETRIEVE_TIME_ENTRIES_SUCCESS = 'RETRIEVE_TIME_ENTRIES_SUCCESS';
-export const RETRIEVE_TIME_ENTRIES_ERROR = 'RETRIEVE_TIME_ENTRIES_ERROR';
 export const ADD_TIME_ENTRY_REQUEST = 'ADD_TIME_ENTRY_REQUEST';
 export const ADD_TIME_ENTRY_SUCCESS = 'ADD_TIME_ENTRY_SUCCESS';
-export const ADD_TIME_ENTRY_ERROR = 'ADD_TIME_ENTRY_ERROR';
 export const DELETE_TIME_ENTRY_REQUEST = 'DELETE_TIME_ENTRY_REQUEST';
 export const DELETE_TIME_ENTRY_SUCCESS = 'DELETE_TIME_ENTRY_SUCCESS';
-export const DELETE_TIME_ENTRY_ERROR = 'DELETE_TIME_ENTRY_ERROR';
 export const FILTER_TIME_ENTRIES = 'FILTER_TIME_ENTRIES';
+
+// TYPESCRIPT INTERFACES
+
+export interface TimeEntryModel {
+  activity: string;
+  client: string;
+  clientName: string;
+  endTime: string;
+  id: string;
+  startTime: string;
+}
+
+export interface TimeEntriesState {
+  items: TimeEntryModel[];
+  isLoading: boolean;
+  error: string;
+  filterBy: string;
+}
+
+// INITIAL STATE
+export const initialState: TimeEntriesState = {
+  items: [],
+  isLoading: false,
+  error: '',
+  filterBy: ''
+};
 
 // ACTION CREATORS
 export const retrieveTimeEntriesRequest = () => ({
   type: RETRIEVE_TIME_ENTRIES_REQUEST
 });
 
-export const retrieveTimeEntriesSuccess = timeEntries => ({
+export const retrieveTimeEntriesSuccess = (timeEntries: TimeEntryModel[]) => ({
   type: RETRIEVE_TIME_ENTRIES_SUCCESS,
   payload: timeEntries
 });
 
-export const retrieveTimeEntriesError = error => ({
-  type: RETRIEVE_TIME_ENTRIES_ERROR,
-  payload: error
-});
-
-export const addTimeEntryRequest = newTimeEntry => ({
+export const addTimeEntryRequest = (newTimeEntry: TimeEntryModel) => ({
   type: ADD_TIME_ENTRY_REQUEST,
   payload: newTimeEntry
 });
 
-export const addTimeEntrySuccess = newTimeEntry => ({
+export const addTimeEntrySuccess = (newTimeEntry: TimeEntryModel) => ({
   type: ADD_TIME_ENTRY_SUCCESS,
   payload: newTimeEntry
 });
 
-export const addTimeEntryError = error => ({
-  type: ADD_TIME_ENTRY_ERROR,
-  payload: error
-});
-
-export const deleteTimeEntryRequest = id => ({
+export const deleteTimeEntryRequest = (id: TimeEntryModel["id"]) => ({
   type: DELETE_TIME_ENTRY_REQUEST,
   payload: id
 });
 
-export const deleteTimeEntrySuccess = id => ({
+export const deleteTimeEntrySuccess = (id: TimeEntryModel["id"]) => ({
   type: DELETE_TIME_ENTRY_SUCCESS,
   payload: id
 });
 
-export const deleteTimeEntryError = error => ({
-  type: DELETE_TIME_ENTRY_ERROR,
-  payload: error
-});
-
-export const filterTimeEntries = filter => ({
+export const filterTimeEntries = (filter: TimeEntriesState["filterBy"]) => ({
   type: FILTER_TIME_ENTRIES,
   payload: filter
 });
-
-// INITIAL STATE
-export const initialState = {
-  items: [],
-  isLoading: false,
-  error: '',
-  filterBy: ''
-};
 
 // REDUCERS
 export const timeEntriesReducer = (state = initialState, action) => {
@@ -141,10 +141,10 @@ export const timeEntriesClientIdSelector = createSelector(
   timeEntriesItemsSelector,
   clientsSelector,
   (timeEntries, clients) => timeEntries.map((timeEntry) => {
-    const { name } = clients.find(client => timeEntry.client === client.id) || {};
+    const { name } = clients.find(client => timeEntry.client === client.id) || { name: 'Unknown' };
     return {
       ...timeEntry,
-      clientName: name || 'Unknown'
+      clientName: name
     };
   })
 );

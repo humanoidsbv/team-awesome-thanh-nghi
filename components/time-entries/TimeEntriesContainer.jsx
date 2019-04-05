@@ -6,7 +6,7 @@ import {
   deleteTimeEntryRequest, filterTimeEntries, retrieveTimeEntriesRequest, timeEntriesSelector
 } from '../../ducks/time-entries.ts';
 import { clientNameIdSelector } from '../../ducks/clients';
-import TimeEntries from './TimeEntries';
+import TimeEntries from './TimeEntries.tsx';
 
 class TimeEntriesContainer extends React.Component {
   componentDidMount() {

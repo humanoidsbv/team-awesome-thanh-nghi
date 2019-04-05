@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 
 import { addTimeEntryRequest } from '../../ducks/time-entries.ts';
 import { retrieveClientsRequest, clientNameIdSelector } from '../../ducks/clients';
-import NewTimeEntry from './NewTimeEntry';
+import NewTimeEntry from './NewTimeEntry.tsx';
 
 class NewTimeEntryContainer extends React.Component {
   componentDidMount() {
