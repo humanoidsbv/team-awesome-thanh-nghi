@@ -22,18 +22,18 @@ export interface TimeEntryModel {
 }
 
 export interface TimeEntriesState {
-  items: TimeEntryModel[];
-  isLoading: boolean;
   error: string;
   filterBy: string;
+  isLoading: boolean;
+  items: TimeEntryModel[];
 }
 
 // INITIAL STATE
 export const initialState: TimeEntriesState = {
-  items: [],
-  isLoading: false,
   error: '',
-  filterBy: ''
+  filterBy: '',
+  isLoading: false,
+  items: []
 };
 
 // ACTION CREATORS
