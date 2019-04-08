@@ -52,13 +52,14 @@ class NewTeamMember extends React.Component {
 
   render() {
     const { isFieldInvalid, isFormValid } = this.state;
-    const { clients } = this.props;
+    const { clients, teamMembers } = this.props;
+    const count = teamMembers.length;
 
     return (
       <React.Fragment>
         <PageHeader
           title="Team Members"
-          subtitle="5 Members"
+          subtitle={`${count} ${count === 1 ? 'Member' : 'Members'}`}
         />
         <Container>
           <div className="new-team-member-header">
@@ -299,7 +300,8 @@ class NewTeamMember extends React.Component {
 
 NewTeamMember.propTypes = {
   clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onAdd: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  teamMembers: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default NewTeamMember;

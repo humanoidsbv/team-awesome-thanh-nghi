@@ -31,7 +31,7 @@ class TimeEntries extends React.Component<TimeEntriesProps, TimeEntriesState> {
       <React.Fragment>
         <PageHeader
           title="Timesheets"
-          subtitle={`${count} Entries`}
+          subtitle={`${count} ${count === 1 ? 'Entry' : 'Entries'}`}
         />
         <Container>
           <NewTimeEntry />

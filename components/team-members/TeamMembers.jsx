@@ -20,11 +20,12 @@ class TeamMembers extends React.Component {
   render() {
     const { teamMembers } = this.props;
     const count = teamMembers.length;
+
     return (
       <React.Fragment>
         <PageHeader
           title="Team Members"
-          subtitle={`${count} Members`}
+          subtitle={`${count} ${count === 1 ? 'Member' : 'Members'}`}
         />
         <Container>
           <div className="members-header">

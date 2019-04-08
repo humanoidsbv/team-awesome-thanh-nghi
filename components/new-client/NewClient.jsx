@@ -51,12 +51,14 @@ class NewClient extends React.Component {
 
   render() {
     const { isFieldInvalid, isFormValid } = this.state;
+    const { clients } = this.props;
+    const count = clients.length;
 
     return (
       <React.Fragment>
         <PageHeader
           title="Clients"
-          subtitle="5 Clients"
+          subtitle={`${count} ${count === 1 ? 'Client' : 'Clients'}`}
         />
         <Container>
           <div className="new-client-header">
@@ -259,6 +261,7 @@ class NewClient extends React.Component {
 }
 
 NewClient.propTypes = {
+  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   onAdd: PropTypes.func.isRequired
 };
 

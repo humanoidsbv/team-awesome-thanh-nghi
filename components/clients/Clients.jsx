@@ -24,7 +24,7 @@ class Clients extends React.Component {
       <React.Fragment>
         <PageHeader
           title="Clients"
-          subtitle={`${count} Clients`}
+          subtitle={`${count} ${count === 1 ? 'Client' : 'Clients'}`}
         />
         <Container>
           <div className="clients-header">
