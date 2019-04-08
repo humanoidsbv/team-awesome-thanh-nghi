@@ -1,17 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './time-entries.scss';
 
-import Main from '../../shared/components/Main';
+import Container from '../../shared/components/Container';
 import NewTimeEntry from '../new-time-entry';
 import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
 import TimeEntry from '../time-entry';
-
+import { TimeEntryModel, TimeEntriesState } from '../../ducks/time-entries';
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
-class TimeEntries extends React.Component {
+interface TimeEntriesProps {
+  clients: string[];
+  filterTimeEntries: Function;
+  onDelete: Function;
+  timeEntries: TimeEntryModel[];
+}
+
+class TimeEntries extends React.Component<TimeEntriesProps, TimeEntriesState> {
   handleChange = ({ target }) => {
     const { filterTimeEntries } = this.props;
     filterTimeEntries(target.value);
@@ -19,14 +25,15 @@ class TimeEntries extends React.Component {
 
   render() {
     const { clients, onDelete, timeEntries } = this.props;
+    const count = timeEntries.length;
 
     return (
       <React.Fragment>
         <PageHeader
           title="Timesheets"
-          subtitle="5 Entries"
+          subtitle={`${count} ${count === 1 ? 'Entry' : 'Entries'}`}
         />
-        <Main>
+        <Container>
           <NewTimeEntry />
           <div className="time-entries">
             <h2 className="time-entries__title">
@@ -61,17 +68,10 @@ class TimeEntries extends React.Component {
               </React.Fragment>
             );
           })}
-        </Main>
+        </Container>
       </React.Fragment>
     );
   }
 }
-
-TimeEntries.propTypes = {
-  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  filterTimeEntries: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  timeEntries: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-};
 
 export default TimeEntries;

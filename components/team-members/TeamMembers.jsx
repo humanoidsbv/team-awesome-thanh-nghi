@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import './team-members.scss';
 
-import Main from '../../shared/components/Main';
+import Container from '../../shared/components/Container';
 import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
 import TeamMember from '../team-member';
@@ -19,15 +19,15 @@ class TeamMembers extends React.Component {
 
   render() {
     const { teamMembers } = this.props;
+    const count = teamMembers.length;
+
     return (
       <React.Fragment>
         <PageHeader
           title="Team Members"
-          subtitle="5 Members"
-// TODO PR: make the subtitle dynamic
+          subtitle={`${count} ${count === 1 ? 'Member' : 'Members'}`}
         />
-        <Main>
-{/* TODO PR: Rename this component, call it container or something since it hasn't got anything to do with Main anymore */}
+        <Container>
           <div className="members-header">
             <h2 className="members-header__title">All Humanoids</h2>
             <Link href="/new-team-member">
@@ -96,21 +96,19 @@ class TeamMembers extends React.Component {
             {teamMembers.map((teamMember) => {
               const localizedStartDate = dateToLocaleStringMonthYear(teamMember.startDate);
               return (
-// TODO PR: why is a TeamMember wrapped in a fragment? You can place the key on the TeamMember
-                <React.Fragment key={teamMember.id}>
-                  <TeamMember
-                    currentClient={teamMember.clientName}
-                    description={teamMember.description}
-                    firstName={teamMember.firstName}
-                    lastName={teamMember.lastName}
-                    memberNumber={teamMember.memberNumber}
-                    startDate={localizedStartDate}
-                  />
-                </React.Fragment>
+                <TeamMember
+                  currentClient={teamMember.clientName}
+                  description={teamMember.description}
+                  firstName={teamMember.firstName}
+                  key={teamMember.id}
+                  lastName={teamMember.lastName}
+                  memberNumber={teamMember.memberNumber}
+                  startDate={localizedStartDate}
+                />
               );
             })}
           </div>
-        </Main>
+        </Container>
       </React.Fragment>
     );
   }

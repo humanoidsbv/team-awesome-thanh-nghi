@@ -8,18 +8,18 @@
       "id": "9"
     },
     {
-      "activity": "lol",
-      "client": "2",
-      "endTime": "2019-03-21T17:00:00.000Z",
-      "startTime": "2019-03-21T09:00:00.000Z",
-      "id": "10"
-    },
-    {
       "activity": "Design",
       "client": "1",
-      "endTime": "2019-03-22T16:30:00.000Z",
-      "startTime": "2019-03-22T08:30:00.000Z",
-      "id": "11"
+      "endTime": "2019-03-25T17:00:00.000Z",
+      "startTime": "2019-03-25T09:00:00.000Z",
+      "id": "3_V75CE"
+    },
+    {
+      "activity": "Front-end",
+      "client": "2",
+      "endTime": "2019-04-01T16:00:00.000Z",
+      "startTime": "2019-04-01T07:00:00.000Z",
+      "id": "xHqsob_"
     }
   ],
   "clients": [
@@ -62,34 +62,6 @@
   ],
   "team-members": [
     {
-      "address": "Laan van Wateringse Veld 82",
-      "city": "Den Haag",
-      "currentClient": "3",
-      "description": "Front End Developer",
-      "emailAddress": "thanh.nghi.tang@humanoids.nl",
-      "id": "1",
-      "firstName": "Thanh Nghi",
-      "lastName": "Tang",
-      "linkedIn": "linkedin.com/thanh-nghi-tang",
-      "memberNumber": "H-008",
-      "startDate": "2019-03-04T00:00:00.000Z",
-      "zipcode": "1234AB"
-    },
-    {
-      "address": "Blablaweg 123",
-      "city": "Rotterdam",
-      "currentClient": "1",
-      "description": "Designer",
-      "emailAddress": "pietje.puk@humanoids.nl",
-      "id": "2",
-      "firstName": "Pietje",
-      "lastName": "Puk",
-      "linkedIn": "linkedin.com/pietje-puk",
-      "memberNumber": "H-010",
-      "startDate": "2019-04-03T00:00:00.000Z",
-      "zipcode": "1234AZ"
-    },
-    {
       "currentClient": "3",
       "firstName": "Doenja",
       "lastName": "Maris",
@@ -100,9 +72,36 @@
       "city": "Gouda",
       "emailAddress": "doenja.maris@humanoids.nl",
       "linkedIn": "linkedin.com/doenja-maris",
-      "startDate": "2019-04-03T15:07:44.742Z",
+      "startDate": "2019-03-03T15:07:44.742Z",
       "id": "aSMiO9N"
-// TODO PR: This id is a string, the rest are integers
+    },
+    {
+      "firstName": "Thanh Nghi",
+      "lastName": "Tang",
+      "description": "Front-end Developer",
+      "memberNumber": "H-008",
+      "currentClient": "3",
+      "address": "Laan Van Wateringse Veld 82",
+      "zipcode": "2548CC",
+      "city": "Den Haag",
+      "emailAddress": "thanh.nghi.tang@humanoids.nl",
+      "linkedIn": "linkedin.com/thanh-nghi-tang",
+      "startDate": "2019-03-04T00:00:00.000Z",
+      "id": "KfAM5Sn"
+    },
+    {
+      "firstName": "Pietje ",
+      "lastName": "Puk",
+      "description": "UX Designer",
+      "memberNumber": "H-010",
+      "currentClient": "1",
+      "address": "Blablaweg 123",
+      "zipcode": "1234AZ",
+      "city": "Rotterdam",
+      "emailAddress": "pietje.puk@humanoids.nl",
+      "linkedIn": "linkedin.com/pietje-puk",
+      "startDate": "2019-04-08T08:05:02.180Z",
+      "id": "GVRpx4H"
     }
   ]
 }

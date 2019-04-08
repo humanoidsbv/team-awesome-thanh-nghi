@@ -1,30 +1,72 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import './new-time-entry.scss';
 import NewEntryButton from './new-entry-button/NewEntryButton';
 import Select from '../../shared/components/Select';
-
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
-class NewTimeEntry extends React.Component {
-  static newTimeEntryModel = {
-    activity: '',
-    client: '',
-    date: '',
-    endTime: '',
-    startTime: ''
+interface ClientModel {
+  id: string;
+  name: string;
+}
+
+interface NewTimeEntryModel {
+  activity: string;
+  client: string;
+  date: string;
+  endTime: string;
+  startTime: string;
+}
+
+interface NewTimeEntryProps {
+  clients: ClientModel[];
+  isInvalid: boolean;
+  onAdd: Function;
+}
+
+interface NewTimeEntryState {
+  isFieldInvalid: object;
+  isFormValid: boolean;
+  newTimeEntry: NewTimeEntryModel;
+  newTimeEntryIsVisible: boolean;
+}
+
+interface NewTimeEntryValidity {
+  activity: boolean;
+  client: boolean;
+  date: boolean;
+  endTime: boolean;
+  startTime: boolean;
+}
+
+class NewTimeEntry extends React.Component<NewTimeEntryProps, NewTimeEntryState, NewTimeEntryValidity> {
+  private formValidationRef = React.createRef<HTMLFormElement>();
+
+  static defaultStateValues = {
+    newTimeEntryModel: {
+      activity: '',
+      client: '',
+      date: '',
+      endTime: '',
+      startTime: ''
+    },
+    isFieldInvalidModel: {
+      activity: false,
+      client: false,
+      date: false,
+      endTime: false,
+      startTime: false
+    }
   };
 
   constructor(props) {
     super(props);
-    this.formValidationRef = React.createRef();
   }
 
   state = {
-    isFieldInvalid: {},
+    isFieldInvalid: { ...NewTimeEntry.defaultStateValues.isFieldInvalidModel },
     isFormValid: false,
-    newTimeEntry: { ...NewTimeEntry.newTimeEntryModel },
+    newTimeEntry: { ...NewTimeEntry.defaultStateValues.newTimeEntryModel },
     newTimeEntryIsVisible: false
   };
 
@@ -61,7 +103,7 @@ class NewTimeEntry extends React.Component {
       endTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.endTime),
       startTime: getDateTimeToIso(newTimeEntry.date, newTimeEntry.startTime)
     });
-    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.newTimeEntryModel } }));
+    this.setState(() => ({ newTimeEntry: { ...NewTimeEntry.defaultStateValues.newTimeEntryModel } }));
     this.toggleForm();
   }
 
@@ -218,10 +260,5 @@ class NewTimeEntry extends React.Component {
     );
   }
 }
-
-NewTimeEntry.propTypes = {
-  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onAdd: PropTypes.func.isRequired
-};
 
 export default NewTimeEntry;

@@ -5,7 +5,7 @@ import Router from 'next/router';
 
 import './new-team-member.scss';
 
-import Main from '../../shared/components/Main';
+import Container from '../../shared/components/Container';
 import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
 
@@ -52,15 +52,16 @@ class NewTeamMember extends React.Component {
 
   render() {
     const { isFieldInvalid, isFormValid } = this.state;
-    const { clients } = this.props;
+    const { clients, teamMembers } = this.props;
+    const count = teamMembers.length;
 
     return (
       <React.Fragment>
         <PageHeader
           title="Team Members"
-          subtitle="5 Members"
+          subtitle={`${count} ${count === 1 ? 'Member' : 'Members'}`}
         />
-        <Main>
+        <Container>
           <div className="new-team-member-header">
             <h2 className="new-team-member-header__title">Add new team member</h2>
             <div className="new-team-member-header__button-wrapper">
@@ -291,7 +292,7 @@ class NewTeamMember extends React.Component {
               </div>
             </form>
           </div>
-        </Main>
+        </Container>
       </React.Fragment>
     );
   }
@@ -299,7 +300,8 @@ class NewTeamMember extends React.Component {
 
 NewTeamMember.propTypes = {
   clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onAdd: PropTypes.func.isRequired
+  onAdd: PropTypes.func.isRequired,
+  teamMembers: PropTypes.arrayOf(PropTypes.shape({})).isRequired
 };
 
 export default NewTeamMember;

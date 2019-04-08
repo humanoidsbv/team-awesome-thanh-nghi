@@ -2,14 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addTeamMemberRequest } from '../../ducks/team-members';
-import { retrieveClientsRequest, clientNameIdSelector } from '../../ducks/clients';
+import { addTeamMemberRequest, retrieveTeamMembersRequest, teamMembersSelector } from '../../ducks/team-members';
+import { clientNameIdSelector, retrieveClientsRequest } from '../../ducks/clients';
 import NewTeamMember from './NewTeamMember';
 
 class NewTeamMemberContainer extends React.Component {
   componentDidMount() {
-    const { onRetrieveClients } = this.props;
+    const { onRetrieveClients, onRetrieveTeamMembers } = this.props;
     onRetrieveClients();
+    onRetrieveTeamMembers();
   }
 
   render() {
@@ -20,12 +21,14 @@ class NewTeamMemberContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  clients: clientNameIdSelector(state)
+  clients: clientNameIdSelector(state),
+  teamMembers: teamMembersSelector(state)
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   onAdd: addTeamMemberRequest,
-  onRetrieveClients: retrieveClientsRequest
+  onRetrieveClients: retrieveClientsRequest,
+  onRetrieveTeamMembers: retrieveTeamMembersRequest
 }, dispatch);
 
 NewTeamMemberContainer.propTypes = NewTeamMember.propTypes;

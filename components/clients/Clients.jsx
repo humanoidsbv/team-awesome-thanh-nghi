@@ -5,7 +5,7 @@ import Link from 'next/link';
 import './clients.scss';
 
 import Client from '../client';
-import Main from '../../shared/components/Main';
+import Container from '../../shared/components/Container';
 import PageHeader from '../../shared/components/PageHeader';
 
 import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
@@ -18,14 +18,15 @@ class Clients extends React.Component {
 
   render() {
     const { clients } = this.props;
+    const count = clients.length;
 
     return (
       <React.Fragment>
         <PageHeader
           title="Clients"
-          subtitle="5 Clients"
+          subtitle={`${count} ${count === 1 ? 'Client' : 'Clients'}`}
         />
-        <Main>
+        <Container>
           <div className="clients-header">
             <h2 className="clients-header__title">All Clients</h2>
             <Link href="/new-client">
@@ -78,7 +79,7 @@ class Clients extends React.Component {
               );
             })}
           </div>
-        </Main>
+        </Container>
       </React.Fragment>
     );
   }

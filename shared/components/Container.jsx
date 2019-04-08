@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './main.scss';
+import './container.scss';
 
-const Main = ({ children }) => (
+const Container = ({ children }) => (
   <main className="main">
     {children}
   </main>
 );
 
-Main.propTypes = {
+Container.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired
 };
 
-export default Main;
+export default Container;
