@@ -2,7 +2,7 @@ import React from 'react';
 
 import './time-entries.scss';
 
-import Main from '../../shared/components/Main';
+import Container from '../../shared/components/Container';
 import NewTimeEntry from '../new-time-entry';
 import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
@@ -25,14 +25,15 @@ class TimeEntries extends React.Component<TimeEntriesProps, TimeEntriesState> {
 
   render() {
     const { clients, onDelete, timeEntries } = this.props;
+    const count = timeEntries.length;
 
     return (
       <React.Fragment>
         <PageHeader
           title="Timesheets"
-          subtitle="5 Entries"
+          subtitle={`${count} Entries`}
         />
-        <Main>
+        <Container>
           <NewTimeEntry />
           <div className="time-entries">
             <h2 className="time-entries__title">
@@ -67,7 +68,7 @@ class TimeEntries extends React.Component<TimeEntriesProps, TimeEntriesState> {
               </React.Fragment>
             );
           })}
-        </Main>
+        </Container>
       </React.Fragment>
     );
   }

@@ -5,7 +5,7 @@ import Router from 'next/router';
 
 import './new-client.scss';
 
-import Main from '../../shared/components/Main';
+import Container from '../../shared/components/Container';
 import PageHeader from '../../shared/components/PageHeader';
 
 class NewClient extends React.Component {
@@ -58,7 +58,7 @@ class NewClient extends React.Component {
           title="Clients"
           subtitle="5 Clients"
         />
-        <Main>
+        <Container>
           <div className="new-client-header">
             <h2 className="new-client-header__title">Add new client</h2>
             <div className="new-client-header__button-wrapper">
@@ -252,7 +252,7 @@ class NewClient extends React.Component {
               </div>
             </form>
           </div>
-        </Main>
+        </Container>
       </React.Fragment>
     );
   }
