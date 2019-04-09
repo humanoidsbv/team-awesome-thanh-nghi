@@ -10,6 +10,12 @@ Team Awesome is a project, created by Humanoids for their front-end development 
 4. The app is ready on http://localhost:3000/
 5. Check out the data server on http://localhost:4000/
 
+## Running the Tests
+Two tests have been created for this project:
+* one is to verify the initial state of the NewTimeEntry component.
+* the other is to verify some functions of the converter-time service.
+Run the tests with ```npm run test```
+
 ## Built With
 * Next.js - JavaScript framework for building server-side rendering and static web applications using React
 * React - JavaScript library for building user interfaces with components
