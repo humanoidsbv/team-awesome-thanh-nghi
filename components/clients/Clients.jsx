@@ -8,7 +8,7 @@ import Client from '../client';
 import Container from '../../shared/components/Container';
 import PageHeader from '../../shared/components/PageHeader';
 
-import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
+import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time/converter-time';
 
 class Clients extends React.Component {
   handleChange = ({ target }) => {

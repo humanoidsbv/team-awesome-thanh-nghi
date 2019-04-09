@@ -1,13 +1,10 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 
 import NewTimeEntry from '../NewTimeEntry.tsx';
 
-configure({ adapter: new Adapter() });
-
 describe('<NewTimeEntry /> shallow rendering', () => {
-  it('loads the default state in NewTimeEntry', () => {
+  test('loads the default state in NewTimeEntry', () => {
     const wrapper = shallow(<NewTimeEntry />);
     expect(wrapper.state()).toEqual({
       isFieldInvalid: {

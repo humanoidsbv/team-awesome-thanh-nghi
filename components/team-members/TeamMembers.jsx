@@ -9,7 +9,7 @@ import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
 import TeamMember from '../team-member';
 
-import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
+import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time/converter-time';
 
 class TeamMembers extends React.Component {
   handleChange = ({ target }) => {

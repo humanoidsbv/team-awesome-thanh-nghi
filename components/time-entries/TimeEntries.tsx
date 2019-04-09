@@ -8,7 +8,7 @@ import PageHeader from '../../shared/components/PageHeader';
 import Select from '../../shared/components/Select';
 import TimeEntry from '../time-entry';
 import { TimeEntryModel, TimeEntriesState } from '../../ducks/time-entries';
-import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
+import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time/converter-time';
 
 interface TimeEntriesProps {
   clients: string[];
