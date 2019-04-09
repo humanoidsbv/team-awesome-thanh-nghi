@@ -3,7 +3,7 @@ import React from 'react';
 import './new-time-entry.scss';
 import NewEntryButton from './new-entry-button/NewEntryButton';
 import Select from '../../shared/components/Select';
-import { getDateTimeToIso } from '../../shared/services/converter-time/converter-time';
+import { getDateTimeToIso } from '../../shared/services/converter-time';
 
 interface ClientModel {
   id: string;
