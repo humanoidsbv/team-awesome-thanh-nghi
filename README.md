@@ -12,9 +12,9 @@ Team Awesome is a project, created by Humanoids for their front-end development 
 
 ## Running the Tests
 Two tests have been created for this project:
-* one is to verify the initial state of the NewTimeEntry component.
-* the other is to verify some functions of the converter-time service.
-Run the tests with ```npm run test```
+* one is to verify the initial state of the NewTimeEntry component
+* the other is to verify some functions of the converter-time service
+Run the tests with ```npm run test``` or ```npm run test-watch```.
 
 ## Built With
 * Next.js - JavaScript framework for building server-side rendering and static web applications using React
