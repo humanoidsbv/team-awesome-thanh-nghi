@@ -1,9 +1,4 @@
-import { dateToLocaleString, dateToLocaleStringMonthYear, getDateToIso } from '../converter-time';
-
-test('dateToLocaleString returns date input to locale date with dd-mm-yyyy', () => {
-  const date = '2019-03-04T00:00:00.000Z';
-  expect(dateToLocaleString(date)).toBe('04-03-2019');
-});
+import { dateToLocaleStringMonthYear, getDateToIso } from '../converter-time';
 
 test('dateToLocaleStringMonthYear returns date input to locale date with the month and year', () => {
   const date = '2019-03-04T00:00:00.000Z';
