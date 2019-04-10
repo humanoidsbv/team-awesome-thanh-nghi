@@ -38,9 +38,9 @@ Select.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired
-  })).isRequired,
+    label: PropTypes.string,
+    value: PropTypes.string
+  })),
   required: PropTypes.bool
 };
 
@@ -51,6 +51,12 @@ Select.defaultProps = {
   isInvalid: false,
   name: '',
   onBlur: () => null,
+  options: [
+    {
+      label: '',
+      value: ''
+    }
+  ],
   required: false
 };
 
