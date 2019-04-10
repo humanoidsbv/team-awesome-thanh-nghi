@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<Fragment>
+  <ul
+    className="member-content"
+  >
+    <li
+      className="member-content__item"
+    >
+      <img
+        alt="Person Icon"
+        className="member-content__logo"
+        src="../static/images/icon-person.svg"
+      />
+      <div
+        className="member-content__wrapper-name"
+      >
+        <div
+          className="member-content__element member-content__title"
+        >
+          Pietje Puk
+        </div>
+        <div
+          className="member-content__element member-content__subtitle"
+        >
+          Front End Developer
+        </div>
+      </div>
+      <div
+        className="member-content__wrapper member-content__wrapper--first"
+      >
+        <div
+          className="member-content__element member-content__title"
+        >
+          H-007
+        </div>
+        <div
+          className="member-content__element member-content__subtitle"
+        >
+          Employee number
+        </div>
+      </div>
+      <div
+        className="member-content__wrapper"
+      >
+        <div
+          className="member-content__element member-content__title"
+        >
+          Humanoids
+        </div>
+        <div
+          className="member-content__element member-content__subtitle"
+        >
+          Current Employer
+        </div>
+      </div>
+      <div
+        className="member-content__wrapper"
+      >
+        <div
+          className="member-content__element member-content__title"
+        >
+          2019-03-03T15:07:44.742Z
+        </div>
+        <div
+          className="member-content__element member-content__subtitle"
+        >
+          Starting date
+        </div>
+      </div>
+      <button
+        className="member-content__button"
+        type="button"
+      >
+        <img
+          alt="Arrow down"
+          className="member-content__button-img"
+          src="../static/images/icon-arrow-down.svg"
+        />
+      </button>
+    </li>
+  </ul>
+</Fragment>
+`;

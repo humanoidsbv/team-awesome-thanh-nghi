@@ -1,0 +1,285 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<Fragment>
+  <PageHeader
+    subtitle="2 Members"
+    title="Team Members"
+  />
+  <Container>
+    <div
+      className="new-team-member-header"
+    >
+      <h2
+        className="new-team-member-header__title"
+      >
+        Add new team member
+      </h2>
+      <div
+        className="new-team-member-header__button-wrapper"
+      >
+        <Link
+          href="/team-members"
+        >
+          <button
+            className="new-team-member-header__button new-team-member-header__button-cancel"
+            type="button"
+          >
+            Cancel
+          </button>
+        </Link>
+        <button
+          className="
+                  new-team-member-header__button
+                  new-team-member-header__button-save
+                  new-team-member-header__button-save--disabled
+                "
+          onClick={[Function]}
+          type="button"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+    <div
+      className="new-team-member"
+    >
+      <form
+        className="new-team-member__form"
+      >
+        <div
+          className="new-team-member__wrapper-group"
+        >
+          <div
+            className="new-team-member__wrapper-pair"
+          >
+            <label
+              className="new-team-member__label"
+              htmlFor="firstName"
+            >
+              First name
+              <input
+                className="
+                        new-team-member__input
+                        new-team-member__input--valid
+                      "
+                id="firstName"
+                minLength={2}
+                name="firstName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                type="text"
+              />
+            </label>
+            <label
+              className="new-team-member__label"
+              htmlFor="lastName"
+            >
+              Last Name
+              <input
+                className="
+                        new-team-member__input
+                        new-team-member__input--valid
+                      "
+                id="lastName"
+                minLength={2}
+                name="lastName"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                type="text"
+              />
+            </label>
+          </div>
+          <label
+            className="new-team-member__label"
+            htmlFor="description"
+          >
+            Function description
+            <input
+              className="
+                      new-team-member__input
+                      new-team-member__input--valid
+                    "
+              id="description"
+              minLength={2}
+              name="description"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+            />
+          </label>
+          <label
+            className="new-team-member__label"
+            htmlFor="team-memberNumber"
+          >
+            Employee number
+            <input
+              className="
+                      new-team-member__input
+                      new-team-member__input--valid
+                    "
+              id="memberNumber"
+              maxLength={5}
+              minLength={2}
+              name="memberNumber"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+            />
+          </label>
+          <div
+            className="new-team-member__wrapper--client"
+          >
+            <p
+              className="new-team-member__label--client"
+            >
+              Current employer
+            </p>
+            <Select
+              className="select-element__form-new-team-member"
+              defaultValue={
+                Object {
+                  "label": "Select a client",
+                  "value": "",
+                }
+              }
+              id="currentClient"
+              isInvalid={false}
+              name="currentClient"
+              onBlur={[Function]}
+              onChange={[Function]}
+              options={
+                Array [
+                  Object {
+                    "client": "Port of Rotterdam",
+                    "id": "1",
+                  },
+                  Object {
+                    "client": "Port of Rotterdam",
+                    "id": "2",
+                  },
+                  Object {
+                    "client": "Humanoids",
+                    "id": "3",
+                  },
+                ]
+              }
+              required={true}
+            />
+          </div>
+        </div>
+        <div
+          className="new-team-member__wrapper-group"
+        >
+          <label
+            className="new-team-member__label"
+            htmlFor="address"
+          >
+            Address
+            <input
+              className="
+                      new-team-member__input
+                      new-team-member__input--valid
+                    "
+              id="address"
+              minLength={2}
+              name="address"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+            />
+          </label>
+          <div
+            className="new-team-member__wrapper-pair"
+          >
+            <label
+              className="new-team-member__label"
+              htmlFor="zipcode"
+            >
+              ZIP code
+              <input
+                className="
+                        new-team-member__input
+                        new-team-member__input--valid
+                      "
+                id="zipcode"
+                maxLength={6}
+                minLength={6}
+                name="zipcode"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                type="text"
+              />
+            </label>
+            <label
+              className="new-team-member__label"
+              htmlFor="city"
+            >
+              City
+              <input
+                className="
+                        new-team-member__input
+                        new-team-member__input--pair
+                        new-team-member__label--city
+                        new-team-member__input--valid
+                      "
+                id="city"
+                minLength={2}
+                name="city"
+                onBlur={[Function]}
+                onChange={[Function]}
+                required={true}
+                type="text"
+              />
+            </label>
+          </div>
+          <label
+            className="new-team-member__label"
+            htmlFor="emailAddress"
+          >
+            E-mail
+            <input
+              className="
+                      new-team-member__input
+                      new-team-member__input--valid
+                    "
+              id="emailAddress"
+              minLength={2}
+              name="emailAddress"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+            />
+          </label>
+          <label
+            className="new-team-member__label"
+            htmlFor="linkedIn"
+          >
+            LinkedIn
+            <input
+              className="
+                      new-team-member__input
+                      new-team-member__input--valid
+                    "
+              id="linkedIn"
+              minLength={2}
+              name="linkedIn"
+              onBlur={[Function]}
+              onChange={[Function]}
+              required={true}
+              type="text"
+            />
+          </label>
+        </div>
+      </form>
+    </div>
+  </Container>
+</Fragment>
+`;

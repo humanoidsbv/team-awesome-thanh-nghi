@@ -32,16 +32,16 @@ exports[`renders a snapshot 1`] = `
         options={
           Array [
             Object {
-              "client": "Port of Rotterdam",
-              "id": "1",
+              "label": "Port of Rotterdam",
+              "value": "1",
             },
             Object {
-              "client": "Port of Rotterdam",
-              "id": "2",
+              "label": "Port of Rotterdam",
+              "value": "2",
             },
             Object {
-              "client": "Humanoids",
-              "id": "3",
+              "label": "Humanoids",
+              "value": "3",
             },
           ]
         }
@@ -54,18 +54,21 @@ exports[`renders a snapshot 1`] = `
       20-03-2019
     </h2>
     <TimeEntry
+      client="Humanoids"
       endTime="17:00"
       id="123"
       onDelete={[Function]}
       startTime="09:00"
     />
     <TimeEntry
+      client="Port of Rotterdam"
       endTime="17:00"
       id="124"
       onDelete={[Function]}
       startTime="09:00"
     />
     <TimeEntry
+      client="Bank of Amsterdam"
       endTime="17:00"
       id="125"
       onDelete={[Function]}
