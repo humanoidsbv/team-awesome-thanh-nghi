@@ -7,8 +7,9 @@
     "build": "next build",
     "dev": "next & json-server --watch -p 4000 db.json",
     "start": "next start",
-    "test": "jest --updateSnapshot",
-    "test-watch": "jest --watch"
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "test-update": "jest --updateSnapshot"
   },
   "repository": {
     "type": "git",
