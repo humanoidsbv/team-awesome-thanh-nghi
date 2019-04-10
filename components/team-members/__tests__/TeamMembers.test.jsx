@@ -7,7 +7,7 @@ const retrieveClients = () => {};
 const retrieveTeamMembers = () => {};
 const sortTeamMembers = () => {};
 
-const teamMembersSelector = [
+const teamMembers = [
   {
     clientName: 'Humanoids',
     currentClient: '3',
@@ -62,7 +62,7 @@ it('renders a snapshot', () => {
       onRetrieveClients={retrieveClients}
       onRetrieveTeamMembers={retrieveTeamMembers}
       sortTeamMembers={sortTeamMembers}
-      teamMembers={teamMembersSelector}
+      teamMembers={teamMembers}
     />
   );
   expect(toJson(wrapper)).toMatchSnapshot();

@@ -3,7 +3,7 @@ import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 import TeamMember from '../TeamMember';
 
-const teamMembers = {
+const teamMember = {
   clientName: 'Humanoids',
   currentClient: '3',
   firstName: 'Pietje',
@@ -22,13 +22,13 @@ const teamMembers = {
 it('renders a snapshot', () => {
   const wrapper = shallow(
     <TeamMember
-      currentClient={teamMembers.clientName}
-      description={teamMembers.description}
-      firstName={teamMembers.firstName}
-      key={teamMembers.id}
-      lastName={teamMembers.lastName}
-      memberNumber={teamMembers.memberNumber}
-      startDate={teamMembers.startDate}
+      currentClient={teamMember.clientName}
+      description={teamMember.description}
+      firstName={teamMember.firstName}
+      key={teamMember.id}
+      lastName={teamMember.lastName}
+      memberNumber={teamMember.memberNumber}
+      startDate={teamMember.startDate}
     />
   );
   expect(toJson(wrapper)).toMatchSnapshot();

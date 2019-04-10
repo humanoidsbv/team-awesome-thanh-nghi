@@ -7,7 +7,7 @@ const deleteTimeEntry = () => {};
 const filterTimeEntries = () => {};
 const retrieveTimeEntries = () => {};
 
-const timeEntriesSelector = [
+const timeEntries = [
   {
     activity: 'front-end',
     client: '3',
@@ -56,7 +56,7 @@ it('renders a snapshot', () => {
       filterTimeEntries={filterTimeEntries}
       onDelete={deleteTimeEntry}
       onRetrieve={retrieveTimeEntries}
-      timeEntries={timeEntriesSelector}
+      timeEntries={timeEntries}
     />
   );
   expect(toJson(wrapper)).toMatchSnapshot();
