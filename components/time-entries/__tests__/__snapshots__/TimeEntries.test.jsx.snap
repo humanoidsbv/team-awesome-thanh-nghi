@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<Fragment>
+  <PageHeader
+    subtitle="3 Entries"
+    title="Timesheets"
+  />
+  <Container>
+    <Connect(NewTimeEntryContainer) />
+    <div
+      className="time-entries"
+    >
+      <h2
+        className="time-entries__title"
+      >
+        Time Entries
+      </h2>
+      <Select
+        className="select-element__filter"
+        defaultValue={
+          Object {
+            "label": "All clients",
+            "value": "",
+          }
+        }
+        id=""
+        isInvalid={false}
+        name=""
+        onBlur={[Function]}
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "client": "Port of Rotterdam",
+              "id": "1",
+            },
+            Object {
+              "client": "Port of Rotterdam",
+              "id": "2",
+            },
+            Object {
+              "client": "Humanoids",
+              "id": "3",
+            },
+          ]
+        }
+        required={false}
+      />
+    </div>
+    <h2
+      className="entry-date"
+    >
+      20-03-2019
+    </h2>
+    <TimeEntry
+      endTime="17:00"
+      id="123"
+      onDelete={[Function]}
+      startTime="09:00"
+    />
+    <TimeEntry
+      endTime="17:00"
+      id="124"
+      onDelete={[Function]}
+      startTime="09:00"
+    />
+    <TimeEntry
+      endTime="17:00"
+      id="125"
+      onDelete={[Function]}
+      startTime="09:00"
+    />
+  </Container>
+</Fragment>
+`;
