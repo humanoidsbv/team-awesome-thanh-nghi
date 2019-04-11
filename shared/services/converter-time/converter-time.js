@@ -1,6 +1,4 @@
-import moment from 'moment';
-
-export function dateFormatted(date) {
+export function dateToLocaleString(date) {
   const newDate = new Date(date);
   const day = newDate.getDate();
   const dayTwoDigit = day < 10 ? `0${day}` : day;
@@ -10,11 +8,12 @@ export function dateFormatted(date) {
   return `${dayTwoDigit}-${monthTwoDigit}-${year}`;
 }
 
-export function dateToLocaleString(date) {
-  const newDate = new Date(date);
-  const dateFormat = moment(newDate).format('DD-MM-YYYY');
-  return dateFormat;
-}
+// TODO - Displays wrong date format in Travis CI
+// export function dateToLocaleString(date) {
+//   const newDate = new Date(date);
+//   const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+//   return newDate.toLocaleString('nl-NL', options);
+// }
 
 export function dateToLocaleStringMonthYear(date) {
   const newDate = new Date(date);
