@@ -2,7 +2,6 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 import TimeEntries from '../TimeEntries.tsx';
-import moment from 'moment';
 
 const deleteTimeEntry = () => {};
 const filterTimeEntries = () => {};
@@ -51,15 +50,8 @@ const clientNameIdSelector = [
 ];
 
 it('renders a snapshot', () => {
-  const props = {
-    localizeDate: moment('2019-03-20T08:00:00.000Z').format('DD-MM-YYYY'),
-    endTime: moment('2019-03-20T16:00:00.000Z').format('hh:mm'),
-    startTime: moment('2019-03-20T08:00:00.000Z').format('hh:mm')
-  };
-
   const wrapper = shallow(
     <TimeEntries
-      {...props}
       clients={clientNameIdSelector}
       filterTimeEntries={filterTimeEntries}
       onDelete={deleteTimeEntry}
