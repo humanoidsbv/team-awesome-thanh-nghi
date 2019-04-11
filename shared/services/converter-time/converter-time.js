@@ -1,10 +1,9 @@
 export function dateToLocaleString(isoDate) {
-  const date = new Date(isoDate);
-  return new Intl.DateTimeFormat('nl-NL', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).format(date);
+  const newDate = new Date(isoDate);
+  const day = newDate.getDate();
+  const month = newDate.getMonth();
+  const year = newDate.getFullYear();
+  return `${day}-${month}-${year}`;
 }
 
 export function dateToLocaleStringMonthYear(date) {
