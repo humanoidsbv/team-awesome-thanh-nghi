@@ -1,7 +1,10 @@
-export function dateToLocaleString(date) {
-  const newDate = new Date(date);
-  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  return newDate.toLocaleDateString('nl-NL', options);
+export function dateToLocaleString(isoDate) {
+  const date = new Date(isoDate);
+  return new Intl.DateTimeFormat('nl-NL', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(date);
 }
 
 export function dateToLocaleStringMonthYear(date) {
