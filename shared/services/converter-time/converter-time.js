@@ -26,6 +26,6 @@ export function getDateTimeToIso(date, time) {
 
 export function timeToLocaleString(date) {
   const newDate = new Date(date);
-  const options = { hour: '2-digit', minute: '2-digit' };
+  const options = { hour: '2-digit', minute: '2-digit', hour12: false };
   return newDate.toLocaleString('nl-NL', options);
 }
