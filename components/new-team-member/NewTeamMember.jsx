@@ -5,9 +5,9 @@ import Router from 'next/router';
 
 import './new-team-member.scss';
 
-import Container from '../../shared/components/Container';
-import PageHeader from '../../shared/components/PageHeader';
-import Select from '../../shared/components/Select';
+import Container from '../../shared/components/container';
+import PageHeader from '../../shared/components/page-header';
+import Select from '../../shared/components/select';
 
 class NewTeamMember extends React.Component {
   constructor(props) {

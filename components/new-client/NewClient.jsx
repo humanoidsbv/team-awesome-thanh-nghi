@@ -5,8 +5,8 @@ import Router from 'next/router';
 
 import './new-client.scss';
 
-import Container from '../../shared/components/Container';
-import PageHeader from '../../shared/components/PageHeader';
+import Container from '../../shared/components/container';
+import PageHeader from '../../shared/components/page-header';
 
 class NewClient extends React.Component {
   constructor(props) {
