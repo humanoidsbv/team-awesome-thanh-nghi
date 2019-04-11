@@ -1,9 +1,7 @@
 export function dateToLocaleString(date) {
   const newDate = new Date(date);
-  const options = {
-    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'Europe/Amsterdam'
-  };
-  return newDate.toLocaleString('nl-NL', options);
+  const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  return newDate.toLocaleDateString('nl-NL', options);
 }
 
 export function dateToLocaleStringMonthYear(date) {
