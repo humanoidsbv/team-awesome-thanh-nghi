@@ -1,11 +1,19 @@
-export function dateToLocaleString(isoDate) {
-  const newDate = new Date(isoDate);
+import moment from 'moment';
+
+export function dateFormatted(date) {
+  const newDate = new Date(date);
   const day = newDate.getDate();
   const dayTwoDigit = day < 10 ? `0${day}` : day;
   const month = newDate.getMonth() + 1;
   const monthTwoDigit = month < 10 ? `0${month}` : month;
   const year = newDate.getFullYear();
   return `${dayTwoDigit}-${monthTwoDigit}-${year}`;
+}
+
+export function dateToLocaleString(date) {
+  const newDate = new Date(date);
+  const dateFormat = moment(newDate).format('DD-MM-YYYY');
+  return dateFormat;
 }
 
 export function dateToLocaleStringMonthYear(date) {
