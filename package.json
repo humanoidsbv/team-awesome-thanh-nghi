@@ -7,7 +7,7 @@
     "build": "next build",
     "dev": "next & json-server --watch -p 4000 db.json",
     "start": "next start",
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test TZ=Europe/Amsterdam jest",
     "test-watch": "jest --watch",
     "test-update": "jest --updateSnapshot"
   },
