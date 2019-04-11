@@ -1,9 +1,11 @@
 export function dateToLocaleString(isoDate) {
   const newDate = new Date(isoDate);
   const day = newDate.getDate();
+  const dayTwoDigit = day < 10 ? `0${day}` : day;
   const month = newDate.getMonth();
+  const monthTwoDigit = month < 10 ? `0${month}` : month;
   const year = newDate.getFullYear();
-  return `${day}-${month}-${year}`;
+  return `${dayTwoDigit}-${monthTwoDigit}-${year}`;
 }
 
 export function dateToLocaleStringMonthYear(date) {
