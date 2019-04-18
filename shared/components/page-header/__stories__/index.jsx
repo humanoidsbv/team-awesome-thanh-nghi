@@ -4,8 +4,6 @@ import { withInfo } from '@storybook/addon-info';
 
 import PageHeader from '../PageHeader';
 
-const count = [].length;
-
 storiesOf('PageHeader', module)
   .addDecorator(withInfo)
   .add(
@@ -13,7 +11,7 @@ storiesOf('PageHeader', module)
     () => (
       <PageHeader
         title="Timesheets"
-        subtitle={`${count} ${count === 1 ? 'Entry' : 'Entries'}`}
+        subtitle="0 Time Entries"
       />
     ),
     { info: 'This story displays the Pageheader generic component for Timesheets.' }
@@ -23,7 +21,7 @@ storiesOf('PageHeader', module)
     () => (
       <PageHeader
         title="Clients"
-        subtitle={`${count} ${count === 1 ? 'Client' : 'Clients'}`}
+        subtitle="1 Client"
       />
     ),
     { info: 'This story displays the Pageheader generic component for Clients.' }
@@ -33,7 +31,7 @@ storiesOf('PageHeader', module)
     () => (
       <PageHeader
         title="Clients"
-        subtitle={`${count} ${count === 1 ? 'Client' : 'Clients'}`}
+        subtitle="2 Clients"
       />
     ),
     { info: 'This story displays the Pageheader generic component when adding a new client.' }
@@ -43,7 +41,7 @@ storiesOf('PageHeader', module)
     () => (
       <PageHeader
         title="Team Members"
-        subtitle={`${count} ${count === 1 ? 'Member' : 'Members'}`}
+        subtitle="3 Members"
       />
     ),
     { info: 'This story displays the Pageheader generic component for Team Members.' }
@@ -53,7 +51,7 @@ storiesOf('PageHeader', module)
     () => (
       <PageHeader
         title="Team Members"
-        subtitle={`${count} ${count === 1 ? 'Member' : 'Members'}`}
+        subtitle="4 Members"
       />
     ),
     { info: 'This story displays the Pageheader generic component when adding a new team member.' }

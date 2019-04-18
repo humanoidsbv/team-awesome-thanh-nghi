@@ -17,7 +17,7 @@ storiesOf('Select', module)
         defaultValue={{ label: 'Select a client', value: '' }}
         id="client"
         name="client"
-        onChange={action('handleChange')}
+        onChange={action('handleChange')('test')}
         options={[
           {
             label: 'Port of Rotterdam',
