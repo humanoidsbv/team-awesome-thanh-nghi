@@ -25,7 +25,7 @@ interface NewTimeEntryProps {
 }
 
 interface NewTimeEntryState {
-  isFieldInvalid: object;
+  isFieldInvalid: NewTimeEntryValidity;
   isFormValid: boolean;
   newTimeEntry: NewTimeEntryModel;
   newTimeEntryIsVisible: boolean;
@@ -39,7 +39,7 @@ interface NewTimeEntryValidity {
   startTime: boolean;
 }
 
-class NewTimeEntry extends React.Component<NewTimeEntryProps, NewTimeEntryState, NewTimeEntryValidity> {
+class NewTimeEntry extends React.Component<NewTimeEntryProps, NewTimeEntryState> {
   private formValidationRef = React.createRef<HTMLFormElement>();
 
   static defaultStateValues = {

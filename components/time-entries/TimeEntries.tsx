@@ -7,11 +7,12 @@ import NewTimeEntry from '../new-time-entry';
 import PageHeader from '../../shared/components/page-header';
 import Select from '../../shared/components/select';
 import TimeEntry from '../time-entry';
+import { ClientModel } from '../../ducks/clients';
 import { TimeEntryModel, TimeEntriesState } from '../../ducks/time-entries';
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';
 
 interface TimeEntriesProps {
-  clients: string[];
+  clients: ClientModel[];
   filterTimeEntries: Function;
   onDelete: Function;
   timeEntries: TimeEntryModel[];

@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
-import TeamMember from '../TeamMember';
+import TeamMember from '../TeamMember.tsx';
 
 const teamMember = {
   clientName: 'Humanoids',

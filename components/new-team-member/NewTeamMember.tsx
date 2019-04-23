@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -9,16 +8,85 @@ import Container from '../../shared/components/container';
 import PageHeader from '../../shared/components/page-header';
 import Select from '../../shared/components/select';
 
-class NewTeamMember extends React.Component {
+import { ClientModel } from '../../ducks/clients';
+import { TeamMemberModel } from '../../ducks/team-members';
+
+interface NewTeamMemberModel {
+  address: string;
+  city: string;
+  currentClient: string;
+  description: string;
+  emailAddress: string;
+  firstName: string;
+  lastName: string;
+  linkedIn: string;
+  memberNumber: string;
+  zipcode: string;
+}
+
+interface NewTeamMemberProps {
+  clients: ClientModel[];
+  onAdd: Function;
+  teamMembers: TeamMemberModel[];
+}
+
+interface NewTeamMemberState {
+  isFieldInvalid: NewTeamMemberValidity;
+  isFormValid: boolean;
+  newTeamMember: NewTeamMemberModel;
+}
+
+interface NewTeamMemberValidity {
+  address: boolean;
+  city: boolean;
+  currentClient: boolean;
+  description: boolean;
+  emailAddress: boolean;
+  firstName: boolean;
+  lastName: boolean;
+  linkedIn: boolean;
+  memberNumber: boolean;
+  zipcode: boolean;
+}
+
+class NewTeamMember extends React.Component<NewTeamMemberProps, NewTeamMemberState> {
+  private formRef = React.createRef<HTMLFormElement>();
+
+  static defaultStateValues = {
+    newTeamMemberModel: {
+      address: '',
+      city: '',
+      currentClient: '',
+      description: '',
+      emailAddress: '',
+      firstName: '',
+      lastName: '',
+      linkedIn: '',
+      memberNumber: '',
+      zipcode: ''
+    },
+    isFieldInvalidModel: {
+      address: false,
+      city: false,
+      currentClient: false,
+      description: false,
+      emailAddress: false,
+      firstName: false,
+      lastName: false,
+      linkedIn: false,
+      memberNumber: false,
+      zipcode: false
+    }
+  };
+
   constructor(props) {
     super(props);
-    this.formRef = React.createRef();
   }
 
   state = {
-    isFieldInvalid: {},
+    isFieldInvalid: { ...NewTeamMember.defaultStateValues.isFieldInvalidModel },
     isFormValid: false,
-    newTeamMember: {}
+    newTeamMember: { ...NewTeamMember.defaultStateValues.newTeamMemberModel}
   };
 
   handleBlur = ({ target }) => {
@@ -120,7 +188,7 @@ class NewTeamMember extends React.Component {
                     <input
                       className={`
                         new-team-member__input
-                        new-team-member__input--${isFieldInvalid.name ? 'invalid' : 'valid'}
+                        new-team-member__input--${isFieldInvalid.lastName ? 'invalid' : 'valid'}
                       `}
                       id="lastName"
                       minLength={2}
@@ -297,11 +365,5 @@ class NewTeamMember extends React.Component {
     );
   }
 }
-
-NewTeamMember.propTypes = {
-  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onAdd: PropTypes.func.isRequired,
-  teamMembers: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-};
 
 export default NewTeamMember;

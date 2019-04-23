@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Link from 'next/link';
 
@@ -9,9 +8,15 @@ import PageHeader from '../../shared/components/page-header';
 import Select from '../../shared/components/select';
 import TeamMember from '../team-member';
 
+import { TeamMemberModel, TeamMembersState } from '../../ducks/team-members';
 import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
 
-class TeamMembers extends React.Component {
+interface TeamMembersProps {
+  sortTeamMembers: Function;
+  teamMembers: TeamMemberModel[];
+}
+
+class TeamMembers extends React.Component<TeamMembersProps, TeamMembersState> {
   handleChange = ({ target }) => {
     const { sortTeamMembers } = this.props;
     sortTeamMembers(target.value);
@@ -113,11 +118,5 @@ class TeamMembers extends React.Component {
     );
   }
 }
-
-
-TeamMembers.propTypes = {
-  sortTeamMembers: PropTypes.func.isRequired,
-  teamMembers: PropTypes.arrayOf(PropTypes.shape({})).isRequired
-};
 
 export default TeamMembers;

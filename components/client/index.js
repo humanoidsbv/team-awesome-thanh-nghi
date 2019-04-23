@@ -1,3 +1,3 @@
-import Client from './Client';
+import Client from './Client.tsx';
 
 export default Client;

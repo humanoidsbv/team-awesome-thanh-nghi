@@ -1,11 +1,19 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import './team-member.scss';
 
+interface TeamMemberProps {
+  currentClient: string;
+  description: string;
+  firstName: string;
+  lastName: string;
+  memberNumber: string;
+  startDate: string;
+}
+
 const TeamMember = ({
   currentClient, description, firstName, lastName, memberNumber, startDate
-}) => (
+}: TeamMemberProps) => (
   <React.Fragment>
     <ul className="member-content">
       <li className="member-content__item">
@@ -44,14 +52,5 @@ const TeamMember = ({
     </ul>
   </React.Fragment>
 );
-
-TeamMember.propTypes = {
-  currentClient: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  firstName: PropTypes.string.isRequired,
-  lastName: PropTypes.string.isRequired,
-  memberNumber: PropTypes.string.isRequired,
-  startDate: PropTypes.string.isRequired
-};
 
 export default TeamMember;

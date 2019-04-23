@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -8,16 +7,79 @@ import './new-client.scss';
 import Container from '../../shared/components/container';
 import PageHeader from '../../shared/components/page-header';
 
-class NewClient extends React.Component {
+import { ClientModel } from '../../ducks/clients';
+
+interface NewClientModel {
+  address: string,
+  city: string,
+  clientNumber: string,
+  dateAdded: string,
+  description: string,
+  emailAddress: string,
+  name: string,
+  website: string,
+  zipcode: string
+}
+
+interface NewClientProps {
+  clients: ClientModel[];
+  onAdd: Function;
+}
+
+interface NewClientState {
+  isFieldInvalid: NewClientValidity;
+  isFormValid: boolean;
+  newClient: NewClientModel;
+}
+
+interface NewClientValidity {
+  address: boolean,
+  city: boolean,
+  clientNumber: boolean,
+  dateAdded: boolean,
+  description: boolean,
+  emailAddress: boolean,
+  name: boolean,
+  website: boolean,
+  zipcode: boolean
+}
+
+class NewClient extends React.Component<NewClientProps, NewClientState> {
+  private formRef = React.createRef<HTMLFormElement>();
+
+  static defaultStateValues = {
+    newClientModel: {
+      address: '',
+      city: '',
+      clientNumber: '',
+      dateAdded: '',
+      description: '',
+      emailAddress: '',
+      name: '',
+      website: '',
+      zipcode: ''
+    },
+    isFieldInvalidModel: {
+      address: false,
+      city: false,
+      clientNumber: false,
+      dateAdded: false,
+      description: false,
+      emailAddress: false,
+      name: false,
+      website: false,
+      zipcode: false
+    }
+  };
+
   constructor(props) {
     super(props);
-    this.formRef = React.createRef();
   }
 
   state = {
-    isFieldInvalid: {},
+    isFieldInvalid: { ...NewClient.defaultStateValues.isFieldInvalidModel },
     isFormValid: false,
-    newClient: {}
+    newClient: { ...NewClient.defaultStateValues.newClientModel }
   };
 
   handleBlur = ({ target }) => {
@@ -259,10 +321,5 @@ class NewClient extends React.Component {
     );
   }
 }
-
-NewClient.propTypes = {
-  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  onAdd: PropTypes.func.isRequired
-};
 
 export default NewClient;

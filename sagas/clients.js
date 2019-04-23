@@ -3,7 +3,7 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import {
   RETRIEVE_CLIENTS_REQUEST, retrieveClientsSuccess,
   ADD_CLIENT_REQUEST, addClientSuccess
-} from '../ducks/clients';
+} from '../ducks/clients.ts';
 import { getClients, saveClient } from '../shared/services/clients-api';
 
 function* getClientsSaga() {

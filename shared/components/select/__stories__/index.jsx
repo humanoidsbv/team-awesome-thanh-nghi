@@ -5,7 +5,7 @@ import { withInfo } from '@storybook/addon-info';
 
 import Select from '../Select';
 import { filterTimeEntries } from '../../../../ducks/time-entries.ts';
-import { sortClients } from '../../../../ducks/clients';
+import { sortClients } from '../../../../ducks/clients.ts';
 
 storiesOf('Select', module)
   .addDecorator(withInfo)

@@ -7,39 +7,61 @@ export const ADD_CLIENT_REQUEST = 'ADD_CLIENT_REQUEST';
 export const ADD_CLIENT_SUCCESS = 'ADD_CLIENT_SUCCESS';
 export const SORT_CLIENTS = 'SORT_CLIENTS';
 
+// TYPESCRIPT INTERFACES
+
+export interface ClientModel {
+  address: string;
+  city: string;
+  clientNumber: string;
+  dateAdded: string;
+  description: string;
+  id: string;
+  emailAddress: string;
+  name: string;
+  website: string;
+  zipcode: string;
+}
+
+export interface ClientsState {
+  error: string;
+  isLoading: boolean;
+  items: ClientModel[];
+  sortBy: string;
+}
+
+// INITIAL STATE
+
+export const initialState: ClientsState = {
+  error: '',
+  isLoading: false,
+  items: [],
+  sortBy: 'name-ascending'
+};
+
 // ACTION CREATORS
 export const retrieveClientsRequest = () => ({
   type: RETRIEVE_CLIENTS_REQUEST
 });
 
-export const retrieveClientsSuccess = clients => ({
+export const retrieveClientsSuccess = (clients: ClientModel[]) => ({
   type: RETRIEVE_CLIENTS_SUCCESS,
   payload: clients
 });
 
-export const addClientRequest = newClient => ({
+export const addClientRequest = (newClient: ClientModel) => ({
   type: ADD_CLIENT_REQUEST,
   payload: newClient
 });
 
-export const addClientSuccess = newClient => ({
+export const addClientSuccess = (newClient: ClientModel) => ({
   type: ADD_CLIENT_SUCCESS,
   payload: newClient
 });
 
-export const sortClients = sortSelection => ({
+export const sortClients = (sortSelection: ClientsState["sortBy"]) => ({
   type: SORT_CLIENTS,
   payload: sortSelection
 });
-
-// INITIAL STATE
-
-export const initialState = {
-  items: [],
-  sortBy: 'name-ascending',
-  isLoading: false,
-  error: ''
-};
 
 // REDUCERS
 export const clientsReducer = (state = initialState, action) => {

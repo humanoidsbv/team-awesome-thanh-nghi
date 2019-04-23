@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addClientRequest, clientsSelector, retrieveClientsRequest } from '../../ducks/clients';
-import NewClient from './NewClient';
+import { addClientRequest, clientsSelector, retrieveClientsRequest } from '../../ducks/clients.ts';
+import NewClient from './NewClient.tsx';
 
 class NewClientContainer extends React.Component {
   componentDidMount() {

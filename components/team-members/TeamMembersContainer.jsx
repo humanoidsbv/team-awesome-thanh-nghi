@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import {
   retrieveTeamMembersRequest, sortTeamMembers, teamMembersSelector
-} from '../../ducks/team-members';
-import { clientNameIdSelector, retrieveClientsRequest } from '../../ducks/clients';
+} from '../../ducks/team-members.ts';
+import { clientNameIdSelector, retrieveClientsRequest } from '../../ducks/clients.ts';
 import TeamMembers from './TeamMembers';
 
 class TeamMembersContainer extends React.Component {

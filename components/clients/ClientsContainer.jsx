@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 
 import {
   clientsSelector, retrieveClientsRequest, sortClients
-} from '../../ducks/clients';
-import Clients from './Clients';
+} from '../../ducks/clients.ts';
+import Clients from './Clients.tsx';
 
 class ClientsContainer extends React.Component {
   componentDidMount() {

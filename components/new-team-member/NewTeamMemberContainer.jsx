@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { addTeamMemberRequest, retrieveTeamMembersRequest, teamMembersSelector } from '../../ducks/team-members';
-import { clientNameIdSelector, retrieveClientsRequest } from '../../ducks/clients';
+import { addTeamMemberRequest, retrieveTeamMembersRequest, teamMembersSelector } from '../../ducks/team-members.ts';
+import { clientNameIdSelector, retrieveClientsRequest } from '../../ducks/clients.ts';
 import NewTeamMember from './NewTeamMember';
 
 class NewTeamMemberContainer extends React.Component {

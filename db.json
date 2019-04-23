@@ -20,6 +20,13 @@
       "endTime": "2019-04-01T16:00:00.000Z",
       "startTime": "2019-04-01T07:00:00.000Z",
       "id": "xHqsob_"
+    },
+    {
+      "activity": "Front-End Development",
+      "client": "wtXmLnB",
+      "endTime": "2019-04-23T16:00:00.000Z",
+      "startTime": "2019-04-23T08:00:00.000Z",
+      "id": "ZJ_Cqp3"
     }
   ],
   "clients": [
@@ -58,6 +65,18 @@
       "emailAddress": "info@humanoids.nl",
       "website": "https://humanoids.nl/",
       "id": "3"
+    },
+    {
+      "address": "Spinnenwebstraat 64",
+      "city": "Ergens",
+      "clientNumber": "C-005",
+      "dateAdded": "2019-04-23T15:24:08.487Z",
+      "description": "Web Development Bureau",
+      "emailAddress": "webdevvers@info.nl",
+      "name": "WebDevvers",
+      "website": "www.webdevvers.nl",
+      "zipcode": "2452HS",
+      "id": "wtXmLnB"
     }
   ],
   "team-members": [
@@ -102,6 +121,20 @@
       "linkedIn": "linkedin.com/pietje-puk",
       "startDate": "2019-04-08T08:05:02.180Z",
       "id": "GVRpx4H"
+    },
+    {
+      "address": "Kaasmarkt 542b",
+      "city": "Ergens",
+      "currentClient": "wtXmLnB",
+      "description": "Front-end Developer",
+      "emailAddress": "jankaas@humanoids.nl",
+      "firstName": "Jan",
+      "lastName": "Kaas",
+      "linkedIn": "linkedin.com/jan-kaas",
+      "memberNumber": "H-123",
+      "zipcode": "2341HF",
+      "startDate": "2019-04-23T15:27:13.433Z",
+      "id": "3ZEHNX-"
     }
   ]
 }

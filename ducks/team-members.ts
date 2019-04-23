@@ -8,39 +8,64 @@ export const ADD_TEAM_MEMBER_REQUEST = 'ADD_TEAM_MEMBER_REQUEST';
 export const ADD_TEAM_MEMBER_SUCCESS = 'ADD_TEAM_MEMBER_SUCCESS';
 export const SORT_TEAM_MEMBERS = 'SORT_TEAM_MEMBERS';
 
+// TYPESCRIPT INTERFACES
+
+export interface TeamMemberModel {
+  address: string;
+  city: string;
+  clientName: string;
+  currentClient: string;
+  description: string;
+  emailAddress: string;
+  firstName: string;
+  id: string;
+  lastName: string;
+  linkedIn: string;
+  memberNumber: string;
+  startDate: string;
+  zipcode: string;
+}
+
+export interface TeamMembersState {
+  error: string;
+  isLoading: boolean;
+  items: TeamMemberModel[];
+  sortBy: string;
+}
+
+// INITIAL STATE
+
+export const initialState: TeamMembersState = {
+  error: '',
+  isLoading: false,
+  items: [],
+  sortBy: 'name-ascending'
+};
+
 // ACTION CREATORS
 export const retrieveTeamMembersRequest = () => ({
   type: RETRIEVE_TEAM_MEMBERS_REQUEST
 });
 
-export const retrieveTeamMembersSuccess = teamMembers => ({
+export const retrieveTeamMembersSuccess = (teamMembers: TeamMemberModel[]) => ({
   type: RETRIEVE_TEAM_MEMBERS_SUCCESS,
   payload: teamMembers
 });
 
-export const addTeamMemberRequest = newTeamMember => ({
+export const addTeamMemberRequest = (newTeamMember: TeamMemberModel) => ({
   type: ADD_TEAM_MEMBER_REQUEST,
   payload: newTeamMember
 });
 
-export const addTeamMemberSuccess = newTeamMember => ({
+export const addTeamMemberSuccess = (newTeamMember: TeamMemberModel) => ({
   type: ADD_TEAM_MEMBER_SUCCESS,
   payload: newTeamMember
 });
 
-export const sortTeamMembers = sortSelection => ({
+export const sortTeamMembers = (sortSelection: TeamMembersState["sortBy"]) => ({
   type: SORT_TEAM_MEMBERS,
   payload: sortSelection
 });
-
-// INITIAL STATE
-
-export const initialState = {
-  items: [],
-  isLoading: false,
-  error: '',
-  sortBy: 'name-ascending'
-};
 
 // REDUCERS
 export const teamMembersReducer = (state = initialState, action) => {
@@ -97,10 +122,10 @@ export const teamMembersClientIdSelector = createSelector(
   teamMembersItemsSelector,
   clientsSelector,
   (teamMembers, clients) => teamMembers.map((teamMember) => {
-    const { name } = clients.find(client => teamMember.currentClient === client.id) || {};
+    const { name } = clients.find(client => teamMember.currentClient === client.id) || {name: 'Unknown'};
     return {
       ...teamMember,
-      clientName: name || 'Unknown'
+      clientName: name
     };
   })
 );

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import Link from 'next/link';
 
@@ -8,9 +7,15 @@ import Client from '../client';
 import Container from '../../shared/components/container';
 import PageHeader from '../../shared/components/page-header';
 
+import { ClientModel, ClientsState } from '../../ducks/clients';
 import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
 
-class Clients extends React.Component {
+interface ClientsProps {
+  clients: ClientModel[];
+  sortClients: Function;
+}
+
+class Clients extends React.Component<ClientsProps, ClientsState> {
   handleChange = ({ target }) => {
     const { sortClients } = this.props;
     sortClients(target.value);
@@ -84,10 +89,5 @@ class Clients extends React.Component {
     );
   }
 }
-
-Clients.propTypes = {
-  clients: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  sortClients: PropTypes.func.isRequired
-};
 
 export default Clients;

@@ -1,11 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './client.scss';
 
+interface ClientProps {
+  city: string;
+  clientNumber: string;
+  dateAdded: string;
+  description: string;
+  name: string;
+}
+
 const Client = ({
-  city, dateAdded, description, name, clientNumber
-}) => (
+  city, clientNumber, dateAdded, description, name
+}: ClientProps) => (
   <React.Fragment>
     <ul className="client-content">
       <li className="client-content__item">
@@ -44,13 +51,5 @@ const Client = ({
     </ul>
   </React.Fragment>
 );
-
-Client.propTypes = {
-  city: PropTypes.string.isRequired,
-  dateAdded: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  clientNumber: PropTypes.string.isRequired
-};
 
 export default Client;

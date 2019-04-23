@@ -3,7 +3,7 @@ import { takeLatest, call, put } from 'redux-saga/effects';
 import {
   RETRIEVE_TEAM_MEMBERS_REQUEST, retrieveTeamMembersSuccess,
   ADD_TEAM_MEMBER_REQUEST, addTeamMemberSuccess
-} from '../ducks/team-members';
+} from '../ducks/team-members.ts';
 import { getTeamMembers, saveTeamMember } from '../shared/services/team-members-api';
 
 function* getTeamMembersSaga() {
