@@ -8,7 +8,9 @@
     "dev": "next & json-server --watch -p 4000 db.json",
     "start": "next start",
     "storybook": "start-storybook -p 5000 .storybook -s ./",
-    "test": "jest"
+    "test": "NODE_ENV=test TZ=Europe/Amsterdam jest",
+    "test-watch": "jest --watch",
+    "test-update": "jest --updateSnapshot"
   },
   "repository": {
     "type": "git",
@@ -51,6 +53,7 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
     "eslint": "^5.15.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-babel": "^5.3.0",
