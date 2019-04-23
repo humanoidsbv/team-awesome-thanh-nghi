@@ -4,9 +4,9 @@ import Link from 'next/link';
 
 import './team-members.scss';
 
-import Container from '../../shared/components/Container';
-import PageHeader from '../../shared/components/PageHeader';
-import Select from '../../shared/components/Select';
+import Container from '../../shared/components/container';
+import PageHeader from '../../shared/components/page-header';
+import Select from '../../shared/components/select';
 import TeamMember from '../team-member';
 
 import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';

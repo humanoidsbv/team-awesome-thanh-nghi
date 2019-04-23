@@ -2,10 +2,10 @@ import React from 'react';
 
 import './time-entries.scss';
 
-import Container from '../../shared/components/Container';
+import Container from '../../shared/components/container';
 import NewTimeEntry from '../new-time-entry';
-import PageHeader from '../../shared/components/PageHeader';
-import Select from '../../shared/components/Select';
+import PageHeader from '../../shared/components/page-header';
+import Select from '../../shared/components/select';
 import TimeEntry from '../time-entry';
 import { TimeEntryModel, TimeEntriesState } from '../../ducks/time-entries';
 import { dateToLocaleString, timeToLocaleString } from '../../shared/services/converter-time';

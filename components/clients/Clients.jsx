@@ -5,8 +5,8 @@ import Link from 'next/link';
 import './clients.scss';
 
 import Client from '../client';
-import Container from '../../shared/components/Container';
-import PageHeader from '../../shared/components/PageHeader';
+import Container from '../../shared/components/container';
+import PageHeader from '../../shared/components/page-header';
 
 import { dateToLocaleStringMonthYear } from '../../shared/services/converter-time';
 

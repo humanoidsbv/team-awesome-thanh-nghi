@@ -2,7 +2,7 @@ import React from 'react';
 
 import './new-time-entry.scss';
 import NewEntryButton from './new-entry-button/NewEntryButton';
-import Select from '../../shared/components/Select';
+import Select from '../../shared/components/select';
 import { getDateTimeToIso } from '../../shared/services/converter-time';
 
 interface ClientModel {
