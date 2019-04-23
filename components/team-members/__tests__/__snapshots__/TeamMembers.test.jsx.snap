@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a snapshot 1`] = `
+<Fragment>
+  <PageHeader
+    subtitle="2 Members"
+    title="Team Members"
+  />
+  <Container>
+    <div
+      className="members-header"
+    >
+      <h2
+        className="members-header__title"
+      >
+        All Humanoids
+      </h2>
+      <Link
+        href="/new-team-member"
+      >
+        <button
+          className="members-header__add-button"
+          type="button"
+        >
+          <img
+            alt="Plus icon"
+            className="members-header__add-icon"
+            src="/static/images/icon-plus.svg"
+          />
+          New Humanoid
+        </button>
+      </Link>
+      <Select
+        className="select-element__sort"
+        defaultValue={
+          Object {
+            "label": "Sort by:",
+            "value": "",
+          }
+        }
+        id=""
+        isInvalid={false}
+        name=""
+        onBlur={[Function]}
+        onChange={[Function]}
+        options={
+          Array [
+            Object {
+              "label": "First name A-Z",
+              "value": "firstName-ascending",
+            },
+            Object {
+              "label": "First name Z-A",
+              "value": "firstName-descending",
+            },
+            Object {
+              "label": "Last name A-Z",
+              "value": "lastName-ascending",
+            },
+            Object {
+              "label": "Last name Z-A",
+              "value": "lastName-descending",
+            },
+            Object {
+              "label": "Employee Number 0-9",
+              "value": "memberNumber-ascending",
+            },
+            Object {
+              "label": "Employee Number 9-0",
+              "value": "memberNumer-descending",
+            },
+            Object {
+              "label": "Current Employer A-Z",
+              "value": "clientName-ascending",
+            },
+            Object {
+              "label": "Current Employer Z-A",
+              "value": "clientName-descending",
+            },
+            Object {
+              "label": "Starting Date Old-New",
+              "value": "startDate-ascending",
+            },
+            Object {
+              "label": "Starting Date New-Old",
+              "value": "startDate-descending",
+            },
+          ]
+        }
+        required={true}
+      />
+    </div>
+    <div
+      className="members-list"
+    >
+      <TeamMember
+        currentClient="Humanoids"
+        description="Front End Developer"
+        firstName="Pietje"
+        key="aSMiO9N"
+        lastName="Puk"
+        memberNumber="H-007"
+        startDate="March 2019"
+      />
+      <TeamMember
+        currentClient="Port of Rotterdam"
+        description="Designer"
+        firstName="Jantje"
+        key="KfAM5Sn"
+        lastName="Smit"
+        memberNumber="H-008"
+        startDate="April 2019"
+      />
+    </div>
+  </Container>
+</Fragment>
+`;

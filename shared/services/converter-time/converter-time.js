@@ -1,13 +1,13 @@
 export function dateToLocaleString(date) {
   const newDate = new Date(date);
   const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  return newDate.toLocaleString('nl-NL', options);
+  return newDate.toLocaleString('en-US', options);
 }
 
 export function dateToLocaleStringMonthYear(date) {
   const newDate = new Date(date);
   const options = { month: 'long', year: 'numeric' };
-  return newDate.toLocaleString(navigator.language, options);
+  return newDate.toLocaleString('en-NL', options);
 }
 
 export function getDateToIso(date) {
@@ -26,6 +26,6 @@ export function getDateTimeToIso(date, time) {
 
 export function timeToLocaleString(date) {
   const newDate = new Date(date);
-  const options = { hour: '2-digit', minute: '2-digit' };
+  const options = { hour: '2-digit', minute: '2-digit', hour12: false };
   return newDate.toLocaleString('nl-NL', options);
 }
