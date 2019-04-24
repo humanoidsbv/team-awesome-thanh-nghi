@@ -24,10 +24,6 @@ exports[`renders a snapshot 1`] = `
             "value": "",
           }
         }
-        id=""
-        isInvalid={false}
-        name=""
-        onBlur={[Function]}
         onChange={[Function]}
         options={
           Array [
@@ -45,7 +41,6 @@ exports[`renders a snapshot 1`] = `
             },
           ]
         }
-        required={false}
       />
     </div>
     <h2

@@ -38,10 +38,6 @@ exports[`renders a snapshot 1`] = `
             "value": "",
           }
         }
-        id=""
-        isInvalid={false}
-        name=""
-        onBlur={[Function]}
         onChange={[Function]}
         options={
           Array [
