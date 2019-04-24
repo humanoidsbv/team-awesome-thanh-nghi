@@ -4,7 +4,7 @@ import {
   RETRIEVE_CLIENTS_REQUEST, retrieveClientsSuccess,
   ADD_CLIENT_REQUEST, addClientSuccess
 } from '../ducks/clients.ts';
-import { getClients, saveClient } from '../shared/services/clients-api';
+import { getClients, saveClient } from '../shared/services/clients-api.ts';
 
 function* getClientsSaga() {
   const response = yield call(getClients);

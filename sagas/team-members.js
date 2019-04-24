@@ -4,7 +4,7 @@ import {
   RETRIEVE_TEAM_MEMBERS_REQUEST, retrieveTeamMembersSuccess,
   ADD_TEAM_MEMBER_REQUEST, addTeamMemberSuccess
 } from '../ducks/team-members.ts';
-import { getTeamMembers, saveTeamMember } from '../shared/services/team-members-api';
+import { getTeamMembers, saveTeamMember } from '../shared/services/team-members-api.ts';
 
 function* getTeamMembersSaga() {
   const response = yield call(getTeamMembers);

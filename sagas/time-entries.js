@@ -5,7 +5,7 @@ import {
   ADD_TIME_ENTRY_REQUEST, addTimeEntrySuccess,
   DELETE_TIME_ENTRY_REQUEST, deleteTimeEntrySuccess
 } from '../ducks/time-entries.ts';
-import { getTimeEntries, saveTimeEntry, removeTimeEntry } from '../shared/services/time-entries-api';
+import { getTimeEntries, saveTimeEntry, removeTimeEntry } from '../shared/services/time-entries-api.ts';
 
 function* getTimeEntriesSaga() {
   const response = yield call(getTimeEntries);

@@ -8,24 +8,11 @@ import Container from '../../shared/components/container';
 import PageHeader from '../../shared/components/page-header';
 import Select from '../../shared/components/select';
 
-import { ClientModel } from '../../ducks/clients';
 import { TeamMemberModel } from '../../ducks/team-members';
-
-export interface NewTeamMemberModel {
-  address: string;
-  city: string;
-  currentClient: string;
-  description: string;
-  emailAddress: string;
-  firstName: string;
-  lastName: string;
-  linkedIn: string;
-  memberNumber: string;
-  zipcode: string;
-}
+import { Option } from '../../shared/components/select/Select';
 
 interface NewTeamMemberProps {
-  clients: ClientModel[];
+  clients: Option[];
   onAdd: Function;
   teamMembers: TeamMemberModel[];
 }
@@ -33,7 +20,7 @@ interface NewTeamMemberProps {
 interface NewTeamMemberState {
   isFieldInvalid: NewTeamMemberValidity;
   isFormValid: boolean;
-  newTeamMember: NewTeamMemberModel;
+  newTeamMember: TeamMemberModel;
 }
 
 interface NewTeamMemberValidity {

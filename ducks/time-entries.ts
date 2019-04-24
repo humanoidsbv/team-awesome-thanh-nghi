@@ -15,9 +15,10 @@ export const FILTER_TIME_ENTRIES = 'FILTER_TIME_ENTRIES';
 export interface TimeEntryModel {
   activity: string;
   client: string;
-  clientName: string;
+  clientName?: string;
+  date?: string;
   endTime: string;
-  id: string;
+  id?: string;
   startTime: string;
 }
 

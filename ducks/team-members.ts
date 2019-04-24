@@ -13,16 +13,16 @@ export const SORT_TEAM_MEMBERS = 'SORT_TEAM_MEMBERS';
 export interface TeamMemberModel {
   address: string;
   city: string;
-  clientName: string;
+  clientName?: string;
   currentClient: string;
   description: string;
   emailAddress: string;
   firstName: string;
-  id: string;
+  id?: string;
   lastName: string;
   linkedIn: string;
   memberNumber: string;
-  startDate: string;
+  startDate?: string;
   zipcode: string;
 }
 

@@ -3,23 +3,13 @@ import React from 'react';
 import './new-time-entry.scss';
 import NewEntryButton from './new-entry-button/NewEntryButton';
 import Select from '../../shared/components/select';
+
+import { TimeEntryModel } from '../../ducks/time-entries';
 import { getDateTimeToIso } from '../../shared/services/converter-time';
-
-interface ClientModel {
-  id: string;
-  name: string;
-}
-
-export interface NewTimeEntryModel {
-  activity: string;
-  client: string;
-  date: string;
-  endTime: string;
-  startTime: string;
-}
+import { Option } from '../../shared/components/select/Select';
 
 interface NewTimeEntryProps {
-  clients: ClientModel[];
+  clients: Option[];
   isInvalid: boolean;
   onAdd: Function;
 }
@@ -27,7 +17,7 @@ interface NewTimeEntryProps {
 interface NewTimeEntryState {
   isFieldInvalid: NewTimeEntryValidity;
   isFormValid: boolean;
-  newTimeEntry: NewTimeEntryModel;
+  newTimeEntry: TimeEntryModel;
   newTimeEntryIsVisible: boolean;
 }
 

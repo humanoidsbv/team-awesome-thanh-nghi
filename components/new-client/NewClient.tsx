@@ -9,18 +9,6 @@ import PageHeader from '../../shared/components/page-header';
 
 import { ClientModel } from '../../ducks/clients';
 
-export interface NewClientModel {
-  address: string,
-  city: string,
-  clientNumber: string,
-  dateAdded: string,
-  description: string,
-  emailAddress: string,
-  name: string,
-  website: string,
-  zipcode: string
-}
-
 interface NewClientProps {
   clients: ClientModel[];
   onAdd: Function;
@@ -29,7 +17,7 @@ interface NewClientProps {
 interface NewClientState {
   isFieldInvalid: NewClientValidity;
   isFormValid: boolean;
-  newClient: NewClientModel;
+  newClient: ClientModel;
 }
 
 interface NewClientValidity {

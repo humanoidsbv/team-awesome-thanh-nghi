@@ -1,9 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import './page-header.scss';
 
-const PageHeader = ({ title, subtitle }) => (
+interface PageHeaderProps {
+  subtitle: string;
+  title: string;
+}
+
+const PageHeader = ({ title, subtitle }: PageHeaderProps) => (
   <div className="page-header-bar">
     <h2 className="page-header-bar__title">{title}</h2>
     <div className="page-header-bar__divider">|</div>
@@ -15,10 +19,5 @@ const PageHeader = ({ title, subtitle }) => (
     />
   </div>
 );
-
-PageHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired
-};
 
 export default PageHeader;

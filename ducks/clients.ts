@@ -15,7 +15,7 @@ export interface ClientModel {
   clientNumber: string;
   dateAdded: string;
   description: string;
-  id: string;
+  id?: string;
   emailAddress: string;
   name: string;
   website: string;

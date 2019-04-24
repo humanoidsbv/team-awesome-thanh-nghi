@@ -1,4 +1,3 @@
-import { NewTimeEntryModel } from '../../components/new-time-entry/NewTimeEntry';
 import { TimeEntryModel } from '../../ducks/time-entries';
 
 const fetchUrl = 'http://localhost:4000/time-entries';
@@ -8,7 +7,7 @@ export const getTimeEntries = () => (
     .then(response => response.json())
 );
 
-export const saveTimeEntry = (timeEntry: NewTimeEntryModel) => (
+export const saveTimeEntry = (timeEntry: TimeEntryModel) => (
   fetch(fetchUrl, {
     method: 'POST',
     body: JSON.stringify(timeEntry),
