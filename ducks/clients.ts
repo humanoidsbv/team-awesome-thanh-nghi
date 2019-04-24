@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { Action } from './index';
 
 // ACTIONS
 export const RETRIEVE_CLIENTS_REQUEST = 'RETRIEVE_CLIENTS_REQUEST';
@@ -64,7 +65,7 @@ export const sortClients = (sortSelection: ClientsState["sortBy"]) => ({
 });
 
 // REDUCERS
-export const clientsReducer = (state = initialState, action) => {
+export const clientsReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case RETRIEVE_CLIENTS_REQUEST:
       return {
@@ -107,7 +108,7 @@ export const clientsReducer = (state = initialState, action) => {
 };
 
 // SELECTORS
-export const clientsRootSelector = state => state.clients;
+export const clientsRootSelector = (state: any): ClientsState => state.clients;
 
 export const clientsItemsSelector = createSelector(
   clientsRootSelector,

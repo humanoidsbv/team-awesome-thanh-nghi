@@ -1,4 +1,6 @@
 import { createSelector } from 'reselect';
+
+import { Action } from './index';
 import { clientsSelector } from './clients';
 
 // ACTIONS
@@ -73,7 +75,7 @@ export const filterTimeEntries = (filter: TimeEntriesState["filterBy"]) => ({
 });
 
 // REDUCERS
-export const timeEntriesReducer = (state = initialState, action) => {
+export const timeEntriesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case RETRIEVE_TIME_ENTRIES_REQUEST:
       return {
@@ -131,7 +133,7 @@ export const timeEntriesReducer = (state = initialState, action) => {
 };
 
 // SELECTORS
-export const timeEntriesRootSelector = state => state.timeEntries;
+export const timeEntriesRootSelector = (state: any): TimeEntriesState => state.timeEntries;
 
 export const timeEntriesItemsSelector = createSelector(
   timeEntriesRootSelector,

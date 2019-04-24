@@ -1,4 +1,6 @@
 import { createSelector } from 'reselect';
+
+import { Action } from './index';
 import { clientsSelector } from './clients';
 
 // ACTIONS
@@ -68,7 +70,7 @@ export const sortTeamMembers = (sortSelection: TeamMembersState["sortBy"]) => ({
 });
 
 // REDUCERS
-export const teamMembersReducer = (state = initialState, action) => {
+export const teamMembersReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case RETRIEVE_TEAM_MEMBERS_REQUEST:
       return {
@@ -111,7 +113,7 @@ export const teamMembersReducer = (state = initialState, action) => {
 };
 
 // SELECTORS
-export const teamMembersRootSelector = state => state.teamMembers;
+export const teamMembersRootSelector = (state: any): TeamMembersState => state.teamMembers;
 
 export const teamMembersItemsSelector = createSelector(
   teamMembersRootSelector,

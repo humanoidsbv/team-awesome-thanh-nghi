@@ -1,8 +1,13 @@
 import { combineReducers } from 'redux';
 
-import { clientsReducer } from './clients.ts';
+import { clientsReducer } from './clients';
 import { teamMembersReducer } from './team-members';
-import { timeEntriesReducer } from './time-entries.ts';
+import { timeEntriesReducer } from './time-entries';
+
+export interface Action {
+  type: string
+  payload: any
+}
 
 const rootReducer = combineReducers({
   clients: clientsReducer,

@@ -27,6 +27,20 @@
       "endTime": "2019-04-23T16:00:00.000Z",
       "startTime": "2019-04-23T08:00:00.000Z",
       "id": "ZJ_Cqp3"
+    },
+    {
+      "activity": "LOL",
+      "client": "9SbH5Aa",
+      "endTime": "2019-04-24T17:00:00.000Z",
+      "startTime": "2019-04-24T10:00:00.000Z",
+      "id": "VSo1RLF"
+    },
+    {
+      "activity": "Interne Projecten",
+      "client": "3",
+      "endTime": "2019-04-25T15:30:00.000Z",
+      "startTime": "2019-04-25T07:30:00.000Z",
+      "id": "X5xewdT"
     }
   ],
   "clients": [
@@ -77,6 +91,18 @@
       "website": "www.webdevvers.nl",
       "zipcode": "2452HS",
       "id": "wtXmLnB"
+    },
+    {
+      "address": "Stationsplein 45",
+      "city": "Rotterdam",
+      "clientNumber": "C-999",
+      "dateAdded": "2019-04-24T09:51:55.866Z",
+      "description": "Software",
+      "emailAddress": "info@reinforcements.nl",
+      "name": "Reinforcements",
+      "website": "www.reinforcements.nl",
+      "zipcode": "3013AK",
+      "id": "9SbH5Aa"
     }
   ],
   "team-members": [
