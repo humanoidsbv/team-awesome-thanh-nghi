@@ -9,7 +9,7 @@ import PageHeader from '../../shared/components/page-header';
 
 import { ClientModel } from '../../ducks/clients';
 
-interface NewClientModel {
+export interface NewClientModel {
   address: string,
   city: string,
   clientNumber: string,

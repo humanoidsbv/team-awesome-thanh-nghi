@@ -1,3 +1,5 @@
+import { NewClientModel } from '../../components/new-client/NewClient';
+
 const fetchUrl = 'http://localhost:4000/clients';
 
 export const getClients = () => (
@@ -5,7 +7,7 @@ export const getClients = () => (
     .then(response => response.json())
 );
 
-export const saveClient = client => (
+export const saveClient = (client: NewClientModel) => (
   fetch(fetchUrl, {
     method: 'POST',
     body: JSON.stringify(client),

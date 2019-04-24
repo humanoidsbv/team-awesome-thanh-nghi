@@ -11,7 +11,7 @@ import Select from '../../shared/components/select';
 import { ClientModel } from '../../ducks/clients';
 import { TeamMemberModel } from '../../ducks/team-members';
 
-interface NewTeamMemberModel {
+export interface NewTeamMemberModel {
   address: string;
   city: string;
   currentClient: string;

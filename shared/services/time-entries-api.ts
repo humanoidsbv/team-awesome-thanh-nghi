@@ -1,3 +1,6 @@
+import { NewTimeEntryModel } from '../../components/new-time-entry/NewTimeEntry';
+import { TimeEntryModel } from '../../ducks/time-entries';
+
 const fetchUrl = 'http://localhost:4000/time-entries';
 
 export const getTimeEntries = () => (
@@ -5,7 +8,7 @@ export const getTimeEntries = () => (
     .then(response => response.json())
 );
 
-export const saveTimeEntry = timeEntry => (
+export const saveTimeEntry = (timeEntry: NewTimeEntryModel) => (
   fetch(fetchUrl, {
     method: 'POST',
     body: JSON.stringify(timeEntry),
@@ -15,7 +18,7 @@ export const saveTimeEntry = timeEntry => (
   }).then(response => response.json())
 );
 
-export const removeTimeEntry = id => (
+export const removeTimeEntry = (id: TimeEntryModel["id"]) => (
   fetch(`${fetchUrl}/${id}`, {
     method: 'DELETE'
   })

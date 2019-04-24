@@ -1,3 +1,5 @@
+import { NewTeamMemberModel } from '../../components/new-team-member/NewTeamMember';
+
 const fetchUrl = 'http://localhost:4000/team-members';
 
 export const getTeamMembers = () => (
@@ -5,7 +7,7 @@ export const getTeamMembers = () => (
     .then(response => response.json())
 );
 
-export const saveTeamMember = teamMember => (
+export const saveTeamMember = (teamMember: NewTeamMemberModel) => (
   fetch(fetchUrl, {
     method: 'POST',
     body: JSON.stringify(teamMember),

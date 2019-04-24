@@ -10,7 +10,7 @@ interface ClientModel {
   name: string;
 }
 
-interface NewTimeEntryModel {
+export interface NewTimeEntryModel {
   activity: string;
   client: string;
   date: string;
